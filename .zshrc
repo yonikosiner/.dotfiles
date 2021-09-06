@@ -10,7 +10,6 @@ precmd() {
 bindkey -s ^f "~/scripts/bg -a\n"
 bindkey -s ^u "~/scripts/bg -v\n"
 
-<<<<<<< HEAD
 bindkey -s ^@ "~/scripts/tmux2\n"
 
 alias clangd="/Users/yonikosiner/Downloads/clang+llvm-12.0.0-aarch64-linux-gnu/bin/clangd"
@@ -21,8 +20,6 @@ alias iCloud="cd /Users/yonikosiner/Library/Mobile\ Documents/com~apple~CloudDoc
 
 alias obsidian="cd /Users/yonikosiner/Library/Mobile\ Documents/iCloud~md~obsidian/Documents/Main\ obsidian\ vault"
 
-=======
->>>>>>> 9d7287444a36ec10245996295ef72885b7564ffd
 alias ls="ls -A"
 
 # Enable substitution in the prompt.
@@ -47,7 +44,7 @@ alias :q="exit"
 alias mv='mv -i'
 alias rm='rm -i'
 
-alias nvim="~/nvim.appimage"
+alias nvim="~/nvim-osx64/bin/nvim"
 alias vim="nvim"
 
 alias evrc="vim /Users/yonikosiner/.config/nvim"
