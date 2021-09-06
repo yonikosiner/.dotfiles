@@ -5,15 +5,20 @@ while [ "$#" -gt 0 ]; do
     shift
 
     case "$curr" in
-    "-a")
+    "-ma")
         directory="/Users/yonikosiner/.dotfiles/anime"
         result=$(rg --files $directory| fzf)
         osascript -e "tell application \"Finder\" to set desktop picture to POSIX file \"$result\""
         ;;
-    "-v")
+    "-mv")
         directory2="/Users/yonikosiner/.dotfiles/Vim_backgrounds"
         result=$(rg --files $directory2| fzf)
         osascript -e "tell application \"Finder\" to set desktop picture to POSIX file \"$result\""
+        ;;
+    "-a")
+        directory="/home/yoni/.dotfiles/anime"
+        result=$(rg --files $directory| fzf)
+        feh --bg-scale $result
         ;;
     *) echo "Unavailable command... $curr"
     esac

@@ -18,9 +18,9 @@ font pango:monospace 8
 # GET DEM BORDERS OUT OF HEREc:w
 #
 # Thanks Childz
-for_window [class="^.*"] border pixel 2
+for_window [class="^.*"] border pixel 1
                           # class                 border  backgr. text    indicator child_border
-for_window [class="^.*"] client.focused          #77dd77 #285577 #ffffff #2e9ef4   #285577
+#for_window [class="^.*"] client.focused          #77dd77 #285577 #ffffff #2e9ef4   #285577
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
@@ -192,5 +192,10 @@ bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute s
 #bindsym $mod+Shift+period exec systemctl suspend
 
 exec --no-startup-id xcompmgr -c -f -n
-exec --no-startup-id xrandr --output "HDMI-1" -- mode 2560x1440
-exec --no-startup-id xrandr --output "eDP-1" --auto --output "HDMI-1" --left-of "eDP-1"
+exec_always setxbmap -layout real-prog-dvorak
+exec --bg-scale /home/yoni/.dotfiles/anime/girl-with-gu.png
+
+bindsym $mod+shift+s exec --no-startup-id xrandr --output eDP-1 --primary --mode 1920x1080 --pos 3859x0 --rotate normal --output DP-1 --off --output HDMI-1 --mode 2560x1440 --pos 0x0 --rotate normal
+
+bindsym $mod+shift+a exec --no-startup-id xrandr --output "eDP-1" -- mode 2560x1440
+bindsym $mod+shift+o exec --no-startup-id xrandr --output "eDP-1"

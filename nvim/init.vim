@@ -52,6 +52,7 @@ let mapleader = " "
 nnoremap <silent> <C-f> :lua require("harpoon.term").sendCommand(1, "~/scripts/bg -a\n"); require("harpoon.term").gotoTerminal(1)<CR>
 nnoremap <silent> <C-q> :lua require("harpoon.term").sendCommand(1, "~/scripts/bg -v\n"); require("harpoon.term").gotoTerminal(1)<CR>
 nnoremap <silent> <leader> f :lua require("harpoon.term").sendCommand(1, "~/scripts/tmux2\n"); require("harpoon.term").gotoTerminal(1)<CR>
+nnoremap <silent> <leader> bk :lua require("harpoon.term").sendCommand(1, "setxkbmap -layout real-prog-dvorak\n"); require("harpoon.term").gotoTerminal(1)<CR>
 
 nnoremap <leader>h :wincmd h<CR>
 nnoremap <leader>j :wincmd j<CR>
@@ -73,6 +74,7 @@ nnoremap <leader>fl :Ex<CR>
 
 nnoremap <leader>u :UndotreeToggle<CR>
 nnoremap <leader>pv :Ex<CR>
+nnoremap <leader>ft :Sex!<CR>
 nnoremap <leader><CR> :so ~/.config/nvim/init.vim<CR>
 
 nnoremap <Leader>+ :vertical resize +5<CR>
