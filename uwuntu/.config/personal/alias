@@ -3,11 +3,15 @@ alias asdf="setxkbmap -layout real-prog-dvorak"
 alias lkj="setxkbmap us real-prog-dvorak"
 alias snth="setxkbmap us"
 
+alias network="nmtui"
+
 alias ls="exa -g"
 alias la="exa -g -a"
 alias ll="exa -l -g -a"
 
 alias mc="cd work/mycookbook.git"
+alias work="cd work"
+alias personal="cd personal"
 
 alias python="python3"
 #alias ebp="$VIM $DOTFILES/.zsh_profile"
@@ -38,7 +42,7 @@ alias math="expr"
 alias dvorakBTW="cowsay 'I Use Dvorak Btw' | lolcat"
 alias flex="cowsay 'I Use Neovim, Dvorak and linux BTW' | lolcat"
 
-alias livestream_screenkey="screenkey -s large --scr 2 -p bottom --geometry 2560+1440+810";
+alias livestream_screenkey="screenkey -s large --scr 2 -p bottom --geometry 1210x300+712+810";
 alias yt_screenkey="screenkey -s large --scr 1 -p bottom --geometry 510x300+1412+850";
 
 alias shutdown="sudo shutdown -h now";

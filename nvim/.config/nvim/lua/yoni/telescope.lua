@@ -23,7 +23,13 @@ require('telescope').setup {
         fzy_native = {
             override_generic_sorter = false,
             override_file_sorter = true,
-        }
+        },
+      arecibo = {
+        ["selected_engine"]   = 'google',
+        ["url_open_command"]  = 'xdg-open',
+        ["show_http_headers"] = false,
+        ["show_domain_icons"] = false,
+      },
    },
 
    layout_config = {
@@ -41,6 +47,7 @@ require('telescope').setup {
 
 require("telescope").load_extension("git_worktree")
 require('telescope').load_extension('fzy_native')
+--require('telescope').load_extension("arecibo")
 
 local M = {}
 M.search_dotfiles = function()
@@ -60,7 +67,7 @@ end
 
 local function set_background(content)
     vim.fn.system(
-        "feh --bg-scale \"'" .. content .. "'\""
+        string.format("change_background %s", content)
     )
 end
 
@@ -75,7 +82,7 @@ local function select_background(prompt_bufnr, map)
         end
     end
 
-    map("i", "<C-p>", function()
+    map("i", "<C-s>", function()
         set_the_background(false)
     end)
 

@@ -6,6 +6,8 @@ Plug 'ThePrimeagen/git-worktree.nvim'
 
 Plug 'nvim-lua/plenary.nvim'
 
+"Plug 'nvim-telescope/telescope-arecibo.nvim', { rocks = {'openssl', 'lua-http-parser'} }
+
 "Plug 'preservim/nerdtree'
 "Plug 'Xuyuanp/nerdtree-git-plugin'
 "Plug 'tiagofumo/vim-nerdtree-syntax-highlight'

@@ -1,5 +1,22 @@
-change_background() {
-    feh --bg-scale $HOME/.dotfiles/anime/$(ls ~/.dotfiles/anime | fzf)
+setxkbmap -option caps:ctrl_modifier
+setxkbmap -option ctrl:nocaps
+
+searchDotFiles() {
+    items=`find $DOTFILES`
+    selected=`echo "$items" | fzf`
+    nvim $selected
+}
+
+addToPath() {
+    if [[ "$PATH" != *"$1"* ]]; then
+        export PATH=$PATH:$1
+    fi
+}
+
+addToPathFront() {
+    if [[ "$PATH" != *"$1"* ]]; then
+        export PATH=$1:$PATH
+    fi
 }
 
 commitDotFiles() {
