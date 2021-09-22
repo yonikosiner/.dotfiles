@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 if [[ $# -eq 1 ]]; then
-    feh --bg-scale $1
+    feh --bg-fill $1
 else
-    feh --bg-scale $HOME/.dotfiles/anime/$(ls ~/.dotfiles/anime | fzf)
+    feh --bg-fill $HOME/.dotfiles/anime/$(ls ~/.dotfiles/anime | fzf)
 fi

@@ -1,0 +1,7 @@
+#!/bin/bash
+
+pushd ~/.password-store
+items=`find .`
+selcted = `echo "$items" | fzf`
+pass $selected
+popd

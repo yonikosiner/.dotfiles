@@ -67,7 +67,7 @@ end
 
 local function set_background(content)
     vim.fn.system(
-        string.format("change_background %s", content)
+    string.format("change_background %s", content)
     )
 end
 
