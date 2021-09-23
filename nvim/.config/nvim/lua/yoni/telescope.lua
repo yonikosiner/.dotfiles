@@ -36,10 +36,10 @@ require('telescope').setup {
        find_files = {
            layout_config = {
                width = 0.9,
-               height = 0.8,
+               height = 0.9,
 
                horizontal = {
-                   width = { padding = 0.15 },
+                   width = { padding = 0.100 },
                },
                vertical = {
                    preview_height = 0.75,

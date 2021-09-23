@@ -92,7 +92,7 @@ function StatusLine()
         constrain_string(get_file_name(), 23, false),
         get_git_info(),
         lsp_info(),
-        "H:O", -- harpoon_status(),
+        harpoon_status(),
         status_line)
 end
 

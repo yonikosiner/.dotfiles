@@ -1,11 +1,17 @@
 setxkbmap -option caps:ctrl_modifier
 setxkbmap -option ctrl:nocaps
 
+searchZshHistory() {
+    selected=`cat ~/.zsh_history | fzf`
+    $selected
+}
+
 searchDotFiles() {
     items=`find $DOTFILES`
     selected=`echo "$items" | fzf`
     nvim $selected
 }
+
 password() {
     selected=`cat ~/.dotfiles/password | fzf`
     pass $selected | xclip -in -selection clipboard
