@@ -12,6 +12,7 @@ nnoremap <leader>pw :lua require('telescope.builtin').grep_string { search = vim
 nnoremap <leader>vih :lua require('telescope.builtin').help_tags()<CR>
 
 nnoremap <leader>va :lua require('yoni.telescope').anime_selector()<CR>
+nnoremap <leader>pa :lua require('yoni.telescope').password_selector()<CR>
 
 nnoremap <leader>gb :Telescope git_branches<CR>
 nnoremap <leader>gc :Telescope git_commits<CR>

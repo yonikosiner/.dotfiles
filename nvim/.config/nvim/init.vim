@@ -62,6 +62,9 @@ nnoremap <silent> <C-f> :silent !tmux neww tmux-sessionizer<CR>
 nnoremap <silent> <C-q> :silent !tmux neww tmux-cht<CR>
 nnoremap <silent> <leader> bk :silent !setxkbmap -layout real-prog-dvorak<CR>
 
+nnoremap <leader>s :%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>
+nnoremap <leader>x :!chmod +x %<CR>
+
 "For when reading docs turn of numbers
 fun! ReadingDocs()
     if &number
@@ -159,6 +162,12 @@ nnoremap <Leader>O O<Esc>^Da
 "Switch between tabs
 nnoremap <Right> gt
 nnoremap <Left>  gT
+
+
+augroup highlight_yank
+    autocmd!
+    autocmd TextYankPost * silent! lua require'vim.highlight'.on_yank({timeout = 40})
+augroup END
 
 augroup YONI
     autocmd!

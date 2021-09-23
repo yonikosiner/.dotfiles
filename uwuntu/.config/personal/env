@@ -6,6 +6,10 @@ searchDotFiles() {
     selected=`echo "$items" | fzf`
     nvim $selected
 }
+password() {
+    selected=`cat ~/.dotfiles/password | fzf`
+    pass $selected | xclip -in -selection clipboard
+}
 
 addToPath() {
     if [[ "$PATH" != *"$1"* ]]; then

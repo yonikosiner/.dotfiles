@@ -1,5 +1,7 @@
 set termguicolors
 
+set mouse=a
+
 set nu
 set relativenumber
 

@@ -9,7 +9,7 @@ alias ls="exa -g"
 alias la="exa -g -a"
 alias ll="exa -l -g -a"
 
-alias mc="cd work/mycookbook.git"
+alias mc="cd ~/work/mycookbook.git"
 alias work="cd work"
 alias personal="cd personal"
 

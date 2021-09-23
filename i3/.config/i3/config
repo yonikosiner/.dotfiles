@@ -190,7 +190,7 @@ bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute s
 
 # Open apps
 bindsym $mod+shift+e		    exec $term -e neomutt
-bindsym $mod+shift+f			exec /usr/bin/files
+bindsym $mod+shift+f			exec $term -e ranger
 bindsym $mod+shift+w			exec /usr/bin/brave-browser
 bindsym $mod+shift+g			exec /usr/bin/gimp
 
