@@ -104,7 +104,7 @@ local function image_selector(prompt, cwd)
             cwd = cwd,
 
             layout_config  = {
-                width = 0.3,
+                width = 0.5,
                 height = 0.9,
             },
 
@@ -139,10 +139,6 @@ local function select_pass(prompt_bufnr, map)
         end
     end
 
-    map("i", "<C-s>", function()
-        set_the_pas(false)
-    end)
-
     map("i", "<CR>", function()
         set_the_pass(true)
     end)
@@ -151,6 +147,11 @@ end
 local function pass_selector(prompt, cwd)
     return function()
         require("telescope.builtin").find_files({
+            pickers = {
+                find_files = {
+                    theme = "dropdown",
+                }
+            },
             previewer = false,
             prompt_title = prompt,
             cwd = cwd,
