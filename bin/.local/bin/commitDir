@@ -1,0 +1,9 @@
+if [[ $# -eq 1 ]]; then
+    git add .
+    git commit -m "Automatic commit using stuff from my zshrc so fun you know"
+    git push -u origin $1
+else
+    git add .
+    git commit -m "Automatic commit using stuff from my zshrc so fun you know"
+    git push -u origin master
+fi
