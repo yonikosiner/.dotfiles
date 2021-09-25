@@ -3,6 +3,8 @@ alias asdf="setxkbmap -layout real-prog-dvorak"
 alias lkj="setxkbmap us real-prog-dvorak"
 alias snth="setxkbmap us"
 
+alias clip="xclip -in -selection clipboard"
+
 alias network="nmtui"
 
 alias ls="exa -g"
