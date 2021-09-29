@@ -5,7 +5,8 @@ while [ "$#" -gt 0 ]; do
     shift
 
     case "$curr" in
-   "-c")
+   "-spp")
+       pass school-platform | xclip -in -selection clipboard
        ;;
     *) echo "Unavailable command... $curr"
     esac

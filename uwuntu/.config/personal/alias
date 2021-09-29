@@ -17,6 +17,7 @@ alias personal="cd personal"
 
 alias python="python3"
 #alias ebp="$VIM $DOTFILES/.zsh_profile"
+alias ebin="$VIM $DOTFILES/bin/.local/bin"
 alias etc="$VIM $DOTFILES/tmux"
 alias bp="dotFileInstall && source ~/.zshrc"
 alias evrc="nvim $DOTFILES/nvim/.config/nvim"
