@@ -30,11 +30,19 @@ addToPathFront() {
 }
 
 commitDotFiles() {
-    pushd $DOTFILES
-    git add .
-    git commit -m "automagic messaging from me in the past.  Have you checked up your butthole?"
-    git push origin master
-    popd
+    if [[ $# -eq 1 ]]; then
+        pushd $DOTFILES
+        git add .
+        git commit -m $1
+        git push origin master
+        popd
+    else
+        pushd $DOTFILES
+        git add .
+        git commit -m "automagic messaging from me in the past.  Have you checked up your butthole?"
+        git push origin master
+        popd
+    fi
 }
 
 snyc_mail() {
