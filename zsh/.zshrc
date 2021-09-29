@@ -20,7 +20,7 @@ alias urlS="/System/Library/Frameworks/CoreServices.framework/Versions/A/Framewo
 
 alias iCloud="cd /Users/yonikosiner/Library/Mobile\ Documents/com~apple~CloudDocs"
 
-alias obsidian="cd /Users/yonikosiner/Library/Mobile\ Documents/iCloud~md~obsidian/Documents/Main\ obsidian\ vault"
+#alias obsidian="cd /Users/yonikosiner/Library/Mobile\ Documents/iCloud~md~obsidian/Documents/Main\ obsidian\ vault"
 
 bindkey -v
 

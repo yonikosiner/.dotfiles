@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 if [[ $# -eq 1 ]]; then
     git add .
     git commit -m "Automatic commit using stuff from my zshrc so fun you know"
