@@ -22,7 +22,7 @@ alias iCloud="cd /Users/yonikosiner/Library/Mobile\ Documents/com~apple~CloudDoc
 
 #alias obsidian="cd /Users/yonikosiner/Library/Mobile\ Documents/iCloud~md~obsidian/Documents/Main\ obsidian\ vault"
 
-bindkey -v
+#bindkey -v
 
 # Path to your oh-my-zsh installation.
 export ZSH="/home/yoni/.oh-my-zsh"

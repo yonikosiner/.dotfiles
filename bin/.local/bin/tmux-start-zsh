@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+tmux switch-client -t 0
+if [[ $? -eq 0 ]]; then
+    exit 0
+fi
+
+tmux new-session -c 0 -d -s 0 && tmux switch-client -t 0 || tmux new -c 0 -A -s 0

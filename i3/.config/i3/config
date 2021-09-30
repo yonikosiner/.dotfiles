@@ -183,7 +183,8 @@ bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute s
 #bindsym $mod+Shift+comma exec ~/.config/i3/scripts/alsa restore
 #bindsym $mod+semicolon exec ~/.config/i3/scripts/alsa down Headphone
 #bindsym $mod+comma exec ~/.config/i3/scripts/alsa up Headphone
-#bindsym $mod+m move workspace to output left
+
+bindsym $mod+m move workspace to output left
 
 # Suspend
 #bindsym $mod+Shift+period exec systemctl suspend

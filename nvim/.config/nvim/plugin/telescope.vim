@@ -17,5 +17,5 @@ nnoremap <leader>pa :lua require('yoni.telescope').password_selector()<CR>
 nnoremap <leader>gb :Telescope git_branches<CR>
 nnoremap <leader>gc :Telescope git_commits<CR>
 
-nnoremap <leader>gw :lua require('telescope').extensions.git_worktree.git_worktrees({ layout_config = {width = 0.5, height = 0.5 }})<CR>
-nnoremap <leader>gm :lua require('telescope').extensions.git_worktree.create_git_worktree({ layout_config = {width = 0.5, height = 0.5 }})<CR>
+nnoremap <leader>gw :lua require('telescope').extensions.git_worktree.git_worktrees({ layout_config = { width = 0.5, height = 0.5 }})<CR>
+nnoremap <leader>gm :lua require('telescope').extensions.git_worktree.create_git_worktree({ layout_config = { width = 0.5, height = 0.5 }})<CR>

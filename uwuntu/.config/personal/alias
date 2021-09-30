@@ -3,6 +3,8 @@ alias asdf="setxkbmap -layout real-prog-dvorak"
 alias lkj="setxkbmap us real-prog-dvorak"
 alias snth="setxkbmap us"
 
+alias pdf="unoconv"
+
 alias clip="xclip -in -selection clipboard"
 
 alias network="nmtui"
@@ -30,6 +32,7 @@ alias ls="ls -A"
 alias c="clear"
 alias ll="ls -lh"
 alias ..="cd .."
+alias .="vim ."
 
 alias :q="exit"
 

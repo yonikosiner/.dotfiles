@@ -2,6 +2,8 @@ call plug#begin('~/.vim/pluged')
 "vim in browser
 Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
 
+Plug 'ThePrimeagen/vim-be-good'
+
 Plug 'ThePrimeagen/git-worktree.nvim'
 
 Plug 'nvim-lua/plenary.nvim'
@@ -59,7 +61,7 @@ let mapleader = " "
 "This is defiantly not copied from thePrimeagens vimrc
 "https://github.com/thePrimeagen/.dotfiles
 nnoremap <silent> <C-f> :silent !tmux neww tmux-sessionizer<CR>
-nnoremap <silent> <C-q> :silent !tmux neww tmux-cht<CR>
+nnoremap <silent> <C-m> :silent !tmux neww tmux-cht<CR>
 nnoremap <silent> <leader> bk :silent !setxkbmap -layout real-prog-dvorak<CR>
 
 nnoremap <leader>s :%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>
@@ -101,6 +103,8 @@ nnoremap <leader>u :UndotreeToggle<CR>
 nnoremap <leader>pv :Ex<CR>
 nnoremap <leader>ft :Sex!<CR>
 nnoremap <leader><CR> :so ~/.config/nvim/init.vim<CR>
+
+noremap <leader>rp :resize 100<CR>
 
 nnoremap <Leader>+ :vertical resize +5<CR>
 nnoremap <Leader>- :vertical resize -5<CR>

@@ -1,5 +1,6 @@
-setxkbmap -option caps:ctrl_modifier
-setxkbmap -option ctrl:nocaps
+#setxkbmap -option caps:ctrl_modifier
+#setxkbmap -option ctrl:nocaps
+#tmux-start-zsh
 
 searchZshHistory() {
     selected=`cat ~/.zsh_history | fzf`
