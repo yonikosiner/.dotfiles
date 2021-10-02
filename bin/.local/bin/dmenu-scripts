@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+items=`find $DOTFILES/bin/.local/bin`
+selected=`echo "$items" | dmenu`
+$selected
