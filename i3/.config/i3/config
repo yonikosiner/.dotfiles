@@ -97,6 +97,18 @@ bindsym $mod+a focus parent
 # focus the child container
 #bindsym $mod+d focus child
 
+#set $ws1 "1"
+set $ws2 "2"
+set $ws3 "3"
+set $ws4 "4"
+set $ws5 "5"
+set $ws6 "6"
+set $ws7 "7"
+set $ws8 "8"
+set $ws9 "9"
+set $ws10 "10"
+
+
 # switch to workspace
 bindsym $mod+1 workspace 1
 bindsym $mod+2 workspace 2
@@ -175,7 +187,7 @@ bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% #i
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% #decrease sound volume
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
 
-# # Sreen brightness controls
+# Sreen brightness controls
 #bindsym XF86MonBrightnessUp exec xbacklight -inc 20 # increase screen brightness
 #bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightness
 
@@ -193,8 +205,10 @@ bindsym $mod+m move workspace to output left
 bindsym $mod+shift+e		    exec $term -e neomutt
 bindsym $mod+shift+f			exec $term -e ranger
 bindsym $mod+shift+w			exec /usr/bin/brave-browser
-bindsym $mod+shift+g			exec /usr/bin/gimp
+bindsym $mod+Shift+g		    exec --no-startup-id /usr/bin/gimp; workspace $ws6
 bindsym $mod+shift+y			exec $term -e aoeu
+
+bindsym $mod+shift+p			exec $term -e passmenu
 
 exec --no-startup-id xcompmgr -c -f -n
 exec --no-startup-id setxbmap -layout real-prog-dvorak
@@ -202,4 +216,4 @@ exec --bg-scale /home/yoni/.dotfiles/anime/girl-with-gu.png
 
 bindsym $mod+shift+s exec --no-startup-id xrandr --output eDP-1 --off --output DP-1 --off --output HDMI-1 --mode 2560x1440 --pos 0x0 --rotate normal
 
-bindsym $mod+shift+o exec --no-startup-id xrandr --output eDP-1 --primary --mode 2736x1824 --pos 0x0 --rotate normal --output DP-1 --off --output HDMI-1 --off
+bindsym $mod+shift+o exec --no-startup-id xrandr --output eDP-1 --off --output DP-1 --off --output HDMI-1 --mode 1920x1080 --pos 0x0 --rotate normal

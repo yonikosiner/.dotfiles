@@ -1,10 +1,21 @@
-#setxkbmap -option caps:ctrl_modifier
-#setxkbmap -option ctrl:nocaps
+setxkbmap -option caps:ctrl_modifier
+setxkbmap -option ctrl:nocaps
 #tmux-start-zsh
+
+passmenu() {
+    selected=`cat ~/.dotfiles/password | dmenu`
+    pass -c $selected
+}
 
 searchZshHistory() {
     selected=`cat ~/.zsh_history | fzf`
     $selected
+}
+
+dotfilesStatus() {
+    pushd $DOTFILES
+    git status
+    popd
 }
 
 searchDotFiles() {

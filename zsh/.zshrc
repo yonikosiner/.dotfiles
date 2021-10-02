@@ -1,28 +1,4 @@
-export XDG_CONFIG_HOME=$HOME/.config
-VIM="nvim"
-
-export EDITOR="nvim"
-
-PERSONAL=$XDG_CONFIG_HOME/personal
-
-for i in `find -L $PERSONAL`; do
-    source $i
-done
-
-# If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
-#
-bindkey -s ^f "tmux-sessionizer\n"
-
-alias clangd="/Users/yonikosiner/Downloads/clang+llvm-12.0.0-aarch64-linux-gnu/bin/clangd"
-
-alias urlS="/System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/LaunchServices.framework/Versions/A/Support/lsregister -dump URLSchemeBinding"
-
-alias iCloud="cd /Users/yonikosiner/Library/Mobile\ Documents/com~apple~CloudDocs"
-
-#alias obsidian="cd /Users/yonikosiner/Library/Mobile\ Documents/iCloud~md~obsidian/Documents/Main\ obsidian\ vault"
-
-#bindkey -v
+source $HOME/.zsh_profile
 
 # Path to your oh-my-zsh installation.
 export ZSH="/home/yoni/.oh-my-zsh"

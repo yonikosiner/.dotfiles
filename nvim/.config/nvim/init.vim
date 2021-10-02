@@ -94,8 +94,8 @@ endfun
 
 nnoremap <leader>sp :call SetSpell()<CR>
 
-vmap ++ <plug>NERDCommenterToggle
-nmap ++ <plug>NERDCommenterToggle
+vmap <C-\> <plug>NERDCommenterToggle
+nmap <C-\> <plug>NERDCommenterToggle
 
 nnoremap <leader>fl :Ex<CR>
 
