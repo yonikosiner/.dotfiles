@@ -209,6 +209,7 @@ bindsym $mod+Shift+g		    exec --no-startup-id /usr/bin/gimp; workspace $ws6
 bindsym $mod+shift+y			exec $term -e aoeu
 
 bindsym $mod+shift+p			exec $term -e passmenu
+bindsym $mod+p			        exec $term -e dmenu-scripts
 
 exec --no-startup-id xcompmgr -c -f -n
 exec --no-startup-id setxbmap -layout real-prog-dvorak

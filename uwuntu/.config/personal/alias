@@ -3,6 +3,8 @@ alias asdf="setxkbmap -layout real-prog-dvorak"
 alias lkj="setxkbmap us real-prog-dvorak"
 alias snth="setxkbmap us"
 
+alias schoolTmux="cd ~/school && tmux new -s school"
+
 alias pdf="unoconv"
 
 alias clip="xclip -in -selection clipboard"
