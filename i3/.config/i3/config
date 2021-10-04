@@ -36,7 +36,7 @@ floating_modifier $mod
 
 # start a terminal
 # bindsym $mod+Return exec i3-sensible-terminal
-set $term --no-startup-id i3-sensible-terminal
+set $term --no-startup-id kitty -o background_opacity=0.8
 bindsym $mod+Return exec i3-sensible-terminal
 
 # kill focused window
@@ -211,7 +211,7 @@ bindsym $mod+shift+y			exec $term -e aoeu
 bindsym $mod+shift+p			exec $term -e passmenu
 bindsym $mod+p			        exec $term -e dmenu-scripts
 
-exec --no-startup-id xcompmgr
+exec --no-startup-id xcompmgr -c -f -n
 exec --no-startup-id setxbmap -layout real-prog-dvorak
 exec --bg-scale /home/yoni/.dotfiles/anime/girl-with-gu.png
 
