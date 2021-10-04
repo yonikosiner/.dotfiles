@@ -15,12 +15,12 @@ dotfilesStatus() {
 
 searchDotFiles() {
     items=`find $DOTFILES`
-    selected=`echo "$items" | fzf`
+    selected=`echo "$items" | fzf --height=15`
     nvim $selected
 }
 
 password() {
-    selected=`cat ~/.dotfiles/password | fzf`
+    selected=`cat ~/.dotfiles/password | fzf --height=7`
     pass $selected | xclip -in -selection clipboard
 }
 
