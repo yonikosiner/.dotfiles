@@ -204,14 +204,14 @@ bindsym $mod+m move workspace to output left
 # Open apps
 bindsym $mod+shift+e		    exec $term -e neomutt
 bindsym $mod+shift+f			exec $term -e ranger
-bindsym $mod+shift+w			exec /usr/bin/brave-browser
+bindsym $mod+shift+w			exec --no-startup-id /usr/bin/brave-browser; workspace $ws2
 bindsym $mod+Shift+g		    exec --no-startup-id /usr/bin/gimp; workspace $ws6
 bindsym $mod+shift+y			exec $term -e aoeu
 
 bindsym $mod+shift+p			exec $term -e passmenu
 bindsym $mod+p			        exec $term -e dmenu-scripts
 
-exec --no-startup-id xcompmgr -c -f -n
+exec --no-startup-id xcompmgr
 exec --no-startup-id setxbmap -layout real-prog-dvorak
 exec --bg-scale /home/yoni/.dotfiles/anime/girl-with-gu.png
 
