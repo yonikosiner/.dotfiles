@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
 
-selected=`cat ~/.dotfiles/password | dmenu`
+selected=`cat ~/.dotfiles/password | dmenu -p "What password you want"`
 pass $selected > /tmp/password.txt
 cat /tmp/password.txt | xclip -in -selection clipboard

@@ -34,7 +34,6 @@ alias ls="ls -A"
 alias c="clear"
 alias ll="ls -lh"
 alias ..="cd .."
-alias .="vim ."
 
 alias :q="exit"
 
