@@ -1,3 +1,5 @@
+"This is also from thePrimeagens .vimrc
+"https://github.com/thePrimeagen/.dotfiles
 let g:yoni_colorscheme = 'gruvbox'
 
 fun! ColorMyPencils()

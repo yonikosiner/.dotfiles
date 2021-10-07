@@ -207,8 +207,8 @@ bindsym $mod+shift+w			exec --no-startup-id /usr/bin/brave-browser; workspace $w
 bindsym $mod+Shift+g		    exec --no-startup-id /usr/bin/gimp; workspace $ws6
 bindsym $mod+shift+y			exec $term -e aoeu
 
-bindsym $mod+shift+p			exec $term -e passmenu
-bindsym $mod+p			        exec $term -e dmenu-scripts
+bindsym $mod+p			exec passmenu
+bindsym $mod+shift+t    exec tmux-sessionizer -dmenu
 
 exec --no-startup-id xcompmgr
 exec --no-startup-id setxbmap -layout real-prog-dvorak

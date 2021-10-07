@@ -8,6 +8,7 @@ nnoremap <leader><C-h> :lua require("harpoon.ui").nav_file(5)<CR>
 nnoremap <leader><C-t> :lua require("harpoon.ui").nav_file(6)<CR>
 nnoremap <leader><C-n> :lua require("harpoon.ui").nav_file(7)<CR>
 nnoremap <leader><C-s> :lua require("harpoon.ui").nav_file(8)<CR>
+
 nnoremap <C-g> :lua require("harpoon.mark").rm_file()<CR>
 nnoremap <leader><C-r> :lua require("harpoon.mark").shorten_list()<CR>
 nnoremap <leader><C-d> :lua require("harpoon.mark").clear_all()<CR>

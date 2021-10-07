@@ -61,7 +61,7 @@ let mapleader = " "
 "This is defiantly not copied from thePrimeagens vimrc
 "https://github.com/thePrimeagen/.dotfiles
 nnoremap <silent> <C-f> :silent !tmux neww tmux-sessionizer<CR>
-nnoremap <silent> <C-m> :silent !tmux neww tmux-cht<CR>
+
 nnoremap <silent> <leader> bk :silent !setxkbmap -layout real-prog-dvorak<CR>
 
 nnoremap <leader>s :%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>

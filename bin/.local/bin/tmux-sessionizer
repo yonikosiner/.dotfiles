@@ -29,6 +29,9 @@ if [[ "$1" = "clear" ]]; then
 elif [[ "$1" = "-v" ]]; then
     cat $TMUX_HISTORY_FILE
     exit 0
+elif [[ "$1" = "-dmenu" ]]; then
+    items=`find ~ ~/work ~/personal -maxdepth 1 -mindepth 1 -type d`
+    selected=`echo "$items" | dmenu -l 30 -p "What dir do you want tmux in?"`
 elif [[ $# -eq 1 ]]; then
     selected=$1
 elif [[ $# -eq 2 && "$1" = "restore" ]]; then
