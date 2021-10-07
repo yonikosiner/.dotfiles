@@ -14,6 +14,7 @@ done
 
 bindkey -s ^f "tmux-sessionizer\n"
 
+# MacOS stuff
 alias clangd="/Users/yonikosiner/Downloads/clang+llvm-12.0.0-aarch64-linux-gnu/bin/clangd"
 
 alias urlS="/System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/LaunchServices.framework/Versions/A/Support/lsregister -dump URLSchemeBinding"

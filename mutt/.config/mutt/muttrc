@@ -4,7 +4,7 @@ macro index,pager i1 '<sync-mailbox><enter-command>source /home/yoni/.config/mut
 macro index,pager i2 '<sync-mailbox><enter-command>source /home/yoni/.config/mutt/accounts/2-ykosiner@gmail.com.muttrc<enter><change-folder>!<enter>;<check-stats>' "switch to ykosiner@gmail.com"
 macro index,pager i3 '<sync-mailbox><enter-command>source /home/yoni/.config/mutt/accounts/3-yoni.kosiner@interhigh.co.uk.muttrc<enter><change-folder>!<enter>;<check-stats>' "switch to yoni.kosiner@interhigh.co.uk"
 
-set editor="nvim"
+set editor="$EDITOR"
 macro index,pager i1 '<sync-mailbox><enter-command>source /home/yoni/.config/mutt/accounts/1-yoni@kosiner.co.uk.muttrc<enter><change-folder>!<enter>;<check-stats>' "switch to yoni@kosiner.co.uk"
 macro index,pager i2 '<sync-mailbox><enter-command>source /home/yoni/.config/mutt/accounts/2-yoni.kosiner@interhigh.co.uk.muttrc<enter><change-folder>!<enter>;<check-stats>' "switch to yoni.kosiner@interhigh.co.uk"
 macro index,pager i3 '<sync-mailbox><enter-command>source /home/yoni/.config/mutt/accounts/3-ykosiner@gmail.com.muttrc<enter><change-folder>!<enter>;<check-stats>' "switch to ykosiner@gmail.com"

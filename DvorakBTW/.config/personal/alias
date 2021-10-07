@@ -3,6 +3,8 @@ alias asdf="setxkbmap -layout real-prog-dvorak"
 alias lkj="setxkbmap us real-prog-dvorak"
 alias snth="setxkbmap us"
 
+
+alias tl="tmux ls"
 alias schoolTmux="cd ~/school && tmux new -s school"
 
 alias pdf="unoconv"
@@ -26,7 +28,8 @@ alias etc="$VIM $DOTFILES/tmux"
 alias bp="dotFileInstall && source ~/.zshrc"
 alias evrc="nvim $DOTFILES/nvim/.config/nvim"
 alias eirc="nvim $DOTFILES/i3/.config"
-alias ezsh="nvim $DOTFILES/uwuntu/.config/personal"
+alias ezsh="nvim $DOTFILES/DvorakBTW/.config/personal"
+alias ezs="nvim $DOTFILES/zsh"
 alias dotFileInstall="$DOTFILES/install"
 
 alias ls="ls -A"

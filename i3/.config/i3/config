@@ -172,13 +172,9 @@ bar {
         tray_output primary
 }
 
-# ------------------------------------------
-# CUSTOM KEYS START
-# ------------------------------------------
-#exec --no-startup-id nm-applet
+# Custom Keys Start
 
-#bindsym $mod+Shift+s exec --no-startup-id ~/dotfiles/bin/monitor
-#bindsym $mod+Shift+n exec --no-startup-id ~/dotfiles/bin/resolution
+#exec --no-startup-id nm-applet
 
 # FKeys
 # Pulse Audio controls
@@ -187,33 +183,22 @@ bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% #d
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
 
 # Sreen brightness controls
-#bindsym XF86MonBrightnessUp exec xbacklight -inc 20 # increase screen brightness
-#bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightness
-
-# Alsa audio controls.
-#bindsym $mod+Shift+comma exec ~/.config/i3/scripts/alsa restore
-#bindsym $mod+semicolon exec ~/.config/i3/scripts/alsa down Headphone
-#bindsym $mod+comma exec ~/.config/i3/scripts/alsa up Headphone
-
-bindsym $mod+m move workspace to output left
+bindsym XF86MonBrightnessUp exec xbacklight -inc 20 # increase screen brightness
+bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightness
 
 # Suspend
-#bindsym $mod+Shift+period exec systemctl suspend
+bindsym $mod+Shift+period exec systemctl suspend
 
 # Open apps
 bindsym $mod+shift+e		    exec $term -e neomutt
 bindsym $mod+shift+f			exec $term -e ranger
 bindsym $mod+shift+w			exec --no-startup-id /usr/bin/brave-browser; workspace $ws2
 bindsym $mod+Shift+g		    exec --no-startup-id /usr/bin/gimp; workspace $ws6
-bindsym $mod+shift+y			exec $term -e aoeu
 
 bindsym $mod+p			exec passmenu
 bindsym $mod+shift+t    exec tmux-sessionizer -dmenu
 
 exec --no-startup-id xcompmgr
-exec --no-startup-id setxbmap -layout real-prog-dvorak
-exec --bg-scale /home/yoni/.dotfiles/anime/girl-with-gu.png
 
 bindsym $mod+shift+s exec --no-startup-id xrandr --output eDP-1 --off --output DP-1 --off --output HDMI-1 --mode 2560x1440 --pos 0x0 --rotate normal
-
 bindsym $mod+shift+o exec --no-startup-id xrandr --output eDP-1 --off --output DP-1 --off --output HDMI-1 --mode 1920x1080 --pos 0x0 --rotate normal
