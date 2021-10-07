@@ -26,7 +26,7 @@ searchDotFiles() {
 
 password() {
     selected=`cat ~/.dotfiles/password | fzf --height=7`
-    pass $selected | xclip -in -selection clipboard
+    pass $selected -c
 }
 
 addToPath() {
@@ -51,7 +51,7 @@ commitDotFiles() {
     else
         pushd $DOTFILES
         git add .
-        git commit -m "automagic messaging from me in the past.  Have you checked up your butthole?"
+        git commit -m "commit it baby"
         git push origin master
         popd
     fi
@@ -64,7 +64,7 @@ snyc_mail() {
 commitSchoolWork() {
     pushd $SCHOOLWORK
     git add .
-    git commit -m "automagic messaging from me in the past.  Have you checked up your butthole?"
+    git commit -m "another happy landing"
     git push origin master
     popd
 }

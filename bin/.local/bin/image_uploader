@@ -1,31 +1,3 @@
 #!/usr/bin/env bash
 
-if [[ $# -eq 1 ]]; then
-    selected=$1
-else
-    items=`find ~/Pictures -maxdepth 1 -mindepth 1`
-    selected=`echo "$items" | fzf`
-fi
-
-#Upload_URL=""
-
-clientid='3e7a4deb7ac67da'
-#img=$(mktemp '/tmp/img-XXXXXX.png')
-img=selected
-
-scrot -z "$@" $img >/dev/null 2>&1 || exit
-res=$(curl -sH "Authorization: Client-ID $clientid" -F "image=@$img" "https://api.imgur.com/3/upload")
-
-echo $res | grep -qo '"status":200' && link=$(echo $res | sed -e 's/.*"link":"\([^"]*\).*/\1/' -e 's/\\//g')
-test -n "$link" && (printf $link | xclip; printf "\a" && rm "$img") || echo "$res" > "$img.error"
-
-#tmux_session_name=`basename $selected | tr . _`
-
-#tmux switch-client -t $tmux_session_name
-#if [[ $? -eq 0 ]]; then
-    #exit 0
-#fi
-
-
-
-#tmux new-session -c $selected -d -s $tmux_session_name && tmux switch-client -t $tmux_session_name || tmux new -c $selected -A -s $tmux_session_name
+#TODO: Add image path then image gets upldoad to imgur then I get url on clipboard

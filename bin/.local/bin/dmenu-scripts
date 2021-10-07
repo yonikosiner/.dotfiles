@@ -1,5 +1,0 @@
-#!/usr/bin/env bash
-
-items=`find /home/yoni/.dotfiles/bin/.local/bin -maxdepth 1 -mindepth 1`
-selected=`echo "$items" | dmenu`
-$selected

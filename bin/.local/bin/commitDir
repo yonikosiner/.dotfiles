@@ -2,10 +2,14 @@
 
 if [[ $# -eq 1 ]]; then
     git add .
-    git commit -m "Automatic commit using stuff from my zshrc so fun you know"
+    git commit -m "commit the dir baby"
     git push -u origin $1
+elif [[ $# -eq 2 ]]; then
+    git add .
+    git commit -m $1
+    git push -u origin $2
 else
     git add .
-    git commit -m "Automatic commit using stuff from my zshrc so fun you know"
+    git commit -m "Commit that dir baby"
     git push -u origin master
 fi
