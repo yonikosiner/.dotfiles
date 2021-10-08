@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+feh --bg-fill $HOME/.dotfiles/anime/$(ls ~/.dotfiles/anime | dmenu -i -l 30 -p "What background do you want?")

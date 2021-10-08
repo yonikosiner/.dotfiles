@@ -52,8 +52,7 @@ alias math="expr"
 alias dvorakBTW="cowsay 'I Use Dvorak Btw' | lolcat"
 alias flex="cowsay 'I Use Neovim, Dvorak and linux BTW' | lolcat"
 
-alias livestream_screenkey="screenkey -s large --scr 2 -p bottom --geometry 1210x300+712+810";
-alias yt_screenkey="screenkey -s large --scr 1 -p bottom --geometry 510x300+1412+850";
+alias livestream_screenkey="screenkey -s large --scr 1 -p bottom --geometry 1210x300+712+810 --timeout 1";
 
 alias shutdown="sudo shutdown -h now";
 alias restart="sudo shutdown -r now";

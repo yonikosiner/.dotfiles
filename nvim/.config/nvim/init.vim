@@ -1,11 +1,22 @@
+set path+=**
+
+" Nice menu when typing `:find *.py`
+set wildmode=longest,list,full
+set wildmenu
+
+" Ignore files
+set wildignore+=*.pyc
+set wildignore+=*_build/*
+set wildignore+=**/coverage/*
+set wildignore+=**/node_modules/*
+set wildignore+=**/.git/*
+
 call plug#begin('~/.vim/pluged')
 "vim in browser
 Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
 
 Plug 'ThePrimeagen/vim-be-good'
-
 Plug 'ThePrimeagen/git-worktree.nvim'
-
 Plug 'nvim-lua/plenary.nvim'
 
 "Plug 'nvim-telescope/telescope-arecibo.nvim', { rocks = {'openssl', 'lua-http-parser'} }
@@ -51,12 +62,7 @@ call plug#end()
 
 lua require("yoni")
 
-"lua require'nvim-treesitter.configs'.setup { highlight = { enable = true } }
-
 let mapleader = " "
-"let NERDTreeShowHidden=1
-
-"lua require'nvim-treesitter.configs'.setup { highlight = { enable = true }, incremental_selection = { enable = true }, textobjects = { enable = true }}
 
 "This is defiantly not copied from thePrimeagens vimrc
 "https://github.com/thePrimeagen/.dotfiles
@@ -166,7 +172,6 @@ nnoremap <Leader>O O<Esc>^Da
 "Switch between tabs
 nnoremap <Right> gt
 nnoremap <Left>  gT
-
 
 augroup highlight_yank
     autocmd!

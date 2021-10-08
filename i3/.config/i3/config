@@ -197,6 +197,7 @@ bindsym $mod+Shift+g		    exec --no-startup-id /usr/bin/gimp; workspace $ws6
 
 bindsym $mod+p			exec passmenu
 bindsym $mod+shift+t    exec tmux-sessionizer -dmenu
+bindsym $mod+shift+b    exec change_background_dmenu
 
 exec --no-startup-id xcompmgr
 
