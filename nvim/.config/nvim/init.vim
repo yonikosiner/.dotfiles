@@ -64,8 +64,6 @@ lua require("yoni")
 
 let mapleader = " "
 
-nnoremap <leader>; :lua require("yoni.git-worktree").execute(vim.loop.cwd(), "just-build")<CR>
-
 "This is defiantly not copied from thePrimeagens vimrc
 "https://github.com/thePrimeagen/.dotfiles
 nnoremap <silent> <C-f> :silent !tmux neww tmux-sessionizer<CR>
