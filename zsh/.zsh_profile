@@ -1,5 +1,6 @@
 export XDG_CONFIG_HOME=$HOME/.config
 VIM="nvim"
+export YONIKOSINER=$HOME/personal/yonikosiner-com.git
 
 export EDITOR="nvim"
 

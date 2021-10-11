@@ -1,0 +1,34 @@
+#!/usr/bin/env bash
+
+yonikosiner_commands() {
+    branch_name=$(basename $1)
+    yonikosiner="$YONIKOSINER/$branch_name"
+
+    # configure the damn script
+    if [ "$2" != "run-frontend" ]; then
+        pushd $yonikosiner
+        npm run dev
+        popd
+    fi
+
+    if [ "$2" != "run-frontend" ]; then
+        notify-send --icon=gtk-info "yonikosiner.com started to run" "$branch_name"
+    fi
+}
+
+case "$1" in
+    "tmux")
+
+        session_name=$(tmux display-message -p '#S');
+        clean_arg=$(basename $2 | tr '/.' '__')
+        target="$session_name:$clean_arg"
+
+        if ! tmux has-session -t $target; then
+            tmux neww -dn $clean_arg
+        fi
+        tmux send-keys -t $target "tmux-yonikosiner-com $2 $3"
+        ;;
+    *)
+        yonikosiner_commands $1 $2
+        ;;
+esac

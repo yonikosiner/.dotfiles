@@ -58,7 +58,7 @@ commitDotFiles() {
 }
 
 snyc_mail() {
-    mw -y
+    mw -Y
 }
 
 commitSchoolWork() {
