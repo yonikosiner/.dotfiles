@@ -199,6 +199,8 @@ bindsym $mod+p			exec passmenu
 bindsym $mod+shift+t    exec tmux-sessionizer -dmenu
 bindsym $mod+shift+b    exec change_background_dmenu
 
+bindsym $mod+shift+p exec killProcces
+
 exec --no-startup-id xcompmgr
 
 bindsym $mod+shift+s exec --no-startup-id xrandr --output eDP-1 --off --output DP-1 --off --output HDMI-1 --mode 2560x1440 --pos 0x0 --rotate normal

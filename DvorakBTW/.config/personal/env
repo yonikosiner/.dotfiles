@@ -7,6 +7,10 @@ cComp() {
     ./a.out
 }
 
+killProcces() {
+    ps ax | awk '{print $5}' | dmenu -l 30 | xargs -r pkill $5
+}
+
 searchZshHistory() {
     selected=`cat ~/.zsh_history | fzf`
     $selected
