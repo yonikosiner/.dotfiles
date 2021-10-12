@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 
-selected=`cat ~/.dotfiles/password | dmenu -l 10 -p "What password do you want?"`
+selected=`cat ~/.dotfiles/password |rofi -dmenu -`
 pass $selected -c

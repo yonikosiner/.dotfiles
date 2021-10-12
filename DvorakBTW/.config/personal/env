@@ -7,8 +7,12 @@ cComp() {
     ./a.out
 }
 
-killProcces() {
-    ps ax | awk '{print $5}' | dmenu -l 30 | xargs -r pkill $5
+killProcess() {
+    if [[ $# -eq 1 ]]; then
+        ps ax | awk '{print $5}' | dmenu -l 30 | xargs -r pkill $5
+    else
+        ps ax | awk '{print $5}' | rofi -dmenu - | xargs -r pkill $5
+    fi
 }
 
 searchZshHistory() {
