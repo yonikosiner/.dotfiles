@@ -1,16 +1,112 @@
-local on_attach = require'completion'.on_attach
+-- Setup nvim-cmp.
+local cmp = require'cmp'
 
-require'lspconfig'.cssls.setup{ on_attach=on_attach }
+cmp.setup({
+    snippet = {
+        expand = function(args)
+            -- For `vsnip` user.
+            -- vim.fn["vsnip#anonymous"](args.body)
 
-require'lspconfig'.tsserver.setup{ on_attach=on_attach }
+            -- For `luasnip` user.
+            require('luasnip').lsp_expand(args.body)
 
-require'lspconfig'.gopls.setup{ on_attach=on_attach }
+            -- For `ultisnips` user.
+            -- vim.fn["UltiSnips#Anon"](args.body)
+        end,
+    },
+    mapping = {
+        ['<C-u>'] = cmp.mapping.scroll_docs(-4),
+        ['<C-d>'] = cmp.mapping.scroll_docs(4),
+        ['<C-Space>'] = cmp.mapping.complete(),
+        ['<C-e>'] = cmp.mapping.close(),
+        ['<CR>'] = cmp.mapping.confirm({ select = true }),
+    },
 
-require'lspconfig'.jedi_language_server.setup{ on_attach=on_attach }
+    sources = {
+        { name = 'nvim_lsp' },
 
-require'lspconfig'.bashls.setup{ on_attach=on_attach }
+        -- For vsnip user.
+        -- { name = 'vsnip' },
 
-require'lspconfig'.clangd.setup {
-    on_attach=on_attach,
+        -- For luasnip user.
+        --{ name = 'luasnip' },
+
+        -- For ultisnips user.
+        -- { name = 'ultisnips' },
+
+        { name = 'buffer' },
+    }
+})
+
+--[[
+-- Setup lspconfig.
+require('lspconfig')[%YOUR_LSP_SERVER%].setup {
+    capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+}-- Setup nvim-cmp.
+    ]]
+-- local cmp = require'cmp'
+
+local function config(_config)
+    return vim.tbl_deep_extend("force", {
+        capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+    }, _config or {})
+end
+require'lspconfig'.tsserver.setup(config())
+
+require'lspconfig'.clangd.setup(config({
+    cmd = { "clangd", "--background-index", "--clang-tidy" },
     root_dir = function() return vim.loop.cwd() end
+}))
+
+require'lspconfig'.jedi_language_server.setup(config())
+
+require'lspconfig'.gopls.setup(config({
+    cmd = {"gopls", "serve"},
+    settings = {
+        gopls = {
+            analyses = {
+                unusedparams = true,
+            },
+            staticcheck = true,
+        },
+    },
+}))
+
+--require'lspconfig'.sumneko_lua.setup(config({
+    --cmd = {sumneko_binary, "-E", sumneko_root_path .. "/main.lua"};
+    --settings = {
+        --Lua = {
+            --runtime = {
+                ---- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
+                --version = 'LuaJIT',
+                ---- Setup your lua path
+                --path = vim.split(package.path, ';'),
+            --},
+            --diagnostics = {
+                ---- Get the language server to recognize the `vim` global
+                --globals = {'vim'},
+            --},
+            --workspace = {
+                ---- Make the server aware of Neovim runtime files
+                --library = {
+                    --[vim.fn.expand('$VIMRUNTIME/lua')] = true,
+                    --[vim.fn.expand('$VIMRUNTIME/lua/vim/lsp')] = true,
+                --},
+            --},
+        --},
+    --},
+--}))
+
+local opts = {
+    -- whether to highlight the currently hovered symbol
+    -- disable if your cpu usage is higher than you want it
+    -- or you just hate the highlight
+    -- default: true
+    highlight_hovered_item = true,
+
+    -- whether to show outline guides
+    -- default: true
+    show_guides = true,
 }
+
+require('symbols-outline').setup(opts)

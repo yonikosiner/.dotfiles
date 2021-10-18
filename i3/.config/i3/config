@@ -119,6 +119,7 @@ bindsym $mod+7 workspace 7
 bindsym $mod+8 workspace 8
 bindsym $mod+9 workspace 9
 bindsym $mod+0 workspace 10
+bindsym Mod4+q workspace "anime booba"
 
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace 1
@@ -131,6 +132,7 @@ bindsym $mod+Shift+7 move container to workspace 7
 bindsym $mod+Shift+8 move container to workspace 8
 bindsym $mod+Shift+9 move container to workspace 9
 bindsym $mod+Shift+0 move container to workspace 10
+bindsym Mod4+Shift+q move container to workspace "anime booba"
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -194,6 +196,7 @@ bindsym $mod+shift+e		    exec $term -e neomutt
 bindsym $mod+shift+f			exec $term -e ranger
 bindsym $mod+shift+w			exec --no-startup-id /usr/bin/brave-browser; workspace $ws2
 bindsym $mod+Shift+g		    exec --no-startup-id /usr/bin/gimp; workspace $ws6
+bindsym Mod4+k		            exec --no-startup-id ps ax | awk '{print $5}' | rofi -dmenu - | xargs -r pkill $5
 
 bindsym $mod+p			exec passmenu
 bindsym $mod+shift+b    exec change_background_dmenu

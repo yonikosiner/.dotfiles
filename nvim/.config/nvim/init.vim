@@ -38,12 +38,19 @@ Plug 'ThePrimeagen/git-worktree.nvim'
 
 "Lsp pulgins
 Plug 'neovim/nvim-lspconfig'
-Plug 'nvim-lua/completion-nvim'
-Plug 'tjdevries/nlua.nvim'
-Plug 'tjdevries/lsp_extensions.nvim'
+Plug 'hrsh7th/cmp-nvim-lsp'
+Plug 'hrsh7th/cmp-buffer'
+Plug 'hrsh7th/nvim-cmp'
+Plug 'mattn/emmet-vim'
+Plug 'simrat39/symbols-outline.nvim'
 
-Plug 'dense-analysis/ale'
-Plug 'scrooloose/nerdcommenter'
+"Plug 'hrsh7th/nvim-compe'
+"Plug 'nvim-lua/completion-nvim'
+"Plug 'glepnir/lspsaga.nvim'
+"Plug 'tjdevries/nlua.nvim'
+"Plug 'tjdevries/lsp_extensions.nvim'
+"Plug 'dense-analysis/ale'
+"Plug 'scrooloose/nerdcommenter'
 
 "Themes
 Plug 'gruvbox-community/gruvbox'
@@ -59,6 +66,12 @@ Plug 'mhinz/vim-rfc'
 Plug 'mbbill/undotree'
 Plug 'ThePrimeagen/harpoon'
 call plug#end()
+
+let g:user_emmet_settings = {
+  \  'svelte' : {
+  \    'extends' : 'html',
+  \  },
+  \}
 
 lua require("yoni")
 

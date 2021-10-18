@@ -1,4 +1,4 @@
-setxkbmap -option caps:ctrl_modifier
+setxkbmap -option caps:escape
 setxkbmap -option ctrl:nocaps
 #tmux-start-zsh
 
