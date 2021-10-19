@@ -120,6 +120,7 @@ bindsym $mod+8 workspace 8
 bindsym $mod+9 workspace 9
 bindsym $mod+0 workspace 10
 bindsym Mod4+q workspace "anime booba"
+bindsym Mod4+6 workspace 69420
 
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace 1
@@ -133,6 +134,7 @@ bindsym $mod+Shift+8 move container to workspace 8
 bindsym $mod+Shift+9 move container to workspace 9
 bindsym $mod+Shift+0 move container to workspace 10
 bindsym Mod4+Shift+q move container to workspace "anime booba"
+bindsym Mod4+Shift+6 move container to workspace 69420
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
