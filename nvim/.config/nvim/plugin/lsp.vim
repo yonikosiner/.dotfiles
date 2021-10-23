@@ -1,4 +1,4 @@
-set completeopt=menuone,noinsert,noselect
+set completeopt=menu,noinsert,noselect
 let g:completion_matching_strategy_list = ['exact', 'substring', 'fuzzy']
 
 fun! LspLocationList()
@@ -45,4 +45,4 @@ let g:compe.source.vsnip = v:true
 let g:compe.source.ultisnips = v:true
 let g:compe.source.luasnip = v:true
 
-inoremap <silent><expr> <CR>      compe#confirm('<CR>')
+"inoremap <silent><expr> <CR>      compe#confirm('<CR>')

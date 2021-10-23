@@ -22,7 +22,7 @@ alias work="cd work"
 alias personal="cd personal"
 
 alias python="python3"
-#alias ebp="$VIM $DOTFILES/.zsh_profile"
+alias ebp="$VIM $DOTFILES/.zsh_profile"
 alias ebin="$VIM $DOTFILES/bin/.local/bin"
 alias etc="$VIM $DOTFILES/tmux"
 alias bp="dotFileInstall && source ~/.zshrc"
@@ -31,8 +31,6 @@ alias eirc="nvim $DOTFILES/i3/.config"
 alias ezsh="nvim $DOTFILES/DvorakBTW/.config/personal"
 alias ezs="nvim $DOTFILES/zsh"
 alias dotFileInstall="$DOTFILES/install"
-
-alias ls="ls -A"
 
 alias c="clear"
 alias ll="ls -lh"

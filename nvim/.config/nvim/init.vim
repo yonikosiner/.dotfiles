@@ -15,8 +15,13 @@ call plug#begin('~/.vim/pluged')
 "vim in browser
 Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
 
+Plug 'mfussenegger/nvim-jdtls'
+
+" Snippets
+Plug 'L3MON4D3/LuaSnip'
+Plug 'rafamadriz/friendly-snippets'
+
 Plug 'ThePrimeagen/vim-be-good'
-Plug 'ThePrimeagen/git-worktree.nvim'
 Plug 'nvim-lua/plenary.nvim'
 
 "Plug 'nvim-telescope/telescope-arecibo.nvim', { rocks = {'openssl', 'lua-http-parser'} }
@@ -50,7 +55,8 @@ Plug 'simrat39/symbols-outline.nvim'
 "Plug 'tjdevries/nlua.nvim'
 "Plug 'tjdevries/lsp_extensions.nvim'
 "Plug 'dense-analysis/ale'
-"Plug 'scrooloose/nerdcommenter'
+
+Plug 'scrooloose/nerdcommenter'
 
 "Themes
 Plug 'gruvbox-community/gruvbox'
@@ -76,12 +82,20 @@ let g:user_emmet_settings = {
 lua require("yoni")
 
 let mapleader = " "
+imap <silent><expr> <Tab> luasnip#expand_or_jumpable() ? '<Plug>luasnip-expand-or-jump' : '<Tab>'
+inoremap <silent> <S-Tab> <cmd>lua require'luasnip'.jump(-1)<Cr>
+
+snoremap <silent> <Tab> <cmd>lua require('luasnip').jump(1)<Cr>
+snoremap <silent> <S-Tab> <cmd>lua require('luasnip').jump(-1)<Cr>
+
+imap <silent><expr> <C-E> luasnip#choice_active() ? '<Plug>luasnip-next-choice' : '<C-E>'
+smap <silent><expr> <C-E> luasnip#choice_active() ? '<Plug>luasnip-next-choice' : '<C-E>'
 
 "This is defiantly not copied from thePrimeagens vimrc
 "https://github.com/thePrimeagen/.dotfiles
 nnoremap <silent> <C-f> :silent !tmux neww tmux-sessionizer<CR>
 
-nnoremap <silent> <leader> bk :silent !setxkbmap -layout real-prog-dvorak<CR>
+nnoremap <silent> <leader>bk :silent !setxkbmap -layout real-prog-dvorak<CR>
 
 nnoremap <leader>s :%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>
 nnoremap <leader>x :!chmod +x %<CR>
@@ -116,8 +130,6 @@ nnoremap <leader>sp :call SetSpell()<CR>
 vmap <C-\> <plug>NERDCommenterToggle
 nmap <C-\> <plug>NERDCommenterToggle
 
-nnoremap <leader>fl :Ex<CR>
-
 nnoremap <leader>u :UndotreeToggle<CR>
 nnoremap <leader>pv :Ex<CR>
 nnoremap <leader>ft :Sex!<CR>
@@ -132,11 +144,11 @@ nnoremap <Leader>- :vertical resize -5<CR>
 noremap <Leader>t+ :top resize +5<CR>
 nnoremap <Leader>t- :top resize -5<CR>
 
-"Coppy selcetd line to clipboard on mac os
-vmap <leader>vc :w !pbcopy<CR>
+"Coppy selcetd line to clipboard on Liunx btw
+vmap <leader>vc :w !xclip -in selection -clipboard<CR>
 
-"Coppy file on mac os
-nnoremap <leader>pc :%w !pbcopy<CR>
+"Coppy file on linux (used to be MacOS but I use Linux btw)
+nnoremap <leader>pc :%w !xclip -in selection -clipboard<CR>
 
 vnoremap J :m '>+1<CR>gv=gv
 vnoremap K :m '<-2<CR>gv=gv
@@ -145,9 +157,8 @@ vnoremap K :m '<-2<CR>gv=gv
 vnoremap <leader>p "_dP
 
 "Next greatest remap ever : asbjornHaland
-nnoremap <leader>y "+y
+noremap <leader>y "+y
 vnoremap <leader>y "+y
-nnoremap <leader>Y gg"+yG
 
 vnoremap <leader>d "_d
 noremap <leader>d "_d

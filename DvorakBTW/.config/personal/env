@@ -1,6 +1,13 @@
 setxkbmap -option caps:escape
-setxkbmap -option ctrl:nocaps
 #tmux-start-zsh
+
+TODO() {
+    if [[ $# -eq 1 ]]; then
+        grep "TODO" **/*.$1 --exclude-dir="node_modules/"
+    elif [[ $# -eq 2 ]]; then
+        grep "TODO" $2/**/*.$1 --exclude-dir="node_modules/"
+    fi
+}
 
 cComp() {
     cc $1
@@ -13,11 +20,6 @@ killProcess() {
     else
         ps ax | awk '{print $5}' | rofi -dmenu - | xargs -r pkill $5
     fi
-}
-
-searchZshHistory() {
-    selected=`cat ~/.zsh_history | fzf`
-    $selected
 }
 
 dotfilesStatus() {
@@ -65,14 +67,18 @@ commitDotFiles() {
     fi
 }
 
-snyc_mail() {
-    mw -Y
-}
-
 commitSchoolWork() {
-    pushd $SCHOOLWORK
-    git add .
-    git commit -m "another happy landing"
-    git push origin master
-    popd
+    if [[ $# -eq 1 ]]; then
+        pushd $SCHOOLWORK
+        git add .
+        git commit -m $1
+        git push origin master
+        popd
+    else
+        pushd $SCHOOLWORK
+        git add .
+        git commit -m "another happy landing"
+        git push origin master
+        popd
+    fi
 }

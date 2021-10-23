@@ -27,3 +27,4 @@ fun! ColorMyPencils()
     hi TelescopeBorder guifg=#5eacd
 endfun
 call ColorMyPencils()
+

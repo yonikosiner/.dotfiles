@@ -53,6 +53,14 @@ local function config(_config)
 end
 require'lspconfig'.tsserver.setup(config())
 
+require'lspconfig'.jdtls.setup(config({
+    cmd = {
+        '/usr/bin/java',
+        '-Dosgi.bundles.defaultStartLevel=4',
+        -- ADD REMAINING OPTIONS FROM https://github.com/eclipse/eclipse.jdt.ls#running-from-the-command-line !
+    },
+}))
+
 require'lspconfig'.clangd.setup(config({
     cmd = { "clangd", "--background-index", "--clang-tidy" },
     root_dir = function() return vim.loop.cwd() end

@@ -1,15 +1,5 @@
 #!/usr/bin/env bash
 
-while [ "$#" -gt 0 ]; do
-    curr=$1
-    shift
-
-    case "$curr" in
-    "-a")
-        directory="/Users/yonikosiner/.dotfiles/anime"
-        result=$(rg --files $directory| fzf)
-        osascript -e "tell application \"Finder\" to set desktop picture to POSIX file \"$result\""
-        ;;
-    *) echo "Unavailable command... $curr"
-    esac
-done
+directory="/Users/yonikosiner/.dotfiles/anime"
+result=$(rg --files $directory| fzf)
+osascript -e "tell application \"Finder\" to set desktop picture to POSIX file \"$result\""
