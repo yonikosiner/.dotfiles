@@ -12,6 +12,13 @@ set wildignore+=**/node_modules/*
 set wildignore+=**/.git/*
 
 call plug#begin('~/.vim/pluged')
+Plug 'github/copilot.vim'
+
+" Debugger Plugins
+Plug 'mfussenegger/nvim-dap'
+Plug 'Pocco81/DAPInstall.nvim'
+Plug 'szw/vim-maximizer'
+
 "vim in browser
 Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
 
@@ -94,8 +101,6 @@ smap <silent><expr> <C-E> luasnip#choice_active() ? '<Plug>luasnip-next-choice' 
 "This is defiantly not copied from thePrimeagens vimrc
 "https://github.com/thePrimeagen/.dotfiles
 nnoremap <silent> <C-f> :silent !tmux neww tmux-sessionizer<CR>
-
-nnoremap <silent> <leader>bk :silent !setxkbmap -layout real-prog-dvorak<CR>
 
 nnoremap <leader>s :%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>
 nnoremap <leader>x :!chmod +x %<CR>

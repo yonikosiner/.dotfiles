@@ -3,6 +3,7 @@ alias asdf="setxkbmap -layout real-prog-dvorak"
 alias lkj="setxkbmap us real-prog-dvorak"
 alias snth="setxkbmap us"
 
+alias ll="exa -la"
 
 alias tl="tmux ls"
 alias schoolTmux="cd ~/school && tmux new -s school"
@@ -12,10 +13,6 @@ alias pdf="unoconv"
 alias clip="xclip -in -selection clipboard"
 
 alias network="nmtui"
-
-alias ls="exa -g"
-alias la="exa -g -a"
-alias ll="exa -l -g -a"
 
 alias mc="cd ~/work/mycookbook.git"
 alias work="cd work"

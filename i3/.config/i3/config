@@ -204,5 +204,5 @@ exec --no-startup-id xcompmgr
 
 bindsym $mod+m move workspace to output left
 
-bindsym $mod+shift+s exec --no-startup-id xrandr --output eDP-1 --on --output DP-1 --off --output HDMI-1 --mode 2560x1440 --pos 0x0 --rotate normal
+bindsym $mod+shift+s exec --no-startup-id xrandr --output eDP-1 --primary --mode 2736x1824 --pos 0x0 --rotate normal --output DP-1 --off --output HDMI-1 --mode 1920x1080 --pos 2736x0 --rotate normal --output DP-2 --off --output HDMI-2 --off
 bindsym $mod+shift+o exec --no-startup-id xrandr --output eDP-1 --off --output DP-1 --off --output HDMI-1 --mode 1920x1080 --pos 0x0 --rotate normal
