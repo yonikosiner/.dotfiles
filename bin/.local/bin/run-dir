@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+selected=$(echo "yonikosiner-com.git" "mycookbook" "chat_app" | fzf)

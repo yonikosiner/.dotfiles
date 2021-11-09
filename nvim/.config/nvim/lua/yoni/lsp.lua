@@ -22,6 +22,7 @@ cmp.setup({
         ['<CR>'] = cmp.mapping.confirm({ select = true }),
     },
 
+
     sources = {
         { name = 'nvim_lsp' },
 
@@ -52,6 +53,7 @@ local function config(_config)
     }, _config or {})
 end
 require'lspconfig'.tsserver.setup(config())
+require'lspconfig'.bashls.setup(config())
 
 require'lspconfig'.jdtls.setup(config({
     cmd = {

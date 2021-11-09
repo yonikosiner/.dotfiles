@@ -1,0 +1,3 @@
+[submodule "stream_setings"]
+	path = stream_setings
+	url = https://github.com/yonikosiner/stream_settings

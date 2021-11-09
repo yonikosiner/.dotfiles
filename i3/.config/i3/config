@@ -175,6 +175,8 @@ bar {
 
 # Custom Keys Start
 
+exec --no-startup-id "ts-node /home/yoni/twitch_bot/src/index.ts"
+
 #exec --no-startup-id nm-applet
 
 # FKeys
