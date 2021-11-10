@@ -200,6 +200,7 @@ bindsym $mod+p			exec passmenu
 bindsym $mod+shift+b    exec change_background_dmenu
 
 exec --no-startup-id xcompmgr
+exec --no-startup-id mate-panel
 
 bindsym $mod+m move workspace to output left
 
