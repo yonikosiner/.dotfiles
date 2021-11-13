@@ -67,6 +67,9 @@ Plug 'scrooloose/nerdcommenter'
 "Themes
 Plug 'gruvbox-community/gruvbox'
 Plug 'ayu-theme/ayu-vim'
+Plug 'dunstontc/vim-vscode-theme'
+Plug 'w0ng/vim-hybrid'
+Plug 'chriskempson/base16-vim'
 
 "fuzy finder"
 Plug 'nvim-lua/popup.nvim'
