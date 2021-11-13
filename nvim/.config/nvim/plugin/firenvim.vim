@@ -21,3 +21,4 @@ let fc['https?://www.instagram.com'] = {'takeover': 'never', 'priority': 1}
 let fc['https?://www.notion.so'] = {'takeover': 'never', 'priority': 1}
 let fc['https?://roamresearch.com'] = {'takeover': 'never', 'priority': 1}
 let fc['https?://meet.google.com'] = {'takeover': 'never', 'priority': 1}
+let fc['https?://youtube.com'] = {'takeover': 'never', 'priority': 1}

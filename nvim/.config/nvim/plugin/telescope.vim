@@ -6,6 +6,7 @@ nnoremap <leader>pb :lua require('telescope.builtin').buffers()<CR>
 nnoremap <leader>lps :lua require('telescope.builtin').lsp_references({ layout_config = {width = 0.5, height = 0.5}})<CR>
 
 nnoremap <leader>vrc :lua require('yoni.telescope').search_dotfiles()<CR>
+nnoremap <leader>src :lua require('yoni.telescope').search_school()<CR>
 nnoremap <leader>vrcm :lua require('yoni.telescope').search_dotfiles_mac()<CR>
 
 nnoremap <leader>pw :lua require('telescope.builtin').grep_string { search = vim.fn.expand("<cword>") }<CR>

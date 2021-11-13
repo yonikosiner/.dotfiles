@@ -63,6 +63,14 @@ M.search_dotfiles = function()
     })
 end
 
+M.search_school = function()
+    require("telescope.builtin").find_files({
+        prompt_title = "< school >",
+        cwd = "/home/yoni/school",
+    })
+end
+
+
 M.search_dotfiles_mac = function()
     require("telescope.builtin").find_files({
         prompt_title = "< VimRC >",

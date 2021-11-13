@@ -8,6 +8,8 @@ alias ll="exa -la"
 alias tl="tmux ls"
 alias schoolTmux="cd ~/school && tmux new -s school"
 
+alias gogoButthole="brave-browser https://www.youtube.com/watch\?v\=--9kqhzQ-8Q"
+
 alias pdf="unoconv"
 
 alias clip="xclip -in -selection clipboard"
