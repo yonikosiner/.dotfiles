@@ -196,6 +196,7 @@ bindsym $mod+shift+w			exec --no-startup-id /usr/bin/brave-browser; workspace $w
 bindsym $mod+Shift+g		    exec --no-startup-id /usr/bin/gimp; workspace $ws6
 bindsym Mod4+k		            exec --no-startup-id ps ax | awk '{print $5}' | rofi -dmenu - | xargs -r pkill $5
 bindsym Mod4+s		            exec --no-startup-id shutter
+bindsym Mod4+p		            exec --no-startup-id eog ~/Documents/PerodicTable.jpg
 
 bindsym $mod+p			exec passmenu
 bindsym $mod+shift+b    exec change_background_dmenu
