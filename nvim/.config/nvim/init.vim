@@ -14,6 +14,8 @@ set wildignore+=**/.git/*
 call plug#begin('~/.vim/pluged')
 Plug 'github/copilot.vim'
 
+Plug 'ThePrimeagen/refactoring.nvim'
+
 " Debugger Plugins
 Plug 'mfussenegger/nvim-dap'
 Plug 'Pocco81/DAPInstall.nvim'

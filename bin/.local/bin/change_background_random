@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+# This is so chat can change my background with a random one
+
+randomImage=$( ls "$DOTFILES/anime" | shuf -n 1 )
+
+dconf write /org/mate/desktop/background/picture-filename "'/home/yoni/.dotfiles/anime/$randomImage'"
