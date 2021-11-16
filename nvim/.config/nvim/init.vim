@@ -84,6 +84,10 @@ Plug 'mbbill/undotree'
 Plug 'ThePrimeagen/harpoon'
 call plug#end()
 
+let &runtimepath.=',' . expand("$HOME") . '/personal/Twitch_bot.git/ui'
+
+nnoremap <leader>vwm :lua require("twitch-bot").init()<CR>
+
 let g:user_emmet_settings = {
   \  'svelte' : {
   \    'extends' : 'html',
@@ -93,8 +97,8 @@ let g:user_emmet_settings = {
 lua require("yoni")
 
 let mapleader = " "
-imap <silent><expr> <Tab> luasnip#expand_or_jumpable() ? '<Plug>luasnip-expand-or-jump' : '<Tab>'
-inoremap <silent> <S-Tab> <cmd>lua require'luasnip'.jump(-1)<Cr>
+imap <silent><expr> <C-j> luasnip#expand_or_jumpable() ? '<Plug>luasnip-expand-or-jump' : '<Tab>'
+inoremap <silent> <C-k> <cmd>lua require'luasnip'.jump(-1)<Cr>
 
 snoremap <silent> <Tab> <cmd>lua require('luasnip').jump(1)<Cr>
 snoremap <silent> <S-Tab> <cmd>lua require('luasnip').jump(-1)<Cr>
