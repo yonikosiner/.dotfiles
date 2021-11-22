@@ -1,6 +1,5 @@
 set path+=**
 
-" Nice menu when typing `:find *.py`
 set wildmode=longest,list,full
 set wildmenu
 
@@ -55,6 +54,8 @@ Plug 'neovim/nvim-lspconfig'
 Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'hrsh7th/cmp-buffer'
 Plug 'hrsh7th/nvim-cmp'
+Plug 'hrsh7th/cmp-path'
+Plug 'hrsh7th/cmp-nvim-lua'
 Plug 'simrat39/symbols-outline.nvim'
 
 "Plug 'hrsh7th/nvim-compe'
@@ -86,7 +87,6 @@ call plug#end()
 
 let &runtimepath.=',' . expand("$HOME") . '/personal/Twitch_bot.git/ui'
 
-nnoremap <leader>vwm :lua require("twitch-bot").init()<CR>
 
 let g:user_emmet_settings = {
   \  'svelte' : {
@@ -97,6 +97,9 @@ let g:user_emmet_settings = {
 lua require("yoni")
 
 let mapleader = " "
+nnoremap <leader>ea :lua require("twitch-bot").init()<CR>
+nnoremap <leader>ed :lua require("twitch-bot").disconnect()<CR>
+
 imap <silent><expr> <C-j> luasnip#expand_or_jumpable() ? '<Plug>luasnip-expand-or-jump' : '<Tab>'
 inoremap <silent> <C-k> <cmd>lua require'luasnip'.jump(-1)<Cr>
 
@@ -156,12 +159,6 @@ nnoremap <Leader>- :vertical resize -5<CR>
 
 noremap <Leader>t+ :top resize +5<CR>
 nnoremap <Leader>t- :top resize -5<CR>
-
-"Coppy selcetd line to clipboard on Liunx btw
-vmap <leader>vc :w !xclip -in selection -clipboard<CR>
-
-"Coppy file on linux (used to be MacOS but I use Linux btw)
-nnoremap <leader>pc :%w !xclip -in selection -clipboard<CR>
 
 vnoremap J :m '>+1<CR>gv=gv
 vnoremap K :m '<-2<CR>gv=gv

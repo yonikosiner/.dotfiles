@@ -205,5 +205,3 @@ exec --no-startup-id xcompmgr
 exec --no-startup-id mate-panel
 
 bindsym $mod+m move workspace to output left
-
-bindsym $mod+shift+s exec --no-startup-id xrandr --output eDP-1 --mode 2736x1824 --pos 1920x168 --rotate normal --output DP-1 --off --output HDMI-1 --primary --mode 1920x1080 --pos 0x0 --rotate normal --output DP-2 --off --output HDMI-2 --off

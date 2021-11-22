@@ -1,4 +1,4 @@
-local Worktree = require("git-worktree")
+--local Worktree = require("git-worktree")
 
 --local function is_yonikosiner(path)
     --local found = path:find(vim.env["YONIKOSINER"])
@@ -14,8 +14,8 @@ local Worktree = require("git-worktree")
     --end
 --end
 
-Worktree.on_tree_change(function(_ --[[op]], path, _ --[[upstream]])
-    M.execute(path.path)
-end)
+--Worktree.on_tree_change(function(_ [>op]], path, _ --[[upstream<])
+    --M.execute(path.path)
+--end)
 
 --return M
