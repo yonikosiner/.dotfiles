@@ -195,7 +195,7 @@ nnoremap <leader>lo :lopen<CR>
 nnoremap <silent>Q <Nop>
 
 " Use control-c instead of escape
-nnoremap <C-c> <Esc>
+"nnoremap <C-c> <Esc>
 
 " Better tabbing
 vnoremap < <gv
@@ -208,13 +208,14 @@ nnoremap <Leader>O O<Esc>^Da
 nnoremap <Right> gt
 nnoremap <Left>  gT
 
+
 augroup highlight_yank
     autocmd!
-    autocmd TextYankPost * silent! lua require'vim.highlight'.on_yank({timeout = 40})
+    autocmd TextYankPost * silent! lua require'vim.highlight'.on_yank({timeout = 25})
 augroup END
 
 augroup YONI
     autocmd!
     autocmd BufWritePre * %s/\s\+$//e
-   autocmd BufEnter,BufWinEnter,TabEnter *.rs :lua require'lsp_extensions'.inlay_hints{}
+    autocmd BufEnter,BufWinEnter,TabEnter *.rs :lua require'lsp_extensions'.inlay_hints{}
 augroup END

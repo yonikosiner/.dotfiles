@@ -30,8 +30,7 @@ dotfilesStatus() {
 
 searchDotFiles() {
     items=`find $DOTFILES`
-    selected=`echo "$items" | fzf --height=15`
-    nvim $selected
+    echo "$items" | fzf --height=15 | xargs -I {} nvim {}
 }
 
 password() {

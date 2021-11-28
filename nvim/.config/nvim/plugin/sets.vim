@@ -28,7 +28,7 @@ set nowrap
 set colorcolumn=80
 " set no show mode
 set isfname+=@-@
-" set ls=0
+ "set ls=0
 
 " Give more space for displaying messages.
 set cmdheight=1
