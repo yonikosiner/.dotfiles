@@ -114,7 +114,7 @@ smap <silent><expr> <C-E> luasnip#choice_active() ? '<Plug>luasnip-next-choice' 
 nnoremap <silent> <C-f> :silent !tmux neww tmux-sessionizer<CR>
 
 nnoremap <leader>s :%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>
-nnoremap <leader>x :!chmod +x %<CR>
+nnoremap <leader>ch :!chmod +x %<CR>
 
 "For when reading docs turn of numbers
 fun! ReadingDocs()
