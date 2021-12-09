@@ -1,11 +1,15 @@
 #!/usr/bin/env bash
 
-folders="~/work ~/personal"
+# Create a array of all the files in work and personal directories
+folders=($(find ~/work ~/personal -type d -maxdepth 1 -mindepth 1))
 
-#For eaach folder push to github
-for folder in $folders; do
-    cd $folder
-    git add .
-    git commit -m "commit"
-    git push
+#For eaach folder push to github if it is a git repo
+for folder in $folders
+do
+    if [ -d "$folder/.git" ]; then
+        cd $folder
+        git add .
+        git commit -m "commit"
+        git push
+    fi
 done
