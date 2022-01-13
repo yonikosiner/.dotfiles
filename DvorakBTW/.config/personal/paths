@@ -2,5 +2,5 @@ export DOTFILES=$HOME/.dotfiles
 export SCHOOLWORK=$HOME/school
 export STOW_FOLDERS="bin,i3,nvim,tmux,zsh,DvoarkBTW,tree-sitter,mutt,alacritty"
 export PATH=$HOME/.local/bin:.:$PATH
-export GOPATH=/usr/local/go/
-export PATH=$PATH:$GOPATH/bin
+export GOROOT=/usr/local/go/bin/go
+export PATH=$PATH:$GOROOT/bin

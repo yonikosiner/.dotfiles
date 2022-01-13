@@ -12,6 +12,7 @@ set wildignore+=**/.git/*
 
 call plug#begin('~/.vim/pluged')
 Plug 'github/copilot.vim'
+Plug 'projekt0n/github-nvim-theme'
 
 Plug 'ThePrimeagen/refactoring.nvim'
 
