@@ -70,7 +70,7 @@ require'lspconfig'.clangd.setup(config({
     root_dir = function() return vim.loop.cwd() end
 }))
 
-require'lspconfig'.jedi_language_server.setup(config())
+require'lspconfig'.pyright.setup(config())
 
 require'lspconfig'.gopls.setup(config({
     cmd = {"gopls", "serve"},

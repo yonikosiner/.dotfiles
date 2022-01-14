@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+#Ask user for input
+echo "New project name:"
+read projectName
+
+mkdir /home/yoni/personal/$projectName
+
+tmux-sessionizer /home/yoni/personal/$projectName
