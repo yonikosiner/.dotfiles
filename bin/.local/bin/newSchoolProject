@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+read newProject
+mkdir /home/yoni/school-work/computer-science/$newProject
+tmux-sessionizer /home/yoni/school-work/computer-science/$newProject
