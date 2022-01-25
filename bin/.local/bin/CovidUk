@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+covid uk | awk '{print $7}' | awk '{print $1}' | grep "," | echo ""

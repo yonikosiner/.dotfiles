@@ -84,6 +84,12 @@ require'lspconfig'.gopls.setup(config({
     },
 }))
 
+--require("lspconfig").rust_analyzer.setup(config({
+    --cmd = { "rustup", "run", "nightly", "rust-analyzer"},
+--}))
+
+--require('rust-tools').setup({})
+
 --require'lspconfig'.sumneko_lua.setup(config({
     --cmd = {sumneko_binary, "-E", sumneko_root_path .. "/main.lua"};
     --settings = {

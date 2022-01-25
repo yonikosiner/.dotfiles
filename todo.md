@@ -1,5 +1,6 @@
 # School
 * What is rfm?
+* What is all this fancy science stuff in chemistry?
 
 # Random
 * When I'm cool enough to get twitch affiliate then use

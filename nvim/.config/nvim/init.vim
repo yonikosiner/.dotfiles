@@ -14,6 +14,17 @@ call plug#begin('~/.vim/pluged')
 Plug 'github/copilot.vim'
 Plug 'projekt0n/github-nvim-theme'
 
+Plug 'nvim-lua/lsp_extensions.nvim'
+
+Plug 'rust-lang/rust.vim'
+
+Plug 'neovim/nvim-lspconfig'
+Plug 'simrat39/rust-tools.nvim'
+
+" Debugging
+Plug 'nvim-lua/plenary.nvim'
+Plug 'mfussenegger/nvim-dap'
+
 Plug 'ThePrimeagen/refactoring.nvim'
 
 " Debugger Plugins

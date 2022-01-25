@@ -29,7 +29,7 @@ dotfilesStatus() {
 }
 
 searchDotFiles() {
-    items=`find $DOTFILES`
+    items=`cd $DOTFILES && find .`
     echo "$items" | fzf --height=15 | xargs -I {} nvim {}
 }
 
