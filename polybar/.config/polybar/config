@@ -7,7 +7,7 @@ height = 40
 dpi = 192
 
 background = #1f1f1f
-foreground = #eee
+foreground = #FFF
 
 line-color = ${bar/bottom.background}
 line-size = 1
