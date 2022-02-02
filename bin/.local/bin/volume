@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+pactl list sinks | perl -000ne 'if(/#1/){/(Volume:.*)/; print "$1\n"}' | awk '{print $5}'

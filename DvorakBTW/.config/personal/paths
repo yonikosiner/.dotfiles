@@ -7,3 +7,4 @@ export GOPATH=/usr/local/go/bin/go
 export RUSTUP=/home/yoni/.cargo/bin/rustup
 export PATH=$PATH:$GOPATH/bin:$RUSTUP
 export PATH=$PATH:/home/yoni/rust-analyzer/crates/rust-analyzer
+export PATH=$PATH:/home/yoni/.emacs.d/bin
