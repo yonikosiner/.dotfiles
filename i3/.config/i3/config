@@ -42,7 +42,7 @@ bindsym $mod+Return exec i3-sensible-terminal
 bindsym $mod+Shift+q kill
 
 # start dmenu (a program launcher)
-bindsym $mod+d exec --no-startup-id rofi -show run
+bindsym $mod+d exec rofi -show drun
 bindsym $mod+shift+d exec i3-dmenu-desktop
 
 # There also is the (new) i3-dmenu-desktop which only displays applications
@@ -202,6 +202,11 @@ bindsym Mod4+p		            exec --no-startup-id eog ~/Documents/PerodicTable.jp
 bindsym $mod+p			exec passmenu
 bindsym $mod+shift+b    exec change_background_dmenu
 bindsym $mod+space exec /home/yoni/dmenu-emoji/dmenu-emoji.sh
+
+bindsym $mod+shift+o exec --no-startup-id /home/yoni/Documents/Obsidian-0.13.14.AppImage; workspace $ws9
+
+bindsym $mod+shift+s exec --no-startup-id /home/yoni/screen.sh
+bindsym $mod+sift+a exec --no-startup-id /home/yoni/Laptop.sh
 
 exec --no-startup-id xcompmgr
 exec --no-startup-id mate-panel

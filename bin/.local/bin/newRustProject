@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+read newProject
+cargo new $newProject
+sleep 5
+tmux-sessionizer /home/yoni/personal/$newProject

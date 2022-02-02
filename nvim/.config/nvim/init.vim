@@ -112,15 +112,6 @@ let mapleader = " "
 nnoremap <leader>ea :lua require("twitch-bot").init()<CR>
 nnoremap <leader>ed :lua require("twitch-bot").disconnect()<CR>
 
-imap <silent><expr> <C-j> luasnip#expand_or_jumpable() ? '<Plug>luasnip-expand-or-jump' : '<Tab>'
-inoremap <silent> <C-k> <cmd>lua require'luasnip'.jump(-1)<Cr>
-
-snoremap <silent> <Tab> <cmd>lua require('luasnip').jump(1)<Cr>
-snoremap <silent> <S-Tab> <cmd>lua require('luasnip').jump(-1)<Cr>
-
-imap <silent><expr> <C-E> luasnip#choice_active() ? '<Plug>luasnip-next-choice' : '<C-E>'
-smap <silent><expr> <C-E> luasnip#choice_active() ? '<Plug>luasnip-next-choice' : '<C-E>'
-
 "This is defiantly not copied from thePrimeagens vimrc
 "https://github.com/thePrimeagen/.dotfiles
 nnoremap <silent> <C-f> :silent !tmux neww tmux-sessionizer<CR>
@@ -139,16 +130,11 @@ fun! ReadingDocs()
     endif
 endfun
 
-nnoremap <leader>rrd :call ReadingDocs()<CR>
-
 "Toggle spelling on and off with one keybind
 fun! SetSpell()
-    "Check if spell is on
     if &spell
-        "If spell in on then set spell off
         :set nospell
     else
-        "If spell is off then set spell on
         :set spell
     endif
 endfun
@@ -158,7 +144,7 @@ nnoremap <leader>sp :call SetSpell()<CR>
 vmap <C-\> <plug>NERDCommenterToggle
 nmap <C-\> <plug>NERDCommenterToggle
 
-nnoremap <leader>u :UndotreeToggle<CR>
+"nnoremap <leader>u :UndotreeToggle<CR>
 nnoremap <leader>pv :Ex<CR>
 nnoremap <leader>ft :Sex!<CR>
 nnoremap <leader><CR> :so ~/.config/nvim/init.vim<CR>
@@ -207,7 +193,7 @@ nnoremap <leader>lo :lopen<CR>
 nnoremap <silent>Q <Nop>
 
 " Use control-c instead of escape
-"nnoremap <C-c> <Esc>
+nnoremap <C-c> <Esc>
 
 " Better tabbing
 vnoremap < <gv

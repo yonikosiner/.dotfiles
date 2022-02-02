@@ -4,6 +4,7 @@ nnoremap <leader>ps :lua require('telescope.builtin').grep_string({ search = vim
 nnoremap <leader>pb :lua require('telescope.builtin').buffers()<CR>
 
 nnoremap <leader>lps :lua require('telescope.builtin').lsp_references()<CR>
+nnoremap <leader>ld :Telescope diagnostics bufnr=0<cr>
 
 nnoremap <leader>rc :lua require('yoni.telescope').search_dotfiles()<CR>
 nnoremap <leader>src :lua require('yoni.telescope').search_school()<CR>
