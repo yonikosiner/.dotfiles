@@ -9,19 +9,20 @@
 #
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
 
+set $inner_gaps 15
+set $outer_gaps 10
 set $mod Mod1
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
 font pango:monospace 8
 
-# GET DEM BORDERS OUT OF HERE
 for_window [class="^.*"] border pixel 1
+gaps inner $inner_gaps
+gaps outer $outer_gaps
 
-gaps inner 25
-gaps outer 10
 smart_gaps on
-                           #class                 border  backgr. text    indicator child_border
+
 for_window [class="^.*"] client.focused          #77dd77 #285577 #ffffff #2e9ef4   #285577
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
@@ -179,6 +180,7 @@ bar {
         i3bar_command /home/yoni/.config/polybar/launch.sh
 }
 
+exec --no-startup-id /home/yoni/screen.sh
 
 
 # Custom Keys Start
@@ -186,8 +188,8 @@ bar {
 
 # FKeys
 # Pulse Audio controls
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && $refresh_i3status
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5% && $refresh_i3status
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5% && $refresh_i3status
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
 
@@ -204,7 +206,6 @@ bindsym $mod+shift+f			exec $term -e ranger
 bindsym $mod+shift+w			exec --no-startup-id /usr/bin/brave-browser; workspace $ws2
 bindsym $mod+Shift+g		    exec --no-startup-id /usr/bin/gimp; workspace $ws6
 bindsym Mod4+k		            exec --no-startup-id ps ax | awk '{print $5}' | rofi -dmenu -p "Kill a process" - | xargs -r pkill $5
-bindsym Mod4+s		            exec --no-startup-id shutter
 bindsym Mod4+p		            exec --no-startup-id eog ~/Documents/PerodicTable.jpg
 
 bindsym $mod+p			exec passmenu
@@ -213,11 +214,18 @@ bindsym $mod+space exec /home/yoni/dmenu-emoji/dmenu-emoji.sh
 
 bindsym $mod+shift+o exec --no-startup-id /home/yoni/Documents/Obsidian-0.13.14.AppImage; workspace $ws9
 
-bindsym $mod+shift+s exec --no-startup-id /home/yoni/screen.sh
 bindsym $mod+sift+a exec --no-startup-id /home/yoni/Laptop.sh
+
+bindsym Mod4+s			gaps inner current plus 5
+bindsym Mod4+Shift+s		gaps inner current minus 5
+bindsym Mod4+Shift+d		gaps inner current set 0; gaps outer current set 0
+bindsym Mod4+z			gaps outer current plus 5
+bindsym Mod4+Shift+z		gaps outer current minus 5
 
 exec --no-startup-id xcompmgr
 exec --no-startup-id mate-panel
+
+exec --no-startup-id feh --bg-scale ~/.dotfiles/anime/alexjones.png
 
 bindsym $mod+m move workspace to output left
 #bindsym $mod+shift+m move workspace to output right

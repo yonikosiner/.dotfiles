@@ -19,12 +19,10 @@ module-margin-right = 3
 
 separator = |
 
-font-0 = "Ubuntu Mono:size=10;0"
-font-1 = "Roboto:size=11:weight=bold;2"
-font-2 = "Noto Sans:size=11;1"
+font-0 = "UbuntuMono:size=10;0"
 
-modules-left = mpd i3
-modules-right = temperature memory
+modules-left = i3
+modules-right = corna temperature memory
 
 wm-restack = i3
 
@@ -71,7 +69,7 @@ separator = |
 
 modules-left = i3
 ;modules-right = cpu memory temperature filesystem alsa wireless-network battery date
-modules-right = temperature memory filesystem volume battery date
+modules-right = corna wireless-network temperature memory filesystem volume battery date
 
 tray-position = right
 tray-scale = 1.0
@@ -269,28 +267,11 @@ bar-progress-empty-font = 3
 bar-progress-empty-foreground = #44
 
 [module/wireless-network]
-type = internal/network
-;interface = enp4s0
-interface = wlp5s0
-interval = 1.0
-ping-interval = 10
-
-format-connected = <ramp-signal> <label-connected>
-label-connected = %local_ip%    %downspeed%    %upspeed%
-label-disconnected =    not connected
-label-disconnected-foreground = #66
-
-ramp-signal-0 = 
-ramp-signal-1 = 
-ramp-signal-2 = 
-ramp-signal-3 = 
-ramp-signal-4 = 
-
-animation-packetloss-0 = 
-animation-packetloss-0-foreground = #ffa64c
-animation-packetloss-1 = 
-animation-packetloss-1-foreground = ${bar/top.foreground}
-animation-packetloss-framerate = 500
+type = custom/script
+interval = 1
+format-prefix = "Network SSID: "
+format = <label>
+exec = network
 
 
 [module/alsa]
@@ -374,19 +355,15 @@ thermal-zone = 5
 warn-temperature = 65
 
 format = <ramp> <label>
-;format-underline = #f50a4d
 format-warn = <ramp> <label-warn>
-;format-warn-underline = ${self.format-underline}
 
 label = %temperature-c%
-label-warn = HOT! %temperature-c%
+label-warn = %temperature-c%
 label-warn-foreground = #f00
 
-ramp-0 = 
-ramp-1 = 
-ramp-2 = 
-ramp-foreground = #66
-
+ramp-0 = temp:
+ramp-1 = temp:
+ramp-2 = temp:
 
 [module/i3]
 type = internal/i3
@@ -402,7 +379,7 @@ index-sort = true
 ; Default: false
 fuzzy-match = true
 
-ws-icon-0 = 1;♚
+ws-icon-0 = 1;420
 ws-icon-1 = 2;♛
 ws-icon-2 = 3;♜
 ws-icon-3 = 4;♝
@@ -432,8 +409,7 @@ label-mode-background = #e60053
 label-focused =  %index%
 label-focused-foreground = #ffffff
 label-focused-background = #3f3f3f
-label-focused-underline = #fba922
-label-focused-padding = 4
+label-focused-padding = 2
 
 ; Available tokens:
 ;   %name%
@@ -442,7 +418,7 @@ label-focused-padding = 4
 ;   %output%
 ; Default: %icon%  %name%
 label-unfocused = %index%
-label-unfocused-padding = 4
+label-unfocused-padding = 2
 
 ; Available tokens:
 ;   %name%
@@ -476,3 +452,10 @@ interval = 1
 format-prefix = "vol: "
 format = <label>
 exec = volume
+
+[module/corna]
+type = custom/script
+internal = 14
+format-prefix = "Covid cases in Uk: "
+format = <label>
+exec = CovidUk | awk -F 'm' '{print $3}' | awk -F '[' '{print $1}'

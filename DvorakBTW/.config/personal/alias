@@ -14,8 +14,6 @@ alias pdf="unoconv"
 
 alias clip="xclip -in -selection clipboard"
 
-alias network="nmtui"
-
 alias mc="cd ~/work/mycookbook.git"
 alias work="cd work"
 alias personal="cd personal"
