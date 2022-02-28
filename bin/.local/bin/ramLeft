@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+free -g | grep "Mem" | awk '{print $7}'

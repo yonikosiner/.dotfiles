@@ -154,17 +154,14 @@ noremap <leader>rp :resize 100<CR>
 nnoremap <Leader>+ :vertical resize +5<CR>
 nnoremap <Leader>- :vertical resize -5<CR>
 
-
 noremap <Leader>t+ :top resize +5<CR>
 nnoremap <Leader>t- :top resize -5<CR>
 
 vnoremap J :m '>+1<CR>gv=gv
 vnoremap K :m '<-2<CR>gv=gv
 
-"Greatest remap ever
 vnoremap <leader>p "_dP
 
-"Next greatest remap ever : asbjornHaland
 noremap <leader>y "+y
 vnoremap <leader>y "+y
 
@@ -205,7 +202,6 @@ nnoremap <Leader>O O<Esc>^Da
 "Switch between tabs
 nnoremap <Right> gt
 nnoremap <Left>  gT
-
 
 augroup highlight_yank
     autocmd!

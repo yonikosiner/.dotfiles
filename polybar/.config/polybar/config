@@ -1,7 +1,8 @@
 [bar/top]
 enable-ipc = true
 bottom = 0
-monitor = ${env:MONITORS[0]:eDP-1-1}
+monitor = ${env:MONITORS[0]:HDMI-0}
+;monitor = ${env:MONITORS[0]:eDP-1-1}
 width = 100%
 height = 40
 dpi = 192
@@ -68,8 +69,7 @@ font-0 = Ubuntu mono:size=8;0
 separator = |
 
 modules-left = i3
-;modules-right = cpu memory temperature filesystem alsa wireless-network battery date
-modules-right = corna wireless-network temperature memory filesystem volume battery date
+modules-right = corna wireless-network temperature memory ram-left filesystem volume battery date
 
 tray-position = right
 tray-scale = 1.0
@@ -428,7 +428,7 @@ label-unfocused-padding = 2
 ; Default: %icon%  %name%
 label-visible = %index%
 label-visible-underline = #555555
-label-visible-padding = 4
+label-visible-padding = 2
 
 ; Available tokens:
 ;   %name%
@@ -459,3 +459,10 @@ internal = 14
 format-prefix = "Covid cases in Uk: "
 format = <label>
 exec = CovidUk | awk -F 'm' '{print $3}' | awk -F '[' '{print $1}'
+
+[module/ram-left]
+type = custom/script
+internal = 14
+format-prefix = "Ram left: "
+format = <label>gb
+exec = ramLeft

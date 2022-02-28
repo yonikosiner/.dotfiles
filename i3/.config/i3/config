@@ -18,10 +18,11 @@ set $mod Mod1
 font pango:monospace 8
 
 for_window [class="^.*"] border pixel 1
+
 gaps inner $inner_gaps
 gaps outer $outer_gaps
-
 smart_gaps on
+
 
 for_window [class="^.*"] client.focused          #77dd77 #285577 #ffffff #2e9ef4   #285577
 
@@ -202,7 +203,7 @@ bindsym $mod+Shift+period exec systemctl suspend
 
 # Open apps
 bindsym $mod+shift+e		    exec $term -e neomutt
-bindsym $mod+shift+f			exec $term -e ranger
+bindsym $mod+shift+f			exec $term -e nnn
 bindsym $mod+shift+w			exec --no-startup-id /usr/bin/brave-browser; workspace $ws2
 bindsym $mod+Shift+g		    exec --no-startup-id /usr/bin/gimp; workspace $ws6
 bindsym Mod4+k		            exec --no-startup-id ps ax | awk '{print $5}' | rofi -dmenu -p "Kill a process" - | xargs -r pkill $5
@@ -222,10 +223,12 @@ bindsym Mod4+Shift+d		gaps inner current set 0; gaps outer current set 0
 bindsym Mod4+z			gaps outer current plus 5
 bindsym Mod4+Shift+z		gaps outer current minus 5
 
+bindsym Mod4+Shift+f		exec --no-startup-id ~/.local/bin/openInFirefox
+
 exec --no-startup-id xcompmgr
 exec --no-startup-id mate-panel
 
 exec --no-startup-id feh --bg-scale ~/.dotfiles/anime/alexjones.png
 
 bindsym $mod+m move workspace to output left
-#bindsym $mod+shift+m move workspace to output right
+bindsym $mod+shift+m move workspace to output right
