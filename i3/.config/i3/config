@@ -204,14 +204,14 @@ bindsym $mod+Shift+period exec systemctl suspend
 # Open apps
 bindsym $mod+shift+e		    exec $term -e neomutt
 bindsym $mod+shift+f			exec $term -e nnn
-bindsym $mod+shift+w			exec --no-startup-id /usr/bin/brave-browser; workspace $ws2
+bindsym $mod+shift+w			exec --no-startup-id /usr/bin/brave
 bindsym $mod+Shift+g		    exec --no-startup-id /usr/bin/gimp; workspace $ws6
 bindsym Mod4+k		            exec --no-startup-id ps ax | awk '{print $5}' | rofi -dmenu -p "Kill a process" - | xargs -r pkill $5
 bindsym Mod4+p		            exec --no-startup-id eog ~/Documents/PerodicTable.jpg
 
 bindsym $mod+p			exec passmenu
 bindsym $mod+shift+b    exec change_background_dmenu
-bindsym $mod+space exec /home/yoni/dmenu-emoji/dmenu-emoji.sh
+bindsym $mod+space exec ~/.local/bin/menu-emoji
 
 bindsym $mod+shift+o exec --no-startup-id /home/yoni/Documents/Obsidian-0.13.14.AppImage; workspace $ws9
 
@@ -225,10 +225,16 @@ bindsym Mod4+Shift+z		gaps outer current minus 5
 
 bindsym Mod4+Shift+f		exec --no-startup-id ~/.local/bin/openInFirefox
 
+bindsym Mod4+shift+g        exec --no-startup-id ~/.local/bin/picomToggle
+
+bindsym $mod+shift+n exec --no-startup-id $term -e "neofetch && sleep 98374982374987239847329847239848902374980237984732908473920749083274983274908"
+
 exec --no-startup-id xcompmgr
 exec --no-startup-id mate-panel
 
 exec --no-startup-id feh --bg-scale ~/.dotfiles/anime/alexjones.png
+
+exec --no-startup-id pulseaudio
 
 bindsym $mod+m move workspace to output left
 bindsym $mod+shift+m move workspace to output right
