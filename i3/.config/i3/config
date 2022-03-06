@@ -229,11 +229,6 @@ bindsym Mod4+shift+g        exec --no-startup-id ~/.local/bin/picomToggle
 
 bindsym $mod+shift+n exec --no-startup-id $term -e "neofetch && sleep 98374982374987239847329847239848902374980237984732908473920749083274983274908"
 
-exec --no-startup-id xcompmgr
-exec --no-startup-id mate-panel
-
-exec --no-startup-id feh --bg-scale ~/.dotfiles/anime/alexjones.png
-
 exec --no-startup-id pulseaudio
 
 bindsym $mod+m move workspace to output left
