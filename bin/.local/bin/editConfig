@@ -1,0 +1,33 @@
+#!/usr/bin/env bash
+
+test=$(echo "neovim
+bin
+i3
+polybar
+zsh-personal
+zsh" | rofi -dmenu -p "Edit:" -)
+
+curr=$test
+shift
+
+case "$curr" in
+"neovim")
+    kitty sh -c nvim ~/.dotfiles/nvim/.config/nvim
+   ;;
+"bin")
+   kitty sh -c nvim ~/.dotfiles/bin/.local/bin
+    ;;
+"i3")
+    kitty sh -c nvim ~/.dotfiles/i3/.config/
+    ;;
+"polybar")
+   kitty sh -c nvim ~/.dotfiles/polybar/.config/polybar/
+    ;;
+"zsh-personal")
+ kitty sh -c nvim ~/.dotfiles/DvorakBTW/.config/personal/
+    ;;
+"zsh")
+ kitty sh -c nvim ~/.dotfiles/zsh/
+    ;;
+*) echo "Unavailable command... $curr"
+esac

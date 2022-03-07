@@ -20,7 +20,7 @@ alias urlS="/System/Library/Frameworks/CoreServices.framework/Versions/A/Framewo
 
 alias iCloud="cd /Users/yonikosiner/Library/Mobile\ Documents/com~apple~CloudDocs"
 
-[[ $(fgconsole 2>/dev/null) == 1 ]] && exec startx -- vt1
+#[[ $(fgconsole 2>/dev/null) == 1 ]] && exec startx -- vt1
 
 autoload -Uz vcs_info
 zstyle ':vcs_info:*' enable git svn

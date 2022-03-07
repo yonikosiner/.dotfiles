@@ -271,7 +271,7 @@ type = custom/script
 interval = 1
 format-prefix = "Network SSID: "
 format = <label>
-exec = network
+exec = /home/yoni/.local/bin/network
 
 
 [module/alsa]
@@ -451,18 +451,18 @@ type = custom/script
 interval = 1
 format-prefix = "vol: "
 format = <label>
-exec = volume
+exec = /home/yoni/.local/bin/volume
 
 [module/corna]
 type = custom/script
 internal = 14
 format-prefix = "Covid cases in Uk: "
 format = <label>
-exec = CovidUk | awk -F 'm' '{print $3}' | awk -F '[' '{print $1}'
+exec = /home/yoni/.local/bin/CovidUk | awk -F 'm' '{print $3}' | awk -F '[' '{print $1}'
 
 [module/ram-left]
 type = custom/script
 internal = 14
 format-prefix = "Ram left: "
 format = <label>gb
-exec = ramLeft
+exec = /home/yoni/.local/bin/ramLeft
