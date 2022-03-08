@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
 
-# This is so chat can change my background with a random one
-
 randomImage=$( ls "$DOTFILES/anime" | shuf -n 1 )
 
 feh --bg-fill "/home/yoni/.dotfiles/anime/$randomImage"

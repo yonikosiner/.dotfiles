@@ -194,6 +194,8 @@ bindsym XF86AudioLowerVolume exec --no-startup-id ~/.local/bin/volumeControl -do
 bindsym XF86AudioMute exec --no-startup-id ~/.local/bin/volumeControl -mute-vol
 bindsym Mod4+m exec --no-startup-id ~/.local/bin/volumeControl -mute-mic
 
+bindsym XF86Calculator exec --no-startup-id /usr/bin/kcalc
+
 # Sreen brightness controls
 bindsym XF86MonBrightnessUp exec light -A 10
 bindsym XF86MonBrightnessDown exec light -U 10

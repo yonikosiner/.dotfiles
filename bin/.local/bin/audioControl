@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+while [ "$#" -gt 0 ]; do
+    curr=$1
+    shift
+
+    case "$curr" in
+   "-play")
+       ;;
+    *) echo "Unavailable command... $curr"
+    esac
+done

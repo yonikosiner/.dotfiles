@@ -14,6 +14,9 @@ call plug#begin('~/.vim/pluged')
 Plug 'github/copilot.vim'
 Plug 'projekt0n/github-nvim-theme'
 
+Plug 'kyazdani42/nvim-web-devicons' " Recommended (for coloured icons)
+Plug 'akinsho/bufferline.nvim'
+
 Plug 'nvim-lua/lsp_extensions.nvim'
 
 Plug 'rust-lang/rust.vim'
@@ -199,9 +202,14 @@ vnoremap > >gv
 noremap <Leader>o o<Esc>^Da
 nnoremap <Leader>O O<Esc>^Da
 
-"Switch between tabs
-nnoremap <Right> gt
-nnoremap <Left>  gT
+" These commands will navigate through buffers in order regardless of which mode you are using
+" e.g. if you change the order of buffers :bnext and :bprevious will not respect the custom ordering
+nnoremap <Right> :BufferLineCycleNext<CR>
+nnoremap <Left> :BufferLineCyclePrev<CR>
+
+lua << EOF
+    require("bufferline").setup{}
+EOF
 
 augroup highlight_yank
     autocmd!

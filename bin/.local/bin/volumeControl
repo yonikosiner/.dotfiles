@@ -36,8 +36,8 @@ while [ "$#" -gt 0 ]; do
             micMuteVal="Mute"
         fi
 
-        notify-send "Toggle muted mic" "$micMuteVal" -t 300
-        pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
+        notify-send "Toggle mute mic" "$micMuteVal" -t 300
+        pactl set-source-mute @DEFAULT_SOURCE@ toggle
         ;;
     *) echo "Unavailable command... $curr"
     esac

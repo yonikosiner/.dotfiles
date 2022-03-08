@@ -3,6 +3,8 @@ alias asdf="setxkbmap -layout real-prog-dvorak"
 alias lkj="setxkbmap us real-prog-dvorak"
 alias snth="setxkbmap us"
 
+alias tmux="tmux -u"
+
 alias e="vim"
 
 alias anime="~/Documents/Apps/ani-cli/ani-cli"
