@@ -1,0 +1,11 @@
+LICENSE
+MANIFEST.in
+README.rst
+rofi.py
+setup.cfg
+setup.py
+python_rofi.egg-info/PKG-INFO
+python_rofi.egg-info/SOURCES.txt
+python_rofi.egg-info/dependency_links.txt
+python_rofi.egg-info/top_level.txt
+python_rofi.egg-info/zip-safe

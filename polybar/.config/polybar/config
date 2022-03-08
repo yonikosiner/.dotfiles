@@ -23,7 +23,7 @@ separator = |
 font-0 = "UbuntuMono:size=10;0"
 
 modules-left = i3
-modules-right = corna temperature memory
+modules-right = corna volume
 
 wm-restack = i3
 
@@ -69,7 +69,7 @@ font-0 = Ubuntu mono:size=8;0
 separator = |
 
 modules-left = i3
-modules-right = corna wireless-network temperature memory ram-left filesystem volume battery date
+modules-right = corna wireless-network ram-left filesystem volume battery date
 
 tray-position = right
 tray-scale = 1.0
@@ -272,6 +272,7 @@ interval = 1
 format-prefix = "Network SSID: "
 format = <label>
 exec = /home/yoni/.local/bin/network
+click-left = kitty sh -c "nmtui"
 
 
 [module/alsa]
@@ -447,11 +448,13 @@ label-separator-padding = 0
 label-separator-foreground = #ffb52a
 
 [module/volume]
+scroll-up = pactl set-sink-volume @DEFAULT_SINK@ +5% && $refresh_i3status
+scroll-down = pactl set-sink-volume @DEFAULT_SINK@ -5% && $refresh_i3status
 type = custom/script
 interval = 1
+exec = /home/yoni/.local/bin/volume
 format-prefix = "vol: "
 format = <label>
-exec = /home/yoni/.local/bin/volume
 
 [module/corna]
 type = custom/script
@@ -466,3 +469,4 @@ internal = 14
 format-prefix = "Ram left: "
 format = <label>gb
 exec = /home/yoni/.local/bin/ramLeft
+click-left = kitty sh -c "htop"

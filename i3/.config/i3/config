@@ -189,10 +189,10 @@ exec --no-startup-id /home/yoni/screen.sh
 
 # FKeys
 # Pulse Audio controls
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5% && $refresh_i3status
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5% && $refresh_i3status
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
-bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
+bindsym XF86AudioRaiseVolume exec --no-startup-id ~/.local/bin/volumeControl -up
+bindsym XF86AudioLowerVolume exec --no-startup-id ~/.local/bin/volumeControl -down
+bindsym XF86AudioMute exec --no-startup-id ~/.local/bin/volumeControl -mute-vol
+bindsym Mod4+m exec --no-startup-id ~/.local/bin/volumeControl -mute-mic
 
 # Sreen brightness controls
 bindsym XF86MonBrightnessUp exec light -A 10
@@ -229,11 +229,19 @@ bindsym Mod4+shift+g        exec --no-startup-id ~/.local/bin/picomToggle
 bindsym $mod+shift+e exec --no-startup-id ~/.local/bin/editConfig
 
 bindsym $mod+m move workspace to output left
-#bindsym $mod+shift+m move workspace to output right
+#bindsym $mod+shift+m move workspace to output rightw
 
-exec --no-startup-id pulseaudio
-exec --no-startup-id /home/yoni/.fehbg
-exec --no-startup-id picom --fade-in-step=1 --fade-out-step=1 --fade-delta=0 &
-exec --no-startup-id xrandr --setprovideroutputsource modesetting NVIDIA-0
-exec --no-startup-id xrandr --auto
-exec --no-startup-id dunst
+bindsym Mod4+d exec --no-startup-id setxkbmap -layout real-prog-dvorak
+bindsym Mod4+q exec --no-startup-id setxkbmap -layout us
+
+bindsym $mod+Shift+s exec flameshot gui -p ~/Pictures/Captures
+
+# Troll them lads on the internet
+bindsym $mod+Mod4+a exec echo "Ackchyually" | xclip -selection clipboard -i
+
+# move the currently focused window to the scratchpad
+bindsym $mod+Shift+minus move scratchpad
+
+# Show the next scratchpad window or hide the focused scratchpad window.
+# If there are multiple scratchpad windows, this command cycles through them.
+bindsym $mod+minus scratchpad show

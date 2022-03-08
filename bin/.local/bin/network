@@ -1,3 +1,11 @@
 #!/usr/bin/env bash
 
-iwgetid -r
+networkName=$(iwgetid -r)
+
+if [[ -z $networkName && ${networkName+x} ]];
+then
+    dunst --action="kitty sh -c 'nmtui'" "Disconnected from Wi-Fi"
+    echo "Connect to Wi-Fi"
+else
+    echo "${networkName}"
+fi

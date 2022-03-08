@@ -1,0 +1,44 @@
+#!/usr/bin/env bash
+
+while [ "$#" -gt 0 ]; do
+    curr=$1
+    shift
+
+    case "$curr" in
+   "-up")
+       pactl set-sink-volume @DEFAULT_SINK@ +5%
+       notify-send "Volume up by +5" "$(~/.local/bin/volume)" -t 300
+       ;;
+    "-down")
+        pactl set-sink-volume @DEFAULT_SINK@ -5%
+        notify-send "Volume down by -5" "$(~/.local/bin/volume)" -t 300
+        ;;
+    "-mute-vol")
+        MUTEVOL=$(pacmd list-sinks | grep "muted" | sed 's/muted://g' | xargs | awk '{print $2}')
+
+        if [[ $MUTEVOL == "yes" ]];
+        then
+            volMuteVal="Unmute"
+        else
+            volMuteVal="Mute"
+        fi
+
+        notify-send "Toggle mute volume" "$volMuteVal" -t 300
+        pactl set-sink-mute @DEFAULT_SINK@ toggle
+        ;;
+    "-mute-mic")
+        MICMUTE=$(pactl list sources | grep "Mute" | sed 's/Mute://g' | xargs | awk '{print $2}')
+
+        if [[ $MICMUTE == "yes" ]];
+        then
+            micMuteVal="Unmute"
+        else
+            micMuteVal="Mute"
+        fi
+
+        notify-send "Toggle muted mic" "$micMuteVal" -t 300
+        pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
+        ;;
+    *) echo "Unavailable command... $curr"
+    esac
+done

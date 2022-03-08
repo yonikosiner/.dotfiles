@@ -1,3 +1,5 @@
 items=`cat ~/.zsh_history | fzf`
 
+items | awk -F ';' '{print $1}'
+
 $items
