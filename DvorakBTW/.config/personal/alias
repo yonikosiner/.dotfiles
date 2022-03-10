@@ -3,7 +3,11 @@ alias asdf="setxkbmap -layout real-prog-dvorak"
 alias lkj="setxkbmap us real-prog-dvorak"
 alias snth="setxkbmap us"
 
-alias tmux="tmux -u"
+alias n="exa --icons"
+alias nn="exa --icons -a"
+
+alias mpv="devour mpv"
+alias eog="devour eog"
 
 alias e="vim"
 
@@ -34,7 +38,6 @@ alias ezs="nvim $DOTFILES/zsh"
 alias dotFileInstall="$DOTFILES/install"
 
 alias c="clear"
-alias ll="ls -lh"
 alias ..="cd .."
 
 alias :q="exit"
@@ -49,9 +52,9 @@ alias sync_mail="mw -Y"
 alias math="expr"
 
 alias dvorakBTW="cowsay 'I Use Dvorak Btw' | lolcat"
-alias flex="cowsay 'I Use Neovim, Dvorak and linux BTW' | lolcat && neofetch --ascii_art 'Arch'"
+alias flex="cowsay 'I Use Neovim, Dvorak, and arch linux BTW' | lolcat && neofetch --ascii_art 'Arch'"
 
-alias livestream_screenkey="/usr/bin/screenkey -s large --scr 1 -p bottom --geometry 1210x300+712+810 --timeout 0.5";
+alias livestream_screenkey="/usr/bin/screenkey -s large --scr 0 -p bottom --geometry 1210x300+3270+1180 --timeout 0.5";
 
 alias shutdown="sudo shutdown -h now";
 alias restart="sudo shutdown -r now";

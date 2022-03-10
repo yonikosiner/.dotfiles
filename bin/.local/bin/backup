@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+notify-send "Starting to backup computer to server"
+
+sudo rsync -aAXv --delete /home/yoni/Music /home/yoni/server/backups
+sudo rsync -aAXv --delete /home/yoni/Documents /home/yoni/server/backups
+sudo rsync -aAXv --delete /home/yoni/Downloads /home/yoni/server/backups
+sudo rsync -aAXv --delete /home/yoni/Pictures /home/yoni/server/backups
+sudo rsync -aAXv --delete /home/yoni/work /home/yoni/server/backups
+sudo rsync -aAXv --delete /home/yoni/personal /home/yoni/server/backups
+sudo rsync -aAXv --delete /home/yoni/school-work /home/yoni/server/backups
+sudo rsync -aAXv --delete /home/yoni/school-python /home/yoni/server/backups
+
+notify-send "Backup is finished"

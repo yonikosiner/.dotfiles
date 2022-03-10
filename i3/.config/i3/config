@@ -49,7 +49,7 @@ bindsym $mod+Shift+q kill
 
 # start dmenu (a program launcher)
 bindsym $mod+d exec rofi -show drun
-bindsym $mod+shift+d exec i3-dmenu-desktop
+#bindsym $mod+shift+d exec i3-dmenu-desktop
 
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
@@ -97,12 +97,6 @@ bindsym $mod+e layout toggle split
 # toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
 
-# focus the parent container
-bindsym $mod+a focus parent
-
-# focus the child container
-#bindsym $mod+d focus child
-
 set $ws1 "1"
 set $ws2 "2"
 set $ws3 "3"
@@ -144,7 +138,7 @@ bindsym $mod+Shift+c reload
 # restart i3 inplae (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
-bindsym $mod+Shift+@ exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+bindsym $mod+shift+period  exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -201,7 +195,7 @@ bindsym XF86MonBrightnessUp exec light -A 10
 bindsym XF86MonBrightnessDown exec light -U 10
 
 # Suspend
-bindsym $mod+Shift+period exec systemctl suspend
+#bindsym $mod+Shift+period exec systemctl suspend
 
 # Open apps
 bindsym $mod+shift+f			exec $term -e nnn
@@ -231,7 +225,7 @@ bindsym Mod4+shift+g        exec --no-startup-id ~/.local/bin/picomToggle
 bindsym $mod+shift+e exec --no-startup-id ~/.local/bin/editConfig
 
 bindsym $mod+m move workspace to output left
-#bindsym $mod+shift+m move workspace to output rightw
+bindsym $mod+shift+m move workspace to output right
 
 bindsym Mod4+d exec --no-startup-id setxkbmap -layout real-prog-dvorak
 bindsym Mod4+q exec --no-startup-id setxkbmap -layout us
@@ -247,3 +241,8 @@ bindsym $mod+Shift+minus move scratchpad
 # Show the next scratchpad window or hide the focused scratchpad window.
 # If there are multiple scratchpad windows, this command cycles through them.
 bindsym $mod+minus scratchpad show
+
+exec --no-startup-id pulseaduio
+exec --no-startup-id dunst
+exec --no-startup-id ~/.fehbg
+exec --no-startup-id picom --fade-in-step=1 --fade-out-step=1 --fade-delta=0 &

@@ -10,9 +10,6 @@ for i in `find -L $PERSONAL`; do
     source $i
 done
 
-# If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
-
 bindkey -s ^f "tmux-sessionizer\n"
 
 # MacOS stuff
@@ -34,3 +31,6 @@ prompt='[%2/]${vcs_info_msg_0_}$ '
 
 export LANG=en_US.UTF-8
 export LC_CTYPE=en_US.UTF-8
+export DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/bus
+export XDG_RUNTIME_DIR=/run/user/1000
+export MANPAGER='nvim +Man!'

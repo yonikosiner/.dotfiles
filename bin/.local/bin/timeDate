@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+time=$(date | awk '{print $4}' | sed "s/:/-/2g" | cut -d"-" -f1)
+date=$(date | awk '{print $1 " " $2 " " $3}')
+
+echo $date $time

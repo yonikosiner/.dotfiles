@@ -98,3 +98,5 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+
+export VK_ICD_FILENAMES=/usr/share/vulkan/icd.d/nvidia_icd.json

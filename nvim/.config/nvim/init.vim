@@ -26,14 +26,11 @@ Plug 'simrat39/rust-tools.nvim'
 
 " Debugging
 Plug 'nvim-lua/plenary.nvim'
-Plug 'mfussenegger/nvim-dap'
 
 Plug 'ThePrimeagen/refactoring.nvim'
 
 " Debugger Plugins
-Plug 'mfussenegger/nvim-dap'
-Plug 'Pocco81/DAPInstall.nvim'
-Plug 'szw/vim-maximizer'
+Plug 'mfussenegger/nvim-Dap'
 
 "vim in browser
 Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
@@ -44,7 +41,9 @@ Plug 'mfussenegger/nvim-jdtls'
 Plug 'L3MON4D3/LuaSnip'
 Plug 'rafamadriz/friendly-snippets'
 
+" Make that vim good gurrllll
 Plug 'ThePrimeagen/vim-be-good'
+
 Plug 'nvim-lua/plenary.nvim'
 
 "Plug 'nvim-telescope/telescope-arecibo.nvim', { rocks = {'openssl', 'lua-http-parser'} }
@@ -149,6 +148,7 @@ nmap <C-\> <plug>NERDCommenterToggle
 
 "nnoremap <leader>u :UndotreeToggle<CR>
 nnoremap <leader>pv :Ex<CR>
+" Have some sex on the side gurllll
 nnoremap <leader>ft :Sex!<CR>
 nnoremap <leader><CR> :so ~/.config/nvim/init.vim<CR>
 
@@ -168,7 +168,6 @@ vnoremap <leader>p "_dP
 noremap <leader>y "+y
 vnoremap <leader>y "+y
 
-vnoremap <leader>d "_d
 noremap <leader>d "_d
 noremap <leader>x "_x
 
@@ -202,8 +201,6 @@ vnoremap > >gv
 noremap <Leader>o o<Esc>^Da
 nnoremap <Leader>O O<Esc>^Da
 
-" These commands will navigate through buffers in order regardless of which mode you are using
-" e.g. if you change the order of buffers :bnext and :bprevious will not respect the custom ordering
 nnoremap <Right> :BufferLineCycleNext<CR>
 nnoremap <Left> :BufferLineCyclePrev<CR>
 

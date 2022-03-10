@@ -14,7 +14,7 @@ while [ "$#" -gt 0 ]; do
         notify-send "Volume down by -5" "$(~/.local/bin/volume)" -t 300
         ;;
     "-mute-vol")
-        MUTEVOL=$(pacmd list-sinks | grep "muted" | sed 's/muted://g' | xargs | awk '{print $2}')
+        MUTEVOL=$(pactl get-sink-mute @DEFAULT_SINK@ | xargs | sed 's/Mute://g' | awk '{print $1}')
 
         if [[ $MUTEVOL == "yes" ]];
         then
@@ -27,7 +27,7 @@ while [ "$#" -gt 0 ]; do
         pactl set-sink-mute @DEFAULT_SINK@ toggle
         ;;
     "-mute-mic")
-        MICMUTE=$(pactl list sources | grep "Mute" | sed 's/Mute://g' | xargs | awk '{print $2}')
+        MICMUTE=$(pactl list sources | grep "Mute" | sed 's/Mute://g' | xargs | awk '{print $1}')
 
         if [[ $MICMUTE == "yes" ]];
         then

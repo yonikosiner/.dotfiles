@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+
+notify-send "Repository Sync" "Checking for package updates..."
+
+sudo pacman -Syyuw --noconfirm || notify-send "Error downloading updates.
+Check your internet connection, if pacman is already running, or run update manually to see errors."
+
+if pacman -Qu | grep -v "\[ignored\]"
+then
+    count=$(~/.local/bin/packageToBeUpgraded)
+    #count= 1
+    #if [[ count < 1 ]];
+    #then
+        #notify-send "Repository Sync" "$count package to be upgraded"
+    #else
+        notify-send "Repository Sync" "$count packages to be upgraded"
+    fi
+else
+	notify-send "Repository Sync"  "Sync complete. No new packages for update."
+fi

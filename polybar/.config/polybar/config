@@ -7,7 +7,7 @@ width = 100%
 height = 40
 dpi = 192
 
-background = #1f1f1f
+background = #ff252a36
 foreground = #FFF
 
 line-color = ${bar/bottom.background}
@@ -21,10 +21,55 @@ module-margin-right = 3
 separator = |
 
 font-0 = "UbuntuMono:size=10;0"
-font-1 = "Noto Color Emoji:scale=10"
+font-1 = "Noto Color Emoji:scale=13"
 
 modules-left = i3
-modules-right = corna volume
+modules-right = corna volume dateTime
+
+wm-restack = i3
+
+tray-position = right
+tray-scale = 1.0
+;tray-transparent = true
+tray-background = ${self.background}
+tray-maxsize = 64
+
+tray-offset-y = 0
+
+scroll-up = i3wm-wsnext
+scroll-down = i3wm-wsprev
+
+overline-size = 10
+overline-color = ${self.background}
+underline-size = 2
+underline-color = ${self.background}
+
+[bar/laptop]
+enable-ipc = true
+bottom = 0
+monitor = ${env:MONITORS[0]:eDP-1-1}
+width = 100%
+height = 40
+dpi = 192
+
+background = ${bar/top.background}
+foreground = ${bar/top.foreground}
+
+line-color = ${bar/top.background}
+line-size = 1
+
+padding-left = 0
+padding-right = 0
+module-margin-left = 3
+module-margin-right = 3
+
+separator = |
+
+font-0 = "UbuntuMono:size=10;0"
+font-1 = "Noto Color Emoji:scale=13"
+
+modules-left = i3
+modules-right = corna volume dateTime
 
 wm-restack = i3
 
@@ -66,12 +111,12 @@ module-margin-left = 1
 module-margin-right = 1
 
 font-0 = Ubuntu mono:size=8;0
-font-1 = "Noto Color Emoji:scale=10"
+font-1 = "Noto Color Emoji:scale=13"
 
 separator = |
 
 modules-left = i3
-modules-right = corna wireless-network ram-left filesystem volume battery date
+modules-right = weather upgrade corna wireless-network ram-left filesystem volume bat dateTime
 
 tray-position = right
 tray-scale = 1.0
@@ -113,7 +158,6 @@ interval = 2
 type = internal/battery
 full-at = 98
 
-format-prefix = "🔋 "
 format-charging = <label-charging>
 format-discharging = <label-discharging>
 format-full = <label-full>
@@ -220,8 +264,7 @@ ramp-coreload-7-foreground = #ff5555
 
 [module/date]
 type = internal/date
-date = %%{F#999}%Y-%m-%d%%{F-}  %%{F#fff}%H:%M:%S%%{F-}
-date-alt = %%{F#fff}%A, %d %B %Y  %%{F#fff}%H:%M%%{F#666}:%%{F#fba922}%S%%{F-}
+date = %Y-%m-%d%%{F-} %%{F#fff}%H:%M
 
 [module/memory]
 type = internal/memory
@@ -446,7 +489,7 @@ label-urgent-background = #bd2c40
 label-urgent-padding = 4
 
 ; Separator in between workspaces
-label-separator = |
+label-separator =
 label-separator-padding = 0
 label-separator-foreground = #ffb52a
 
@@ -458,6 +501,9 @@ interval = 1
 exec = /home/yoni/.local/bin/volume
 format-prefix = "🔉 "
 format = <label>
+click-middle = kitty sh -c "/usr/bin/pulsemixer"
+click-left = ~/.local/bin/volumeControl -mute-vol
+click-right = ~/.local/bin/volumeControl -mute-mic
 
 [module/corna]
 type = custom/script
@@ -475,3 +521,39 @@ format-prefix = "🖥 "
 format = <label>gb
 exec = /home/yoni/.local/bin/ramLeft
 click-left = kitty sh -c "htop"
+
+[module/upgrade]
+type = custom/script
+internal = 14
+format-prefix = "⬆️ "
+format = <label>
+exec = ~/.local/bin/packageToBeUpgraded
+click-left = kitty sh -c "sudo pacman -Syyu"
+
+[module/weather]
+type = custom/script
+internal = 14
+format = <label>
+exec = ~/.local/bin/weather
+click-left = kitty sh -c "curl wttr.in; read"
+
+[module/title]
+type = custom/script
+internal = 1
+format = <label>
+exec = ~/.local/bin/getCurrentTitle
+
+[module/bat]
+type = custom/script
+internal = 1
+format-prefix = "🔋"
+format = <label>
+exec = ~/.local/bin/batteryLife
+
+
+[module/dateTime]
+type = custom/script
+internal = 1
+format-prefix = "🕔 "
+format = <label>
+exec = ~/.local/bin/timeDate
