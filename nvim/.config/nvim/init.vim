@@ -14,6 +14,9 @@ call plug#begin('~/.vim/pluged')
 Plug 'github/copilot.vim'
 Plug 'projekt0n/github-nvim-theme'
 
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+
 Plug 'kyazdani42/nvim-web-devicons' " Recommended (for coloured icons)
 Plug 'akinsho/bufferline.nvim'
 

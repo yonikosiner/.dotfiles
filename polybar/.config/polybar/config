@@ -69,7 +69,7 @@ font-0 = "UbuntuMono:size=10;0"
 font-1 = "Noto Color Emoji:scale=13"
 
 modules-left = i3
-modules-right = corna volume dateTime
+modules-right = bat corna volume dateTime
 
 wm-restack = i3
 
@@ -116,7 +116,7 @@ font-1 = "Noto Color Emoji:scale=13"
 separator = |
 
 modules-left = i3
-modules-right = weather upgrade corna wireless-network ram-left filesystem volume bat dateTime
+modules-right = chat weather upgrade corna wireless-network ram-left filesystem volume bat dateTime
 
 tray-position = right
 tray-scale = 1.0
@@ -497,7 +497,7 @@ label-separator-foreground = #ffb52a
 scroll-up = ~/.local/bin/volumeControl -up
 scroll-down = ~/.local/bin/volumeControl -down
 type = custom/script
-interval = 1
+interval = 0.1
 exec = /home/yoni/.local/bin/volume
 format-prefix = "🔉 "
 format = <label>
@@ -545,8 +545,7 @@ exec = ~/.local/bin/getCurrentTitle
 
 [module/bat]
 type = custom/script
-internal = 1
-format-prefix = "🔋"
+internal = 0.1
 format = <label>
 exec = ~/.local/bin/batteryLife
 
@@ -557,3 +556,10 @@ internal = 1
 format-prefix = "🕔 "
 format = <label>
 exec = ~/.local/bin/timeDate
+
+[modules/chat]
+type = custom/script
+internal = 0.1
+format-prefix = "🔴 "
+format = <label>
+exec = ~/.local/bin/chat
