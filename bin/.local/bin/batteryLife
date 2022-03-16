@@ -5,7 +5,15 @@ battLevel=$(acpi | awk '{print $4}' | sed 's/,//')
 
 if [[ $isCharging == "Discharging" ]];
 then
-    echo "🔋"$battLevel
+    battLevelInt=$(echo $battLevel | sed 's/%//')
+    battLevelInt=${battLevelInt%?}
+
+    if [[ battLevelInt < 100 ]];
+    then
+        echo "⚠️ " $battLevel
+    else
+        echo "🔋"$battLevel
+    fi
 else
     echo "🔌"$battLevel
 fi

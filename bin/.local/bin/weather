@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-weather=$(curl -s https://wttr.in/London\?format="%c+%t\n%w\n%h" | awk '{print $1 " "$2}' | sed 's/↖//g')
+weather=$(curl -s https://wttr.in/London\?format="%c+%t\n%w\n%h" | awk '{print $1 " "$2}' | sed 's/↖//g' | sed 's/↗//g')
 
 temp=$(echo $weather | awk '{print $1 " " $2}')
 wind="🌬"$(echo $weather | awk '{print $3}')

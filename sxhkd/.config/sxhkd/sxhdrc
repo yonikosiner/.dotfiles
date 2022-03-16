@@ -1,0 +1,17 @@
+alt + Return
+    kitty
+
+alt + d
+    rofi -show drun
+alt + shift + w
+    /usr/bin/brave
+
+alt + {_,shift + }q
+    bspc node -{c,k}
+alt + shft + s
+    flameshot gui -p ~/Pictures/Captures
+
+super + space
+    $HOME/.local/bin/change_background_dmenu
+alt + space
+    $HOME/.local/bin/menu-emoji

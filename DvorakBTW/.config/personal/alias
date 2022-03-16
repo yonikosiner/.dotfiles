@@ -3,6 +3,8 @@ alias asdf="setxkbmap -layout real-prog-dvorak"
 alias lkj="setxkbmap us real-prog-dvorak"
 alias snth="setxkbmap us"
 
+alias caps="xdotool key Caps_Lock"
+
 alias n="exa --icons"
 alias nn="exa --icons -a"
 
@@ -58,3 +60,5 @@ alias livestream_screenkey="/usr/bin/screenkey -s large --scr 0 -p bottom --geom
 
 alias shutdown="sudo shutdown -h now";
 alias restart="sudo shutdown -r now";
+
+alias lf="lfub"

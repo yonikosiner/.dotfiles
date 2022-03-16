@@ -10,7 +10,7 @@ for i in `find -L $PERSONAL`; do
     source $i
 done
 
-#bindkey -s ^f ". searchDirs\n"
+bindkey -s ^f "tmux-sessionizer\n"
 
 # MacOS stuff
 alias urlS="/System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/LaunchServices.framework/Versions/A/Support/lsregister -dump URLSchemeBinding"
@@ -29,8 +29,13 @@ precmd() {
 
 prompt='[%2/]${vcs_info_msg_0_}$ '
 
+bindkey -v
+export KEYTIMEOUT=1
+
 export LANG=en_US.UTF-8
 export LC_CTYPE=en_US.UTF-8
 export DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/bus
 export XDG_RUNTIME_DIR=/run/user/1000
 export MANPAGER='nvim +Man!'
+
+asdf

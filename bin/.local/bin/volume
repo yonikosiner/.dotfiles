@@ -1,11 +1,17 @@
 #!/usr/bin/env bash
+
 MUTEVOL=$(pactl get-sink-mute @DEFAULT_SINK@ | xargs | sed 's/Mute://g' | awk '{print $1}')
+VOL=$(pactl list sinks | perl -000ne 'if(/#1/){/(Volume:.*)/; print "$1\n"}' | awk '{print $5}')
 
 if [[ $MUTEVOL == "yes" ]];
 then
-    vol=$(pactl list sinks | perl -000ne 'if(/#1/){/(Volume:.*)/; print "$1\n"}' | awk '{print $5}')
-    echo "Muted at" $vol "volume"
+    echo "🔇 " $VOL
 else
-    pactl list sinks | perl -000ne 'if(/#1/){/(Volume:.*)/; print "$1\n"}' | awk '{print $5}'
+    if [[ $VOL > 45 ]];
+    then
+        echo "🔊 " $VOL
+    else
+        echo "🔉 " $VOL
+    fi
 fi
 

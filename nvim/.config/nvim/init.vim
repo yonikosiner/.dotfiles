@@ -204,12 +204,18 @@ vnoremap > >gv
 noremap <Leader>o o<Esc>^Da
 nnoremap <Leader>O O<Esc>^Da
 
-nnoremap <Right> :BufferLineCycleNext<CR>
-nnoremap <Left> :BufferLineCyclePrev<CR>
+"Switch between tabs
+nnoremap <Tab> gt
+nnoremap <S-Tab> gT
 
-lua << EOF
-    require("bufferline").setup{}
-EOF
+nnoremap <leader>c :lua require("yoni.count").main()<CR>
+
+"nnoremap <Right> :BufferLineCycleNext<CR>
+"nnoremap <Left> :BufferLineCyclePrev<CR>
+
+"lua << EOF
+"require("bufferline").setup{}
+"EOF
 
 augroup highlight_yank
     autocmd!
@@ -220,4 +226,5 @@ augroup YONI
     autocmd!
     autocmd BufWritePre * %s/\s\+$//e
     autocmd BufEnter,BufWinEnter,TabEnter *.rs :lua require'lsp_extensions'.inlay_hints{}
+    autocmd BufWritePre * :lua require("yoni.count").on_write()
 augroup END

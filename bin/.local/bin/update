@@ -8,13 +8,7 @@ Check your internet connection, if pacman is already running, or run update manu
 if pacman -Qu | grep -v "\[ignored\]"
 then
     count=$(~/.local/bin/packageToBeUpgraded)
-    #count= 1
-    #if [[ count < 1 ]];
-    #then
-        #notify-send "Repository Sync" "$count package to be upgraded"
-    #else
-        notify-send "Repository Sync" "$count packages to be upgraded"
-    fi
+    notify-send "Repository Sync" "$count packages to be upgraded"
 else
 	notify-send "Repository Sync"  "Sync complete. No new packages for update."
 fi

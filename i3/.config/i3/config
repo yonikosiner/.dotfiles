@@ -9,8 +9,8 @@
 #
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
 
-set $inner_gaps 5
-set $outer_gaps 5
+set $inner_gaps 0
+set $outer_gaps 0
 set $mod Mod1
 
 # Font for window titles. Will also be used by the bar unless a different font
@@ -198,7 +198,6 @@ bindsym XF86MonBrightnessDown exec light -U 10
 #bindsym $mod+Shift+period exec systemctl suspend
 
 # Open apps
-bindsym $mod+shift+f			exec $term -e nnn
 bindsym Mod4+shift+f			exec /usr/bin/dolphin
 bindsym $mod+shift+w			exec --no-startup-id /usr/bin/brave
 bindsym $mod+Shift+g		    exec --no-startup-id /usr/bin/gimp; workspace $ws6
