@@ -3,6 +3,8 @@ alias asdf="setxkbmap -layout real-prog-dvorak"
 alias lkj="setxkbmap us real-prog-dvorak"
 alias snth="setxkbmap us"
 
+alias cat="bat"
+
 alias caps="xdotool key Caps_Lock"
 
 alias n="exa --icons"

@@ -69,7 +69,7 @@ export ZSH="/home/yoni/.oh-my-zsh"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git zsh-autosuggestions)
+plugins=(git zsh-autosuggestions command-time)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -100,3 +100,14 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 export VK_ICD_FILENAMES=/usr/share/vulkan/icd.d/nvidia_icd.json
+
+autoload -Uz vcs_info
+zstyle ':vcs_info:*' enable git svn
+# This line obtains information from the vcs.
+zstyle ':vcs_info:git*' formats "%B%{$fg[green]  %b"
+
+precmd() {
+    vcs_info
+}
+
+prompt='[%2/]${vcs_info_msg_0_} %b'
