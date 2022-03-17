@@ -516,6 +516,7 @@ internal = 14
 format-prefix = "🖥 "
 format = <label>gb
 exec = /home/yoni/.local/bin/ramLeft
+click-right = kitty sh -c "btop"
 click-left = kitty sh -c "htop"
 
 [module/upgrade]

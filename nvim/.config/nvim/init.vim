@@ -51,9 +51,9 @@ Plug 'nvim-lua/plenary.nvim'
 
 "Plug 'nvim-telescope/telescope-arecibo.nvim', { rocks = {'openssl', 'lua-http-parser'} }
 
-"Plug 'preservim/nerdtree'
-"Plug 'Xuyuanp/nerdtree-git-plugin'
-"Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+Plug 'preservim/nerdtree'
+Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'nvim-treesitter/playground'
@@ -150,7 +150,7 @@ vmap <C-\> <plug>NERDCommenterToggle
 nmap <C-\> <plug>NERDCommenterToggle
 
 "nnoremap <leader>u :UndotreeToggle<CR>
-nnoremap <leader>pv :Ex<CR>
+nnoremap <leader>pv :NERDTreeToggle<CR>
 " Have some sex on the side gurllll
 nnoremap <leader>ft :Sex!<CR>
 nnoremap <leader><CR> :so ~/.config/nvim/init.vim<CR>

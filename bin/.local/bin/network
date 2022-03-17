@@ -4,7 +4,6 @@ networkName=$(iwgetid -r)
 
 if [[ -z $networkName && ${networkName+x} ]];
 then
-    notify-send "Wi-Fi Not connected" -t 1000 -u low
     echo "Connect to Wi-Fi"
 else
     echo "${networkName}"

@@ -232,7 +232,6 @@ bindsym $mod+Shift+s exec flameshot gui -p ~/Pictures/Captures
 
 # Troll them lads on the internet
 bindsym $mod+Mod4+a exec echo "Ackchyually" | xclip -selection clipboard -i
-
 bindsym $mod+minus exec --no-startup-id ~/.local/bin/GNU+Linux
 
 exec --no-startup-id pulseaduio

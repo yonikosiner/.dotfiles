@@ -81,3 +81,7 @@ commitSchoolWork() {
         popd
     fi
 }
+
+cpuTemp() {
+    sensors | awk '/Core 0/ {print " " $3}' | sed "s/+//g; s/\s//g"
+}

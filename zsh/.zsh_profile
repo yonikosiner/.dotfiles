@@ -10,25 +10,12 @@ for i in `find -L $PERSONAL`; do
     source $i
 done
 
-bindkey -s ^f "tmux-sessionizer\n"
-
 # MacOS stuff
 alias urlS="/System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/LaunchServices.framework/Versions/A/Support/lsregister -dump URLSchemeBinding"
 
 alias iCloud="cd /Users/yonikosiner/Library/Mobile\ Documents/com~apple~CloudDocs"
 
 #[[ $(fgconsole 2>/dev/null) == 1 ]] && exec startx -- vt1
-
-autoload -Uz vcs_info
-zstyle ':vcs_info:*' enable git svn
-# This line obtains information from the vcs.
-zstyle ':vcs_info:git*' formats "%B%{$fg[green]  %b"
-
-precmd() {
-    vcs_info
-}
-
-prompt='[%2/]${vcs_info_msg_0_} %b'
 
 bindkey -v
 export KEYTIMEOUT=1

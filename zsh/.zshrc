@@ -111,3 +111,6 @@ precmd() {
 }
 
 prompt='[%2/]${vcs_info_msg_0_} %b'
+
+bindkey -s ^f "tmux-sessionizer\n"
+bindkey -s ^o "nnn\n"
