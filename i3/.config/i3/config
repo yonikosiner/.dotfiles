@@ -222,7 +222,7 @@ bindsym Mod4+shift+g        exec --no-startup-id ~/.local/bin/picomToggle
 
 bindsym $mod+shift+e exec --no-startup-id ~/.local/bin/editConfig
 
-bindsym $mod+m move workspace to output left
+bindsym $mod+m move workspace to output up
 bindsym $mod+shift+m move workspace to output right
 
 bindsym Mod4+d exec --no-startup-id setxkbmap -layout real-prog-dvorak
