@@ -82,7 +82,7 @@ Plug 'simrat39/symbols-outline.nvim'
 "Plug 'tjdevries/lsp_extensions.nvim'
 "Plug 'dense-analysis/ale'
 
-Plug 'scrooloose/nerdcommenter'
+Plug 'numToStr/Comment.nvim'
 
 "Themes
 Plug 'gruvbox-community/gruvbox'
@@ -104,12 +104,12 @@ call plug#end()
 
 let &runtimepath.=',' . expand("$HOME") . '/personal/Twitch_bot.git/ui'
 
-
 let g:user_emmet_settings = {
   \  'svelte' : {
   \    'extends' : 'html',
   \  },
   \}
+let g:NERDTreeShowHidden=1
 
 lua require("yoni")
 
@@ -145,9 +145,6 @@ fun! SetSpell()
 endfun
 
 nnoremap <leader>sp :call SetSpell()<CR>
-
-vmap <C-\> <plug>NERDCommenterToggle
-nmap <C-\> <plug>NERDCommenterToggle
 
 "nnoremap <leader>u :UndotreeToggle<CR>
 nnoremap <leader>pv :NERDTreeToggle<CR>

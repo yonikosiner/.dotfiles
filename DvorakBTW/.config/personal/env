@@ -85,3 +85,7 @@ commitSchoolWork() {
 cpuTemp() {
     sensors | awk '/Core 0/ {print " " $3}' | sed "s/+//g; s/\s//g"
 }
+
+convertWordToPDF() {
+    pandoc -o $1.pdf -f docx $1.docx
+}

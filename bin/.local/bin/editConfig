@@ -27,7 +27,7 @@ case "$curr" in
  kitty sh -c "nvim ~/.dotfiles/DvorakBTW/.config/personal"
     ;;
 "zsh")
- kitty sh -c "nvim ~/.dotfiles/zsh"
+ kitty sh -c "nvim ~/.dotfiles/zsh/"
     ;;
 *) echo "Unavailable command... $curr"
 esac

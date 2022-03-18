@@ -197,6 +197,7 @@ bindsym XF86MonBrightnessDown exec light -U 10
 #bindsym $mod+Shift+period exec systemctl suspend
 
 # Open apps
+bindsym $mod+shift+f			exec kitty sh -c "nnn"
 bindsym Mod4+shift+f			exec /usr/bin/dolphin
 bindsym $mod+shift+w			exec --no-startup-id /usr/bin/brave
 bindsym $mod+Shift+g		    exec --no-startup-id /usr/bin/gimp; workspace $ws6
@@ -222,7 +223,7 @@ bindsym Mod4+shift+g        exec --no-startup-id ~/.local/bin/picomToggle
 
 bindsym $mod+shift+e exec --no-startup-id ~/.local/bin/editConfig
 
-bindsym $mod+m move workspace to output up
+bindsym $mod+m move workspace to output left
 bindsym $mod+shift+m move workspace to output right
 
 bindsym Mod4+d exec --no-startup-id setxkbmap -layout real-prog-dvorak
