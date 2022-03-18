@@ -14,8 +14,8 @@ call plug#begin('~/.vim/pluged')
 Plug 'github/copilot.vim'
 Plug 'projekt0n/github-nvim-theme'
 
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
+" Plug 'vim-airline/vim-airline'
+" Plug 'vim-airline/vim-airline-themes'
 
 Plug 'kyazdani42/nvim-web-devicons' " Recommended (for coloured icons)
 Plug 'akinsho/bufferline.nvim'
@@ -210,9 +210,9 @@ nnoremap <leader>c :lua require("yoni.count").main()<CR>
 "nnoremap <Right> :BufferLineCycleNext<CR>
 "nnoremap <Left> :BufferLineCyclePrev<CR>
 
-"lua << EOF
-"require("bufferline").setup{}
-"EOF
+" lua << EOF
+    "require("bufferline").setup{}
+" EOF
 
 augroup highlight_yank
     autocmd!

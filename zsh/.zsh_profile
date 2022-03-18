@@ -1,29 +1,14 @@
-export XDG_CONFIG_HOME=$HOME/.config
-VIM="nvim"
-export YONIKOSINER=$HOME/personal/yonikosiner-com.git
-
-export EDITOR="nvim"
-
-PERSONAL=$XDG_CONFIG_HOME/personal
-
-for i in `find -L $PERSONAL`; do
-    source $i
-done
-
-# MacOS stuff
-alias urlS="/System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/LaunchServices.framework/Versions/A/Support/lsregister -dump URLSchemeBinding"
-
-alias iCloud="cd /Users/yonikosiner/Library/Mobile\ Documents/com~apple~CloudDocs"
-
-#[[ $(fgconsole 2>/dev/null) == 1 ]] && exec startx -- vt1
-
-bindkey -v
-export KEYTIMEOUT=1
-
 export LANG=en_US.UTF-8
 export LC_CTYPE=en_US.UTF-8
 export DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/bus
 export XDG_RUNTIME_DIR=/run/user/1000
 export MANPAGER='nvim +Man!'
 
+# Check if two other montiors are connected
+MONTIORS=$(xrandr --query | grep "eDP-1-1" | awk '{print $2}')
+
+if [[ MONTIORS == "connected" ]];
+then
+    xrandr eDP-1-1 --primary --mode 1920x1080 --pos 0x129 --rotate normal
+fi
 asdf

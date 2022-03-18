@@ -1,4 +1,30 @@
-source $HOME/.zsh_profile
+export XDG_CONFIG_HOME=$HOME/.config
+export LANG=en_US.UTF-8
+export LC_CTYPE=en_US.UTF-8
+export DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/bus
+export XDG_RUNTIME_DIR=/run/user/1000
+export MANPAGER='nvim +Man!'
+
+VIM="nvim"
+export YONIKOSINER=$HOME/personal/yonikosiner-com.git
+
+export EDITOR="nvim"
+
+PERSONAL=$XDG_CONFIG_HOME/personal
+
+for i in `find -L $PERSONAL`; do
+    source $i
+done
+
+# MacOS stuff
+alias urlS="/System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/LaunchServices.framework/Versions/A/Support/lsregister -dump URLSchemeBinding"
+
+alias iCloud="cd /Users/yonikosiner/Library/Mobile\ Documents/com~apple~CloudDocs"
+
+#[[ $(fgconsole 2>/dev/null) == 1 ]] && exec startx -- vt1
+
+bindkey -v
+export KEYTIMEOUT=1
 
 # Path to your oh-my-zsh installation.
 export ZSH="/home/yoni/.oh-my-zsh"
@@ -114,3 +140,4 @@ prompt='[%2/]${vcs_info_msg_0_} %b'
 
 bindkey -s ^f "tmux-sessionizer\n"
 bindkey -s ^o "nnn\n"
+

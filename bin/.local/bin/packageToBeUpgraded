@@ -1,3 +1,10 @@
 #!/usr/bin/env bash
 
-pacman -Qu | wc -l
+count=$(pacman -Qu | wc -l)
+
+if [[ $count < 0 ]]
+then
+    echo ""
+else
+    echo "📦 $count"
+fi

@@ -522,7 +522,6 @@ click-left = kitty sh -c "htop"
 [module/upgrade]
 type = custom/script
 internal = 14
-format-prefix = "⬆️ "
 format = <label>
 exec = ~/.local/bin/packageToBeUpgraded
 click-left = kitty sh -c "sudo pacman -Syyu"

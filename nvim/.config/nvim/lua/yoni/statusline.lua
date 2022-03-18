@@ -1,122 +1,110 @@
---local Worktree = require("git-worktree")
---local path = require("plenary.path").path
+local M = {}
 
---local write_count = 0
---local git_branch = ""
---local status_line = ""
+local write_count = 0
 
---local last_name = nil
---local last_name_results = nil
+M.get_file_name = function()
+    local name = vim.api.nvim_buf_get_name(0)
 
---local function constrain_string(line, max_len, cut_on_end)
-    --if #line <= max_len then
-        --return line
-    --end
+    if not name or name == "" then
+        return "(no name)"
+    end
 
-    --if cut_on_end then
-        --return line:sub(max_len - 3) .. "..."
-    --end
-    --return "..." .. line:sub(max_len - 3)
---end
+    local path = vim.fn.fnamemodify(name, ":p")
+    local new_name = vim.fn.fnamemodify(path, ":t")
 
---local function split(inputstr, sep)
-    --if sep == nil then
-        --sep = "%s"
-    --end
+    return new_name
+end
 
-    --local t = {}
-    --for str in string.gmatch(inputstr, "([^"..sep.."]+)") do
-        --table.insert(t, str)
-    --end
-    --return t
---end
+M.get_git_branch = function()
+    git_branch = vim.fn["fugitive#head"]()
 
---local function get_file_name()
-    --local name = vim.fn.bufname(0)
+    if not git_branch or git_branch == "" then
+        git_branch = "(no git)"
+    end
 
-    --if not name or name == "" then
-        --return "(no name)"
-    --end
-    --local name_parts = split(name, path.sep)
-    --local name_results = {}
-    --for idx = 1, #name_parts - 1 do
-        --table.insert(name_results, name_parts[idx]:sub(1, 1))
-        --table.insert(name_results, path.sep)
-    --end
-    --table.insert(name_results, name_parts[#name_parts])
-    --last_name_results = table.concat(name_results)
-    --return last_name_results
---end
+    git_branch = " " .. git_branch
 
---local function get_git_info(force)
+    return git_branch
+end
 
-    --if force or not git_branch or git_branch == "" then
-        --git_branch = vim.fn["fugitive#head"]()
-        --if not git_branch or git_branch == "" then
-            --git_branch = '(no git)'
-        --end
-        --git_branch = constrain_string(git_branch, 14)
-    --end
+M.get_line_info = function()
+    local line = vim.fn.line(".")
+    local offset = vim.fn.col(".")
 
-    --return git_branch
---end
+    return string.format("%d:%d", line, offset)
+end
 
---local function lsp_info()
+M.get_mode = function()
+    -- Get the current mode
+    local mode = vim.fn.mode()
 
-    --local warnings = vim.lsp.diagnostic.get_count(0, "Warning")
-    --local errors = vim.lsp.diagnostic.get_count(0, "Error")
-    --local hints = vim.lsp.diagnostic.get_count(0, "Hint")
+    -- I feel sick with this
+    if mode == "n" then
+        mode = "NORMAL"
+    elseif mode == "i" then
+        mode = "INSERT"
+    elseif mode == "v" then
+        mode = "VISUAL"
+    elseif mode == "s" then
+        mode = "SELECT"
+    elseif mode == "S" then
+        mode = "SELECT"
+    elseif mode == "R" then
+        mode = "REPLACE"
+    elseif mode == "Rv" then
+        mode = "REPLACE"
+    elseif mode == "c" then
+        mode = "COMMAND"
+    elseif mode == "cv" then
+        mode = "COMMAND"
+    elseif mode == "t" then
+        mode = "TERMINAL"
+    elseif mode == "V" then
+        mode = "VISUAL"
+    elseif mode == "g" then
+        mode = "GOTO"
+    elseif mode == "r" then
+        mode = "REPLACE"
+    end
 
-    --return string.format("LSP: H %d W %d E %d", hints, warnings, errors)
---end
+    return mode
+end
 
---local function harpoon_status()
-    --local status = require("harpoon.mark").status()
-    --if status == "" then
-        --status = "N"
-    --end
+M.get_filetype = function()
+  local file_name, file_ext = vim.fn.expand("%:t"), vim.fn.expand("%:e")
+  local icon = require'nvim-web-devicons'.get_icon(file_name, file_ext, { default = true })
+  local filetype = vim.bo.filetype
 
-    --return string.format("H:%s", status)
---end
+  if filetype == '' then return '' end
+  return string.format(' %s %s ', icon, filetype):lower()
+end
 
---Worktree.on_tree_change(function(op)
-    --if op == Worktree.Operations.Switch then
-        --get_git_info(true)
-    --end
---end)
+M.on_write = function()
+    write_count = write_count + 1
+end
 
---local statusline = "%%-4.4(%d%%)%%-15.23(%s%%)|%%-14.14(%s%%)%%-20.20(%s%%)%%-6.6(%s%%)%%-30.70(%s%%)"
---function StatusLine()
-    --return string.format(statusline,
-        --write_count,
-        --constrain_string(get_file_name(), 23, false),
-        --get_git_info(),
-        --lsp_info(),
-        --harpoon_status(),
-        --status_line)
---end
+M.get_write_count = function()
+    return write_count
+end
 
---vim.o.statusline = '%!v:lua.StatusLine()'
+local statusline = "%%-4.4(%d%%)%%-15.23(%s%%)|%%-14.14(%s%%)%%-20.20(%s%%)%%-6.6(%s%%)%%-30.70(%s%%)"
+function StatusLine()
+    return string.format(statusline,
+    M.get_mode(),
+    M.get_write_count(),
+    M.get_file_name(),
+    M.get_filetype(),
+    M.get_git_branch(),
+    status_line)
+end
 
---local M = {}
+vim.o.statusline = '%!v:lua.StatusLine()'
 
---M.on_write = function()
-    --write_count = write_count + 1
---end
+vim.api.nvim_exec([[
+augroup YONI_STATUSLINE
+    autocmd!
+    autocmd BufWritePre * :lua require("yoni.statusline").on_write()
+augroup END
+ ]], false)
 
---M.set_write = function(count)
-    --write_count = count
---end
-
---M.set_status = function(line)
-    --status_line = line
---end
-
---vim.api.nvim_exec([[
---augroup YONI_STATUSLINE
-    --autocmd!
-    --autocmd BufWritePre * :lua require("yoni.statusline").on_write()
---augroup END
- --]], false)
-
---return M
+return M
