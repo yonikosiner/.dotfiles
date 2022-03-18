@@ -1,6 +1,7 @@
 local M = {}
 
 local write_count = 0
+local git_branch = "git"
 
 M.get_file_name = function()
     local name = vim.api.nvim_buf_get_name(0)
@@ -9,8 +10,7 @@ M.get_file_name = function()
         return "(no name)"
     end
 
-    local path = vim.fn.fnamemodify(name, ":p")
-    local new_name = vim.fn.fnamemodify(path, ":t")
+    local new_name = name:gsub("^/home/yoni/", "")
 
     return new_name
 end
@@ -38,33 +38,24 @@ M.get_mode = function()
     -- Get the current mode
     local mode = vim.fn.mode()
 
-    -- I feel sick with this
-    if mode == "n" then
-        mode = "NORMAL"
-    elseif mode == "i" then
-        mode = "INSERT"
-    elseif mode == "v" then
-        mode = "VISUAL"
-    elseif mode == "s" then
-        mode = "SELECT"
-    elseif mode == "S" then
-        mode = "SELECT"
-    elseif mode == "R" then
-        mode = "REPLACE"
-    elseif mode == "Rv" then
-        mode = "REPLACE"
-    elseif mode == "c" then
-        mode = "COMMAND"
-    elseif mode == "cv" then
-        mode = "COMMAND"
-    elseif mode == "t" then
-        mode = "TERMINAL"
-    elseif mode == "V" then
-        mode = "VISUAL"
-    elseif mode == "g" then
-        mode = "GOTO"
-    elseif mode == "r" then
-        mode = "REPLACE"
+    local mode_table = {
+        ["n"] = "normal",
+        ["i"] = "insert",
+        ["v"] = "visual",
+        ["s"] = "select",
+        ["S"] = "select",
+        ["R"] = "replace",
+        ["Rv"] = "replace",
+        ["c"] = "command",
+        ["cv"] = "command",
+        ["t"] = "terminal",
+        ["V"] = "visual",
+        ["g"] = "goto",
+        ["r"] = "replace",
+    }
+
+    if mode_table[mode] then
+        mode = mode_table[mode]
     end
 
     return mode
@@ -87,18 +78,21 @@ M.get_write_count = function()
     return write_count
 end
 
-local statusline = "%%-4.4(%d%%)%%-15.23(%s%%)|%%-14.14(%s%%)%%-20.20(%s%%)%%-6.6(%s%%)%%-30.70(%s%%)"
-function StatusLine()
+-- local statusline = "%s%%-15.23(%s%%)|%%-14.14(%s%%) %s %s %s %s"
+local statusline = "%s%%  | %s%%) | %%-5.1000(%s%%) | %%-1.1(%s%%) |%%-5.9(%s%%)%%-6.6 | %s%%)"
+
+M.StatusLine = function()
     return string.format(statusline,
     M.get_mode(),
-    M.get_write_count(),
-    M.get_file_name(),
-    M.get_filetype(),
     M.get_git_branch(),
+    M.get_file_name(),
+    M.get_write_count(),
+    M.get_filetype(),
+    M.get_line_info(),
     status_line)
 end
 
-vim.o.statusline = '%!v:lua.StatusLine()'
+vim.o.statusline = '%!v:lua.require("yoni.statusline").StatusLine()'
 
 vim.api.nvim_exec([[
 augroup YONI_STATUSLINE
