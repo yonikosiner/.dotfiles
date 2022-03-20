@@ -14,6 +14,8 @@ alias mpv="devour mpv"
 alias eog="devour eog"
 
 alias e="vim"
+alias v="vim"
+alias vi="vim"
 
 alias anime="~/Documents/Apps/ani-cli/ani-cli"
 

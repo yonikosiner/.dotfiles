@@ -1,7 +1,6 @@
 local dap_install = require("dap-install")
 dap_install.config("chrome", {})
 
-
 local dap = require("dap");
 dap.configurations.typescriptreact = { -- change to typescript if needed
     {
