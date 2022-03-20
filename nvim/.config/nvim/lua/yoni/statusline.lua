@@ -2,6 +2,7 @@ local M = {}
 
 local write_count = 0
 local git_branch = "git"
+local status_line = ""
 
 M.get_file_name = function()
     local name = vim.api.nvim_buf_get_name(0)
@@ -39,19 +40,19 @@ M.get_mode = function()
     local mode = vim.fn.mode()
 
     local mode_table = {
-        ["n"] = "normal",
-        ["i"] = "insert",
-        ["v"] = "visual",
-        ["s"] = "select",
-        ["S"] = "select",
-        ["R"] = "replace",
-        ["Rv"] = "replace",
-        ["c"] = "command",
-        ["cv"] = "command",
-        ["t"] = "terminal",
-        ["V"] = "visual",
-        ["g"] = "goto",
-        ["r"] = "replace",
+        ["n"] = "Normal",
+        ["i"] = "Insert",
+        ["v"] = "Visual",
+        ["s"] = "Select",
+        ["S"] = "Select",
+        ["R"] = "Replace",
+        ["Rv"] = "Replace",
+        ["c"] = "Command",
+        ["cv"] = "Command",
+        ["t"] = "Terminal",
+        ["V"] = "Visual",
+        ["g"] = "Goto",
+        ["r"] = "Replace",
     }
 
     if mode_table[mode] then
@@ -66,27 +67,22 @@ M.get_filetype = function()
   local icon = require'nvim-web-devicons'.get_icon(file_name, file_ext, { default = true })
   local filetype = vim.bo.filetype
 
-  if filetype == '' then return '' end
-  return string.format(' %s %s ', icon, filetype):lower()
+  if filetype == '' then return "(no filetype)" end
+  return string.format("%s %s", icon, filetype):lower()
 end
 
 M.on_write = function()
     write_count = write_count + 1
 end
 
-M.get_write_count = function()
-    return write_count
-end
-
--- local statusline = "%s%%-15.23(%s%%)|%%-14.14(%s%%) %s %s %s %s"
-local statusline = "%s%%  | %s%%) | %%-5.1000(%s%%) | %%-1.1(%s%%) |%%-5.9(%s%%)%%-6.6 | %s%%)"
+local statusline = "%s%%  | %s%%) | %%-5.1000(%s%%) | %%-1.2(%d%%) |%%-5.20(%s%%)%%-6.6 | %s%%) | %s%%)"
 
 M.StatusLine = function()
     return string.format(statusline,
     M.get_mode(),
     M.get_git_branch(),
     M.get_file_name(),
-    M.get_write_count(),
+    write_count,
     M.get_filetype(),
     M.get_line_info(),
     status_line)
@@ -100,5 +96,9 @@ augroup YONI_STATUSLINE
     autocmd BufWritePre * :lua require("yoni.statusline").on_write()
 augroup END
  ]], false)
+
+ M.set_status = function(line)
+     status_line = line
+ end
 
 return M

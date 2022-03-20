@@ -21,3 +21,6 @@ nnoremap <leader>gc :Telescope git_commits<CR>
 
 nnoremap <leader>gw :lua require('telescope').extensions.git_worktree.git_worktrees({ layout_config = { width = 0.5, height = 0.5 }})<CR>
 nnoremap <leader>gm :lua require('telescope').extensions.git_worktree.create_git_worktree({ layout_config = { width = 0.5, height = 0.5 }})<CR>
+
+nnoremap <leader>td :lua require('yoni.telescope').todo()<CR>
+nnoremap <leader>ls :lua require('yoni.telescope').lua_test()<CR>

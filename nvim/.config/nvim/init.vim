@@ -14,7 +14,6 @@ call plug#begin('~/.vim/pluged')
 Plug 'github/copilot.vim'
 Plug 'projekt0n/github-nvim-theme'
 
-" Plug 'vim-airline/vim-airline'
 " Plug 'vim-airline/vim-airline-themes'
 
 Plug 'kyazdani42/nvim-web-devicons' " Recommended (for coloured icons)
@@ -103,13 +102,17 @@ Plug 'ThePrimeagen/harpoon'
 call plug#end()
 
 let &runtimepath.=',' . expand("$HOME") . '/personal/Twitch_bot.git/ui'
+let &runtimepath.=',' . expand("$HOME") . '/personal/todo-me-daddy'
 
-let g:user_emmet_settings = {
-  \  'svelte' : {
-  \    'extends' : 'html',
-  \  },
-  \}
+" let g:user_emmet_settings = {
+"   \  'svelte' : {
+"   \    'extends' : 'html',
+"   \  },
+"   \}
+
 let g:NERDTreeShowHidden=1
+let NERDTreeMinimalUI = 1
+let NERDTreeDirArrows = 1
 
 lua require("yoni")
 
@@ -205,13 +208,11 @@ nnoremap <Leader>O O<Esc>^Da
 nnoremap <Tab> gt
 nnoremap <S-Tab> gT
 
-nnoremap <leader>c :lua require("yoni.count").main()<CR>
-
 "nnoremap <Right> :BufferLineCycleNext<CR>
 "nnoremap <Left> :BufferLineCyclePrev<CR>
 
 " lua << EOF
-    "require("bufferline").setup{}
+    " require("bufferline").setup{}
 " EOF
 
 augroup highlight_yank
@@ -223,5 +224,4 @@ augroup YONI
     autocmd!
     autocmd BufWritePre * %s/\s\+$//e
     autocmd BufEnter,BufWinEnter,TabEnter *.rs :lua require'lsp_extensions'.inlay_hints{}
-    autocmd BufWritePre * :lua require("yoni.count").on_write()
 augroup END
