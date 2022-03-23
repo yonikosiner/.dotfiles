@@ -1,4 +1,5 @@
-setxkbmap -option caps:escape
+# Set the caps key to caps lock, as it is easier to hit on my kinesis
+setxkbmap -option caps:super
 #tmux-start-zsh
 
 TODO() {

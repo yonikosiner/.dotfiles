@@ -241,4 +241,5 @@ bindsym $mod+minus exec --no-startup-id ~/.local/bin/GNU+Linux
 exec --no-startup-id pulseaduio
 exec --no-startup-id dunst
 exec --no-startup-id ~/.fehbg
-exec --no-startup-id picom --fade-in-step=1 --fade-out-step=1 --fade-delta=0 &
+exec --no-startup-id picom --fade-in-step=1 --fade-out-step=1 --fade-delta=0 --inactive-opacity=1
+exec --no-startup-id ~/.local/bin/screen.sh

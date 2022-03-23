@@ -11,7 +11,7 @@ M.get_file_name = function()
         return "(no name)"
     end
 
-    local new_name = name:gsub("^/home/yoni/", "")
+    local new_name = name:gsub("^/home/yoni/", "~/")
 
     return new_name
 end
@@ -21,6 +21,7 @@ M.get_git_branch = function()
 
     if not git_branch or git_branch == "" then
         git_branch = "(no git)"
+        return git_branch
     end
 
     git_branch = " " .. git_branch
@@ -36,7 +37,6 @@ M.get_line_info = function()
 end
 
 M.get_mode = function()
-    -- Get the current mode
     local mode = vim.fn.mode()
 
     local mode_table = {
@@ -68,7 +68,7 @@ M.get_filetype = function()
   local filetype = vim.bo.filetype
 
   if filetype == '' then return "(no filetype)" end
-  return string.format("%s %s", icon, filetype):lower()
+  return string.format(" %s %s ", icon, filetype):lower()
 end
 
 M.on_write = function()

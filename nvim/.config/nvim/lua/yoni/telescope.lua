@@ -206,30 +206,6 @@ M.refactors = function()
     }):find()
 end
 
-local function todo(prompt_bufnr)
-    local content = require("telescope.actions.state").get_selected_entry(
-        prompt_bufnr
-    )
-
-    require("telescope.actions").close(prompt_bufnr)
-    require("todo-me-daddy").jump_to_todo(content.value)
-end
-
-M.todo = function()
-    require("telescope.pickers").new({}, {
-        prompt_title = "TODO's",
-        finder = require("telescope.finders").new_table({
-            results = require("todo-me-daddy").get_todo(),
-        }),
-        sorter = require("telescope.config").values.generic_sorter({}),
-        attach_mappings = function(_, map)
-            map("i", "<CR>", todo)
-            map("n", "<CR>", todo)
-            return true
-        end,
-    }):find()
-end
-
 function M.reload_modules()
 	local lua_dirs = vim.fn.glob("./lua/*", 0, 1)
 	for _, dir in ipairs(lua_dirs) do

@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+
+# Install neovim
+git clone https://github.com/neovim/neovim
+cd neovim
+make
+sudo make install
+cd ..
+
+# Install vim-plug
+curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+
+# Install vim plugins
+nvim +PlugInstall +qall
+
+# Install some packages
+sudo pacman -S i3 tmux nnn kitty zsh
+
+# Install oh-my-zsh
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+
+sudo pacman -S npm
+sudo npm i -g typescript-language-server typescript

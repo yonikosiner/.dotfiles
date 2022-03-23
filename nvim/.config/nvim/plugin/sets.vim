@@ -1,5 +1,7 @@
 set termguicolors
 
+set laststatus=3
+
 set nu
 set relativenumber
 

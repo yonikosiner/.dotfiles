@@ -14,8 +14,6 @@ call plug#begin('~/.vim/pluged')
 Plug 'github/copilot.vim'
 Plug 'projekt0n/github-nvim-theme'
 
-" Plug 'vim-airline/vim-airline-themes'
-
 Plug 'kyazdani42/nvim-web-devicons' " Recommended (for coloured icons)
 Plug 'akinsho/bufferline.nvim'
 
@@ -50,17 +48,12 @@ Plug 'nvim-lua/plenary.nvim'
 
 "Plug 'nvim-telescope/telescope-arecibo.nvim', { rocks = {'openssl', 'lua-http-parser'} }
 
-Plug 'preservim/nerdtree'
+" Plug 'preservim/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'nvim-treesitter/playground'
-
-"Icons
-"Plug 'kyazdani42/nvim-web-devicons'
-"Plug 'ryanoasis/vim-devicons'
-
 "Git
 Plug 'tpope/vim-fugitive'
 Plug 'ThePrimeagen/git-worktree.nvim'
@@ -73,13 +66,6 @@ Plug 'hrsh7th/nvim-cmp'
 Plug 'hrsh7th/cmp-path'
 Plug 'hrsh7th/cmp-nvim-lua'
 Plug 'simrat39/symbols-outline.nvim'
-
-"Plug 'hrsh7th/nvim-compe'
-"Plug 'nvim-lua/completion-nvim'
-"Plug 'glepnir/lspsaga.nvim'
-"Plug 'tjdevries/nlua.nvim'
-"Plug 'tjdevries/lsp_extensions.nvim'
-"Plug 'dense-analysis/ale'
 
 Plug 'numToStr/Comment.nvim'
 
@@ -104,15 +90,9 @@ call plug#end()
 let &runtimepath.=',' . expand("$HOME") . '/personal/Twitch_bot.git/ui'
 let &runtimepath.=',' . expand("$HOME") . '/personal/todo-me-daddy'
 
-" let g:user_emmet_settings = {
-"   \  'svelte' : {
-"   \    'extends' : 'html',
-"   \  },
-"   \}
-
-let g:NERDTreeShowHidden=1
-let NERDTreeMinimalUI = 1
-let NERDTreeDirArrows = 1
+" let g:NERDTreeShowHidden=1
+" let NERDTreeMinimalUI = 1
+" let NERDTreeDirArrows = 1
 
 lua require("yoni")
 
@@ -127,17 +107,6 @@ nnoremap <silent> <C-f> :silent !tmux neww tmux-sessionizer<CR>
 nnoremap <leader>s :%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>
 nnoremap <leader>ch :!chmod +x %<CR>
 
-"For when reading docs turn of numbers
-fun! ReadingDocs()
-    if &number
-        :set norelativenumber
-        :set nonumber
-    else
-        :set relativenumber
-        :set number
-    endif
-endfun
-
 "Toggle spelling on and off with one keybind
 fun! SetSpell()
     if &spell
@@ -149,8 +118,8 @@ endfun
 
 nnoremap <leader>sp :call SetSpell()<CR>
 
-"nnoremap <leader>u :UndotreeToggle<CR>
-nnoremap <leader>pv :NERDTreeToggle<CR>
+nnoremap <leader>u :UndotreeToggle<CR>
+nnoremap <leader>pv :Ex<CR>
 " Have some sex on the side gurllll
 nnoremap <leader>ft :Sex!<CR>
 nnoremap <leader><CR> :so ~/.config/nvim/init.vim<CR>
@@ -203,6 +172,8 @@ vnoremap > >gv
 
 noremap <Leader>o o<Esc>^Da
 nnoremap <Leader>O O<Esc>^Da
+
+nnoremap <leader>m :lua require("todo-me-daddy").complete_markdown_todo()<CR>
 
 "Switch between tabs
 nnoremap <Tab> gt

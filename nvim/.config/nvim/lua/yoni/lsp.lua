@@ -1,7 +1,7 @@
 local sumneko_root_path = "/home/yoni/lua-language-server"
 local sumneko_binary = sumneko_root_path .. "/bin/lua-language-server"
 
--- Setup nvim-cmp.
+-- cetup nvim-cmp.
 local cmp = require'cmp'
 
 cmp.setup({

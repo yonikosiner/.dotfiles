@@ -4,11 +4,4 @@ export DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/bus
 export XDG_RUNTIME_DIR=/run/user/1000
 export MANPAGER='nvim +Man!'
 
-# Check if two other montiors are connected
-MONTIORS=$(xrandr --query | grep "eDP-1-1" | awk '{print $2}')
-
-if [[ MONTIORS == "connected" ]];
-then
-    xrandr eDP-1-1 --primary --mode 1920x1080 --pos 0x129 --rotate normal
-fi
-asdf
+xrandr eDP-1-1 --primary --mode 1920x1080 --pos 0x129 --rotate normal
