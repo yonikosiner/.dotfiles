@@ -20,6 +20,7 @@ done
 alias urlS="/System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/LaunchServices.framework/Versions/A/Support/lsregister -dump URLSchemeBinding"
 
 alias iCloud="cd /Users/yonikosiner/Library/Mobile\ Documents/com~apple~CloudDocs"
+autoload -U colors && colors
 
 #[[ $(fgconsole 2>/dev/null) == 1 ]] && exec startx -- vt1
 
@@ -30,7 +31,8 @@ export ZSH="/home/yoni/.oh-my-zsh"
 # ZSH_THEME="robbyrussell"
 CASE_SENSITIVE="true"
 DISABLE_LS_COLORS="false"
-plugins=(git zsh-autosuggestions command-time)
+# plugins=(git zsh-autosuggestions command-time)
+plugins=(git command-time)
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
@@ -63,14 +65,13 @@ export VK_ICD_FILENAMES=/usr/share/vulkan/icd.d/nvidia_icd.json
 
 autoload -Uz vcs_info
 zstyle ':vcs_info:*' enable git svn
-# This line obtains information from the vcs.
-zstyle ':vcs_info:git*' formats "%B%{$fg[green]  %b"
+zstyle ':vcs_info:git*' formats " %%B%{$fg[yellow]λ %%B%{$fg[green]%b"
 
 precmd() {
     vcs_info
 }
 
-prompt='[%2/]${vcs_info_msg_0_} %b'
+PS1='%B$fg[magenta]%~%]${vcs_info_msg_0_}'$'\n'"$fg[green]$ %b"
 
 bindkey -s ^f "tmux-sessionizer\n"
 bindkey -s ^o "nnn\n"

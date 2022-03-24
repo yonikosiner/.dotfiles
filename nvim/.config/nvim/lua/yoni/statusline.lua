@@ -24,7 +24,7 @@ M.get_git_branch = function()
         return git_branch
     end
 
-    git_branch = " " .. git_branch
+    git_branch = "λ " .. git_branch
 
     return git_branch
 end
