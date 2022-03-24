@@ -1,7 +1,15 @@
 local actions = require('telescope.actions')
+local themes = require('telescope.themes')
+
+function delete_file(file)
+    if not file then return end
+    if not vim.fn.empty(file) then
+        vim.fn.system(string.format('rm %s', file))
+    end
+end
 
 require('telescope').setup {
-    defaults = {
+    defaults=themes.get_ivy({
         file_sorter = require('telescope.sorters').get_fzy_sorter,
         prompt_prefix = ' > ',
         color_devicons = true,
@@ -18,41 +26,54 @@ require('telescope').setup {
                 ["<C-q>"] = actions.send_to_qflist,
             },
         }
-    },
+    }),
     extensions = {
+        media_files = {
+            -- filetypes whitelist
+            -- defaults to {"png", "jpg", "mp4", "webm", "pdf"}
+            filetypes = {"png", "webp", "jpg", "jpeg"},
+            find_cmd = "rg" -- find command (defaults to `fd`)
+        },
         fzy_native = {
             override_generic_sorter = false,
             override_file_sorter = true,
         },
-      arecibo = {
-        ["selected_engine"]   = 'google',
-        ["url_open_command"]  = 'xdg-open',
-        ["show_http_headers"] = false,
-        ["show_domain_icons"] = false,
-      },
    },
 
    pickers = {
+       grep_previewer = {
+           theme = "ivy",
+       },
+       grep_string = {
+           theme = "ivy",
+       },
        find_files = {
-           layout_config = {
-               width = 0.9,
-               height = 0.9,
+           theme = "ivy",
+       },
+       file_browser = {
+           theme = "ivy",
+       },
+       git_files = {
+           theme = "ivy",
+       },
 
-               horizontal = {
-                   width = { padding = 0.100 },
-               },
-               vertical = {
-                   preview_height = 0.75,
-               },
+       buffers = {
+           sort_mru = true,
+           theme = "ivy",
+           mappings = {
+               i = { ["<c-d>"] = actions.delete_buffer },
            },
-       }
+       },
+       lsp_references = { path_display = { "shorten" } },
+       lsp_document_symbols = { path_display = { "hidden" } },
+       lsp_workspace_symbols = { path_display = { "shorten" } },
+       lsp_code_actions = { theme = "ivy" },
    },
-
 }
 
 require("telescope").load_extension("git_worktree")
 require('telescope').load_extension('fzy_native')
---require('telescope').load_extension("arecibo")
+require('telescope').load_extension('media_files')
 
 local M = {}
 M.search_dotfiles = function()

@@ -11,8 +11,12 @@ set wildignore+=**/node_modules/*
 set wildignore+=**/.git/*
 
 call plug#begin('~/.vim/pluged')
+Plug 'nvim-telescope/telescope-media-files.nvim'
+
 Plug 'github/copilot.vim'
 Plug 'projekt0n/github-nvim-theme'
+
+Plug 'romgrk/nvim-treesitter-context'
 
 Plug 'kyazdani42/nvim-web-devicons' " Recommended (for coloured icons)
 Plug 'akinsho/bufferline.nvim'

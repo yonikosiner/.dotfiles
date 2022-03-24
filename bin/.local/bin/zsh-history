@@ -1,5 +1,5 @@
-items=`cat ~/.zsh_history | fzf`
+#!/usr/bin/env bash
 
-items | awk -F ';' '{print $1}'
-
-$items
+items=`cat ~/.zsh_history`
+command=$(echo $items | sed 's/;/\n/g' | sed 's/:.*//g' | sort -r | fzf)
+eval $command
