@@ -7,6 +7,7 @@ export MANPAGER='nvim +Man!'
 
 VIM="nvim"
 export YONIKOSINER=$HOME/personal/yonikosiner-com.git
+export TODO_ME_DADDY=$HOME/personal/todo-me-daddy/
 
 export EDITOR="nvim"
 
@@ -71,7 +72,7 @@ precmd() {
     vcs_info
 }
 
-PS1='%B$fg[magenta]%~%]${vcs_info_msg_0_}'$'\n'"$fg[green]$ %b"
+PS1='%B$fg[magenta]%~%]${vcs_info_msg_0_}'$'\n'"$fg[green]➔ %b"
 
 bindkey -s ^f "tmux-sessionizer\n"
 bindkey -s ^o "nnn\n"

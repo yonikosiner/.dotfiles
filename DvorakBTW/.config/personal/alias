@@ -3,6 +3,8 @@ alias asdf="setxkbmap -layout real-prog-dvorak"
 alias lkj="setxkbmap us real-prog-dvorak"
 alias snth="setxkbmap us"
 
+alias ashersPi="ssh pi@192.168.1.195"
+
 alias cat="bat --theme gruvbox-dark"
 
 alias caps="xdotool key Caps_Lock"

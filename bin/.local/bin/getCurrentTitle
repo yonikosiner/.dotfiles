@@ -1,10 +1,9 @@
 #!/usr/bin/env bash
 
-title=$(xdotool getactivewindow getwindowname)
+title=$(xdotool getactivewindow getwindowname 2>/dev/null)
 
-# If error is thrown, then the title is not a number
-if [[ -z $title ]]; then
-    echo "desktop"
+if [ $? -eq 1 ]; then
+    echo "Desktop"
 else
-    echo $title
+    echo "$title"
 fi

@@ -92,7 +92,7 @@ Plug 'ThePrimeagen/harpoon'
 call plug#end()
 
 let &runtimepath.=',' . expand("$HOME") . '/personal/Twitch_bot.git/ui'
-let &runtimepath.=',' . expand("$HOME") . '/personal/todo-me-daddy'
+let &runtimepath.=',' . expand("$HOME") . '/personal/todo-me-daddy/clean-me-daddy'
 
 " let g:NERDTreeShowHidden=1
 " let NERDTreeMinimalUI = 1
