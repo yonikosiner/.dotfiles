@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+networkName=$(iwgetid -r)
+
+if [[ -z $networkName && ${networkName+x} ]];
+then
+    return false
+else
+    return true
+fi
