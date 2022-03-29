@@ -1,3 +1,8 @@
+vim.cmd([[
+set completeopt=menu,noinsert,noselect
+let g:completion_matching_strategy_list = ['exact', 'substring', 'fuzzy']
+]])
+
 local sumneko_root_path = "/home/yoni/personal/lua-language-server"
 local sumneko_binary = sumneko_root_path .. "/bin/lua-language-server"
 

@@ -1,3 +1,4 @@
+vim.cmd([[
 let g:firenvim_config = {
             \ 'globalSettings': {
             \ 'alt': 'all',
@@ -23,3 +24,4 @@ let fc['https?://roamresearch.com'] = {'takeover': 'never', 'priority': 1}
 let fc['https?://youtube.com'] = {'takeover': 'never', 'priority': 1}
 let fc['https?://replit.com'] = {'takeover': 'never', 'priority': 1}
 let fc['https?://interhigh.adobeconnect.com'] = {'takeover': 'never', 'priority': 1}
+]])

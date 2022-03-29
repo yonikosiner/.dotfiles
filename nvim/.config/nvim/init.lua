@@ -19,6 +19,13 @@ vim.api.nvim_create_autocmd("BufWritePre", { callback = function()
     vim.cmd([[:%s/\s\+$//e]])
 end, group = group})
 
+-- I can't find out how to do this with lua, so yeah it's like this for now
+vim.cmd([[
+let &runtimepath.=',' . expand("$HOME") . '/personal/twitch-bot/ui'
+let &runtimepath.=',' . expand("$HOME") . '/personal/todo-me-daddy/clean-me-daddy'
+let &runtimepath.=',' . expand("$HOME") . '/personal/harpoon'
+]])
+
 require("yoni.plugins")
 require("yoni.telescope")
 require("yoni.lsp")
@@ -32,3 +39,4 @@ require("yoni.sets")
 require("yoni.colors")
 require("yoni.keymaps")
 require("yoni.refactoring")
+require("yoni.firenvim")
