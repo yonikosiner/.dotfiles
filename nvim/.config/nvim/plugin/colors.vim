@@ -1,6 +1,6 @@
 "This is also from thePrimeagens .vimrc
 "https://github.com/thePrimeagen/.dotfiles
-let g:yoni_colorscheme = 'ayu'
+let g:yoni_colorscheme = 'gruvbox'
 
 fun! ColorMyPencils()
     let g:gruvbox_contrast_dark = 'hard'
@@ -19,12 +19,13 @@ fun! ColorMyPencils()
         exe 'colorscheme' g:yoni_colorscheme
     endif
 
-    highlight ColorColumn ctermbg=0 guibg=grey
+    highlight ColorColumn ctermbg=0 guibg=#555555
     hi SignColumn guibg=none
     hi CursorLineNR guibg=None
     highlight WindowSeparator guibg=none
     highlight Normal guibg=none
-    highlight LineNr guifg=#5eacd3
+    " highlight LineNr guifg=#5eacd3
+    highlight LineNr guifg=#aaaaff
     highlight netrwDir guifg=#5eacd3
     highlight qfFileName guifg=#aed75f
     hi TelescopeBorder guifg=#5eacd

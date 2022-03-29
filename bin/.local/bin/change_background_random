@@ -2,4 +2,4 @@
 
 randomImage=$( ls "$DOTFILES/anime" | shuf -n 1 )
 
-feh --bg-fill "/home/yoni/.dotfiles/anime/$randomImage"
+dconf write /org/mate/desktop/background/picture-filename "'/home/yoni/.dotfiles/anime/$randomImage'"

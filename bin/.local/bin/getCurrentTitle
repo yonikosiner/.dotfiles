@@ -2,6 +2,7 @@
 
 title=$(xdotool getactivewindow getwindowname 2>/dev/null)
 
+# If there is a an error, it is most likley on the desktop, so just say desktop
 if [ $? -eq 1 ]; then
     echo "Desktop"
 else

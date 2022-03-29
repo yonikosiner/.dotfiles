@@ -1,4 +1,4 @@
-local sumneko_root_path = "/home/yoni/lua-language-server"
+local sumneko_root_path = "/home/yoni/personal/lua-language-server"
 local sumneko_binary = sumneko_root_path .. "/bin/lua-language-server"
 
 -- cetup nvim-cmp.
