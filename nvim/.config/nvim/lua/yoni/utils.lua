@@ -34,12 +34,10 @@ function M.reload_module()
 end
 
 function M.toggleSpell()
-    local spell = vim.o.spell
-
-    if spell == true then
-        vim.opt.spell = false
-    elseif spell == false then
-        vim.opt.spell = true
+    if vim.o.spell == true then
+        vim.o.spell = false
+    else
+        vim.o.spell = true
     end
 end
 
