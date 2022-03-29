@@ -33,6 +33,8 @@ M.normal("<leader>k", ":lprevious<CR>")
 M.normal("<leader>po", ":copen")
 M.normal("<leader>lo", ":lopen<CR>")
 
+M.visual("J", "<cmd>m '>+1<CR>gv=gv")
+M.visual("K", "<cmd>m '<-2<CR>gv=gv")
 M.normal("Y", "y$")
 M.normal("n", "nzzzv")
 M.normal("N", "nzzzv")
@@ -101,9 +103,6 @@ M.normal("<leader><C-t>", ":lua require('harpoon.ui').nav_file(6)<CR>")
 M.normal("<leader><C-n>", ":lua require('harpoon.ui').nav_file(7)<CR>")
 M.normal("<leader><C-s>", ":lua require('harpoon.ui').nav_file(8)<CR>")
 
-M.normal("<silent><leader>tc", ":lua require('harpoon.cmd-ui').toggle_quick_menu()<CR>")
-
-M.normal("<leader><C-r>", ":lua require('harpoon.mark').shorten_list()<CR>")
 M.normal("<leader><C-d>", ":lua require('harpoon.mark').clear_all()<CR>")
 M.normal("<leader>r", ":lua require('harpoon.mark').promote()<CR>")
 
