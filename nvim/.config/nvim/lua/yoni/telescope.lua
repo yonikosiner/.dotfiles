@@ -1,5 +1,6 @@
 local actions = require('telescope.actions')
 local themes = require('telescope.themes')
+local normal = require("yoni.keymaps").normal
 
 function delete_file(file)
     if not file then return end
@@ -229,5 +230,32 @@ function M.reload_modules()
 		require("plenary.reload").reload_module(dir)
 	end
 end
+
+-- Remaps
+normal("<leader>ff", "<cmd>lua require('telescope.builtin').find_files({ hidden = true })<cr>")
+normal("<C-p>", ":lua require('telescope.builtin').git_files()<CR>")
+normal("<leader>ps", ":lua require('telescope.builtin').grep_string({ search = vim.fn.input('Grep For > ')})<CR>")
+normal("<leader>pb", ":lua require('telescope.builtin').buffers()<CR>")
+
+normal("<leader>lps", ":lua require('telescope.builtin').lsp_references()<CR>")
+normal("<leader>ld", ":Telescope diagnostics bufnr=0<cr>")
+
+normal("<leader>rc", ":lua require('yoni.telescope').search_dotfiles()<CR>")
+normal("<leader>src", ":lua require('yoni.telescope').search_school()<CR>")
+normal("<leader>vrcm", ":lua require('yoni.telescope').search_dotfiles_mac()<CR>")
+
+normal("<leader>pw", ":lua require('telescope.builtin').grep_string { search = vim.fn.expand('<cword>') }<CR>")
+normal("<leader>vih", ":lua require('telescope.builtin').help_tags()<CR>")
+
+normal("<leader>va", ":lua require('yoni.telescope').anime_selector()<CR>")
+normal("<leader>pa", ":lua require('yoni.telescope').password_selector()<CR>")
+
+normal("<leader>gb", ":Telescope git_branches<CR>")
+normal("<leader>gc", ":Telescope git_commits<CR>")
+
+normal("<leader>gw", ":lua require('telescope').extensions.git_worktree.git_worktrees({ layout_config = { width = 0.5, height = 0.5 }})<CR>")
+
+normal("<leader>gm", ":lua require('telescope').extensions.git_worktree.create_git_worktree({ layout_config = { width = 0.5, height = 0.5 }})<CR>")
+normal("nnoremap <leader>td", ":lua require('todo-me-daddy').find_todos()<CR>")
 
 return M

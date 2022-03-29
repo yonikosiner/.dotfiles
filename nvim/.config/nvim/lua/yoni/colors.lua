@@ -1,18 +1,20 @@
+local Group = require("colorbuddy.group").Group
+
+Group.new("WinSeparator", nil, nil)
+
+vim.g.yoni_colorscheme = 'gruvbox'
+vim.g.gruvbox_contrast_dark = 'hard'
+vim.g.gruvbox_contrast_dark = 'hard'
+vim.g.gruvbox_invert_selection = '0'
+
 vim.cmd([[
 "This is also from thePrimeagens .vimrc
 "https://github.com/thePrimeagen/.dotfiles
-let g:yoni_colorscheme = 'gruvbox'
 
-let g:gruvbox_contrast_dark = 'hard'
 if exists('+termguicolors')
     let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
     let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 endif
-let g:gruvbox_invert_selection='0'
-let g:github_function_style = "italic"
-let g:github_sidebars = ["qf", "vista_kind", "terminal", "packer"]
-
-" set background=dark
 
 if has('nvim')
     call luaeval('vim.cmd("colorscheme " .. _A[1])', [g:yoni_colorscheme])

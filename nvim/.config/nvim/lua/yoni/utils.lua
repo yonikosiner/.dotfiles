@@ -8,4 +8,14 @@ M.reload_module = function()
 	end
 end
 
+function M.toggleSpell()
+    local spell = vim.o.spell
+
+    if spell == true then
+        vim.opt.spell = false
+    elseif spell == false then
+        vim.opt.spell = true
+    end
+end
+
 return M

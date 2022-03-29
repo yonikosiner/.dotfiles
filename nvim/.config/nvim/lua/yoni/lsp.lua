@@ -1,6 +1,8 @@
 local sumneko_root_path = "/home/yoni/personal/lua-language-server"
 local sumneko_binary = sumneko_root_path .. "/bin/lua-language-server"
 
+local normal = require("yoni.keymaps").normal
+
 -- cetup nvim-cmp.
 local cmp = require'cmp'
 
@@ -59,6 +61,8 @@ local function config(_config)
 end
 require'lspconfig'.tsserver.setup(config())
 require'lspconfig'.bashls.setup(config())
+
+require("rust-tools").setup(config())
 
 require'lspconfig'.jdtls.setup(config({
     cmd = {
@@ -131,3 +135,15 @@ local opts = {
 }
 
 require('symbols-outline').setup(opts)
+
+-- Sweet lsp keybinds
+normal("<leader>vd", ":lua vim.lsp.buf.definition()<CR>")
+normal("<leader>vi", ":lua vim.lsp.buf.implementation()<CR>")
+normal("<leader>vsh", ":lua vim.lsp.buf.signature_help()<CR>")
+normal("<leader>vrr", ":lua vim.lsp.buf.references()<CR>")
+normal("<leader>vrn", ":lua vim.lsp.buf.rename()<CR>")
+normal("<leader>vh", ":lua vim.lsp.buf.hover()<CR>")
+normal("<leader>vca", ":lua vim.lsp.buf.code_action()<CR>")
+normal("<leader>vsd", ":lua vim.lsp.util.show_line_diagnostics()<CR>")
+normal("<leader>vn", ":lua vim.lsp.diagnostic.goto_next()<CR>")
+normal("<leader>vN", ":lua vim.lsp.diagnostic.goto_prev()<CR>")
