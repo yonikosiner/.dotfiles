@@ -1,3 +1,5 @@
+-- Yes yes, I know this is shit, but for now it works baby
+vim.cmd([[
 set termguicolors
 
 set laststatus=3
@@ -30,7 +32,7 @@ set nowrap
 set colorcolumn=80
 " set no show mode
 set isfname+=@-@
- "set ls=0
+"set ls=0
 
 " Give more space for displaying messages.
 set cmdheight=1
@@ -43,5 +45,4 @@ set updatetime=50
 set shortmess+=c
 
 set signcolumn=yes
-
-call ColorMyPencils()
+]])

@@ -1,3 +1,5 @@
+local Color, colors, Group, groups, styles = require('colorbuddy').setup()
+
 local M = {}
 
 local write_count = 0
@@ -100,5 +102,13 @@ augroup END
  M.set_status = function(line)
      status_line = line
  end
+
+ -- Color.new("background", "#4a5d6b")
+ -- Color.new('background',  '#282c34')
+ -- Color.new('red',         '#cc6666')
+ -- Color.new('green',       '#99cc99')
+ -- Color.new('yellow',      '#f0c674')
+
+ -- Group.new("statusline", colors.yellow, colors.background, styles.NONE)
 
 return M
