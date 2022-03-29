@@ -77,9 +77,11 @@ M.normal("<leader>d", '"_d')
 M.normal("<leader>x", '"_x')
 M.visual("<leader>p", '"_dP')
 M.visual("<leader>y", '"+y')
+
 M.normal("<silent>Q","<Nop>")
 
 M.normal("<leader>m", "<cmd>lua require('todo-me-daddy').complete_markdown_todo()<CR>")
+M.normal("<leader>r", ":lua require('yoni.utils').reload_module()<CR>")
 
 -- Git stuff
 M.normal("<leader>ga", ":Git fetch --all<CR>")
@@ -104,7 +106,6 @@ M.normal("<leader><C-n>", ":lua require('harpoon.ui').nav_file(7)<CR>")
 M.normal("<leader><C-s>", ":lua require('harpoon.ui').nav_file(8)<CR>")
 
 M.normal("<leader><C-d>", ":lua require('harpoon.mark').clear_all()<CR>")
-M.normal("<leader>r", ":lua require('harpoon.mark').promote()<CR>")
 
 M.normal("<leader>tu", ":lua require('harpoon.tmux').gotoTerminal(1)<CR>")
 M.normal("<leader>te", ":lua require('harpoon.tmux').gotoTerminal(2)<CR>")
