@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env zsh
 
 items=`cat ~/.zsh_history`
 command=$(echo $items | sed 's/;/\n/g' | sed 's/:.*//g' | sort -r | fzf)

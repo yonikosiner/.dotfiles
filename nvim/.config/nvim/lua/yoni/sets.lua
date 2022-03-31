@@ -1,60 +1,55 @@
--- Yes yes, I know this is shit, but for now it works baby
-vim.cmd([[
-set path+=**
+vim.opt.laststatus = 3
 
-set wildmode=longest,list,full
-set wildmenu
+vim.opt.number = true
+vim.opt.relativenumber = true
 
-" Ignore files
-set wildignore+=*.pyc
-set wildignore+=*_build/*
-set wildignore+=**/coverage/*
-set wildignore+=**/node_modules/*
-set wildignore+=**/.git/*
-set wildignore+=**/_dist/*
-set termguicolors
+vim.opt.termguicolors = true
+-- vim.opt.exrc = true
+vim.opt.undofile = true
+vim.opt.incsearch = true
+vim.opt.cmdheight = 1
 
-set laststatus=3
+vim.opt.signcolumn = "yes"
+vim.opt.scrolloff = 8
+vim.opt.updatetime = 50
+vim.opt.hidden = true
 
-set nu
-set relativenumber
+vim.opt.splitbelow = true
+vim.opt.cursorline = true
 
-set tabstop=4 softtabstop=4
-set shiftwidth=4
-set expandtab
-set smartindent
+vim.opt.ignorecase = true -- Ignore case when searching...
+vim.opt.smartcase = true -- ... unless there is a capital letter in the query
 
-set undofile
-set undodir=~/.vim/undodir
+vim.opt.tabstop = 4
+vim.opt.shiftwidth = 4
+vim.opt.softtabstop = 4
+vim.opt.expandtab = true
+vim.opt.autoindent = true
+vim.opt.cindent = true
+vim.opt.wrap = false
 
-set exrc
-set guicursor=
-"set guicursor=i:ver50-iCursor
-set noerrorbells
+vim.opt.belloff = "all" -- Just turn the dang bell off
 
-set incsearch
-set nohlsearch
+vim.opt.swapfile = false -- Living on the edge
+vim.opt.undodir = "~/.vim/pluged"
 
-set noswapfile
-set nobackup
+vim.opt.wildignore = "__pycache__"
+vim.opt.wildignore = "*.pyc"
+vim.opt.wildignore = "*_build/*"
+vim.opt.wildignore = "**/coverage/*"
+vim.opt.wildignore = "**/node_modules/*"
+vim.opt.wildignore = "**/.git/*"
+vim.opt.wildignore = "**/_dist/*"
+vim.opt.wildignore = vim.opt.wildignore + { "*.o", "*~", "*.pyc", "*pycache*" }
 
-set scrolloff=8
-set nowrap
+vim.opt.wildmode = "longest,list,full"
+vim.opt.wildmenu = true
 
-set colorcolumn=80
-" set no show mode
-set isfname+=@-@
-"set ls=0
+vim.opt.breakindent = true
+vim.opt.linebreak = true
 
-" Give more space for displaying messages.
-set cmdheight=1
+vim.opt.hlsearch = false
 
-" Having longer update time (default is 4000 ms = 4 s) leads to noticeable
-" delays and poor user experience.
-set updatetime=50
+vim.opt.mouse = "a"
 
-" Don't pass messages to |ins-completion-menu|.
-set shortmess+=c
-
-set signcolumn=yes
-]])
+vim.opt.colorcolumn = "80"

@@ -1,6 +1,13 @@
 vim.cmd([[
 call plug#begin('~/.vim/pluged')
+Plug 'ThePrimeagen/jvim.nvim'
+Plug 'ellisonleao/glow.nvim'
+Plug 'tzachar/cmp-tabnine', { 'do': './install.sh' }
+
+Plug 'sbdchd/neoformat'
+
 Plug 'tjdevries/colorbuddy.nvim'
+Plug 'onsails/lspkind-nvim'
 
 " Plug 'github/copilot.vim'
 Plug 'projekt0n/github-nvim-theme'

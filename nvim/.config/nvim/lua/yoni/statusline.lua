@@ -1,10 +1,10 @@
-local Color, colors, Group, groups, styles = require('colorbuddy').setup()
+-- local Color, colors, Group, groups, styles = require('colorbuddy').setup()
 
 local M = {}
 
 local write_count = 0
 local git_branch = "git"
-local status_line = ""
+local msg = nil
 
 M.get_file_name = function()
     local name = vim.api.nvim_buf_get_name(0)
@@ -77,17 +77,31 @@ M.on_write = function()
     write_count = write_count + 1
 end
 
-local statusline = "%s%%  | %s%%) | %%-5.1000(%s%%) | %%-1.2(%d%%) |%%-5.20(%s%%)%%-6.6 | %s%%) | %s%%)"
+local statusline = "%s%%  | %s%%) | %%-5.1000(%s%%) | %%-1.10(%d%%) |%%-5.20(%s%%)%%-6.6 | %s%%)"
+
+if msg or not msg == "" then
+    statusline = statusline .. "| %s%%)"
+end
 
 M.StatusLine = function()
-    return string.format(statusline,
-    M.get_mode(),
-    M.get_git_branch(),
-    M.get_file_name(),
-    write_count,
-    M.get_filetype(),
-    M.get_line_info(),
-    status_line)
+    if msg or not msg == "" then
+        return string.format(statusline,
+        M.get_mode(),
+        M.get_git_branch(),
+        M.get_file_name(),
+        write_count,
+        M.get_filetype(),
+        M.get_line_info(),
+        msg)
+    else
+        return string.format(statusline,
+        M.get_mode(),
+        M.get_git_branch(),
+        M.get_file_name(),
+        write_count,
+        M.get_filetype(),
+        M.get_line_info())
+    end
 end
 
 vim.o.statusline = '%!v:lua.require("yoni.statusline").StatusLine()'
@@ -100,7 +114,7 @@ augroup END
  ]], false)
 
  M.set_status = function(line)
-     status_line = line
+     msg = line
  end
 
  -- Color.new("background", "#4a5d6b")

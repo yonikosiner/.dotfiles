@@ -4,3 +4,5 @@
   channel points with commands over messages in chat
 * [Websockets in go baby](https://blog.logrocket.com/using-websockets-go/)
 * Code thing to get askreddit rss feed and, also get comments as rss feed
+
+* Get swap files out of my way, as they suck ass

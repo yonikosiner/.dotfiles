@@ -12,3 +12,6 @@ export TODO_ME_DADDY=$HOME/personal/todo-me-daddy
 export EDITOR="nvim"
 
 PERSONAL=$XDG_CONFIG_HOME/personal
+
+# Change me into dvorak btw on login
+asdf

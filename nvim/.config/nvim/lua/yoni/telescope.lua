@@ -69,7 +69,7 @@ require('telescope').setup {
 require("telescope").load_extension("git_worktree")
 require('telescope').load_extension('fzy_native')
 require("telescope").load_extension('harpoon')
-require("telescope").load_extension('todo-me-daddy')
+require("telescope").load_extension('todo_me_daddy')
 
 local M = {}
 M.search_dotfiles = function()
@@ -256,6 +256,5 @@ normal("<leader>gc", ":Telescope git_commits<CR>")
 normal("<leader>gw", ":lua require('telescope').extensions.git_worktree.git_worktrees({ layout_config = { width = 0.5, height = 0.5 }})<CR>")
 
 normal("<leader>gm", ":lua require('telescope').extensions.git_worktree.create_git_worktree({ layout_config = { width = 0.5, height = 0.5 }})<CR>")
-normal("nnoremap <leader>td", ":lua require('todo-me-daddy').find_todos()<CR>")
 
 return M

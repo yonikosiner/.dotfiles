@@ -68,6 +68,24 @@ M.normal("<leader>ft", "<cmd>Sex!<CR>")
 M.normal("<leader>ea", "[[ <cmd>lua require('twitch-bot').init()<CR> ]]")
 M.normal("<leader>ed", "[[ <cmd>lua require('twitch-bot').disconnect()<CR> ]]")
 
+
+-- Git stuff
+M.normal("<leader>ga", ":Git fetch --all<CR>")
+M.normal("<leader>grum", ":Git rebase upstream/master<CR>")
+M.normal("<leader>grom", ":Git rebase origin/master<CR>")
+M.normal("nmap <leader>gh", ":diffget //3<CR>")
+M.normal("<leader>gu", ":diffget //2<CR>")
+M.normal("<leader>gs", ":G<CR>")
+
+-- Spelling
+M.normal("<leader>sp", ":lua require('yoni.utils').toggleSpell()<CR>")
+
+-- JSON ME DADDY
+M.normal("<left>", ":lua require('jvim').to_parent()<CR>")
+M.normal("<right>", ":lua require('jvim').descend()<CR>")
+M.normal("<up>", ":lua require('jvim').prev_sibling()<CR>")
+M.normal("<down>", ":lua require('jvim').next_sibling()<CR>")
+
 -- Misc
 M.normal("<leader>ch", "<cmd>!chmod +x %<CR>")
 M.normal("<leader>u", "<cmd>UndotreeToggle<CR>")
@@ -80,37 +98,6 @@ M.visual("<leader>y", '"+y')
 
 M.normal("<silent>Q","<Nop>")
 
-M.normal("<leader>m", "<cmd>lua require('todo-me-daddy').complete_markdown_todo()<CR>")
 M.normal("<leader>r", ":lua require('yoni.utils').reload_module()<CR>")
 
--- Git stuff
-M.normal("<leader>ga", ":Git fetch --all<CR>")
-M.normal("<leader>grum", ":Git rebase upstream/master<CR>")
-M.normal("<leader>grom", ":Git rebase origin/master<CR>")
-M.normal("nmap <leader>gh", ":diffget //3<CR>")
-M.normal("<leader>gu", ":diffget //2<CR>")
-M.normal("<leader>gs", ":G<CR>")
-
--- Harpoon it gurlll
-M.normal("<leader>a", ":lua require('harpoon.mark').add_file()<CR>")
-
-M.normal("<C-e>", ":lua require('harpoon.ui').toggle_quick_menu()<CR>")
-
-M.normal("<C-h>", ":lua require('harpoon.ui').nav_file(1)<CR>")
-M.normal("<C-t>", ":lua require('harpoon.ui').nav_file(2)<CR>")
-M.normal("<C-n>", ":lua require('harpoon.ui').nav_file(3)<CR>")
-M.normal("<C-s>", ":lua require('harpoon.ui').nav_file(4)<CR>")
-M.normal("<leader><C-h>", ":lua require('harpoon.ui').nav_file(5)<CR>")
-M.normal("<leader><C-t>", ":lua require('harpoon.ui').nav_file(6)<CR>")
-M.normal("<leader><C-n>", ":lua require('harpoon.ui').nav_file(7)<CR>")
-M.normal("<leader><C-s>", ":lua require('harpoon.ui').nav_file(8)<CR>")
-
-M.normal("<leader><C-d>", ":lua require('harpoon.mark').clear_all()<CR>")
-
-M.normal("<leader>tu", ":lua require('harpoon.tmux').gotoTerminal(1)<CR>")
-M.normal("<leader>te", ":lua require('harpoon.tmux').gotoTerminal(2)<CR>")
-M.normal("<leader>ce", ":lua require('harpoon.tmux').sendCommand(1, 2)<CR>")
-
--- Spelling
-M.normal("<leader>sp", ":lua require('yoni.utils').toggleSpell()<CR>")
 return M

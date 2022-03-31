@@ -11,17 +11,41 @@ local normal = require("yoni.keymaps").normal
 -- cetup nvim-cmp.
 local cmp = require'cmp'
 
+local lspkind = require "lspkind"
+local source_mapping = {
+	buffer = "[Buffer]",
+	nvim_lsp = "[LSP]",
+	nvim_lua = "[Lua]",
+	cmp_tabnine = "[TN]",
+	path = "[Path]",
+}
+
+lspkind.init()
+
 cmp.setup({
+    formatting = {
+        format = function(entry, vim_item)
+            vim_item.kind = lspkind.presets.default[vim_item.kind]
+            local menu = source_mapping[entry.source.name]
+            if entry.source.name == "cmp_tabnine" then
+                if entry.completion_item.data ~= nil and entry.completion_item.data.detail ~= nil then
+                    menu = entry.completion_item.data.detail .. " " .. menu
+                end
+                vim_item.kind = ""
+            end
+            vim_item.menu = menu
+            return vim_item
+        end,
+    },
+
+    experimental = {
+        native_menu = false,
+        ghost_text = false,
+    },
+
     snippet = {
         expand = function(args)
-            -- For `vsnip` user.
-            -- vim.fn["vsnip#anonymous"](args.body)
-
-            -- For `luasnip` user.
-            require('luasnip').lsp_expand(args.body)
-
-            -- For `ultisnips` user.
-            -- vim.fn["UltiSnips#Anon"](args.body)
+            require("luasnip").lsp_expand(args.body)
         end,
     },
     mapping = {
@@ -35,20 +59,22 @@ cmp.setup({
 
     sources = {
         { name = 'nvim_lsp' },
+        { name = "cmp_tabnine", keyword_length = 5 },
         { name = "path" },
         { name = "nvim_lua" },
-
-        -- For vsnip user.
-        -- { name = 'vsnip' },
-
-        -- For luasnip user.
-        --{ name = 'luasnip' },
-
-        -- For ultisnips user.
-        -- { name = 'ultisnips' },
-
+        { name = "gh_issues" },
+        { name = "luasnip" },
         { name = "buffer", keyword_length = 5 },
     }
+})
+
+local tabnine = require("cmp_tabnine.config")
+tabnine:setup({
+	max_lines = 1000,
+	max_num_results = 20,
+	sort = true,
+	run_on_every_keystroke = true,
+	snippet_placeholder = "..",
 })
 
 --[[
@@ -152,3 +178,14 @@ normal("<leader>vca", ":lua vim.lsp.buf.code_action()<CR>")
 normal("<leader>vsd", ":lua vim.lsp.util.show_line_diagnostics()<CR>")
 normal("<leader>vn", ":lua vim.lsp.diagnostic.goto_next()<CR>")
 normal("<leader>vN", ":lua vim.lsp.diagnostic.goto_prev()<CR>")
+
+-- Color suff
+-- local Group = require("colorbuddy.group").Group
+-- local g = require("colorbuddy.group").groups
+-- local s = require("colorbuddy.style").styles
+--
+-- Group.new("CmpItemAbbr", g.Comment)
+-- Group.new("CmpItemAbbrDeprecated", g.Error)
+-- Group.new("CmpItemAbbrMatchFuzzy", g.CmpItemAbbr.fg:dark(), nil, s.italic)
+-- Group.new("CmpItemKind", g.Special)
+-- Group.new("CmpItemMenu", g.NonText)
