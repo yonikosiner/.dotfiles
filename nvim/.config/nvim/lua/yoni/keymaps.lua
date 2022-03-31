@@ -48,10 +48,6 @@ M.normal(";", ";zzzv")
 M.normal("<leader>o", "o<Esc>^Da")
 M.normal("<leader>O", "O<Esc>^Da")
 
--- Move tabs with control+tab and control+shift+tab, like a true soy dev
-M.normal("<Tab>", "gt")
-M.normal("<S-Tab>", "gT")
-
 -- Use control-c instead of esc, please don't fire me
 M.normal("<C-c>", "<Esc>")
 
@@ -99,5 +95,8 @@ M.visual("<leader>y", '"+y')
 M.normal("<silent>Q","<Nop>")
 
 M.normal("<leader>r", ":lua require('yoni.utils').reload_module()<CR>")
+
+-- Open my current dir in nnn (termianl file manger) with a quick hotkey, this is very handy
+M.normal("<leader><C-o>", ":lua require('yoni.utils').open_dir_nnn()<CR>")
 
 return M

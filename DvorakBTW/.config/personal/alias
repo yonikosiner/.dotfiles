@@ -3,6 +3,7 @@ alias asdf="setxkbmap -layout real-prog-dvorak"
 alias lkj="setxkbmap us real-prog-dvorak"
 alias snth="setxkbmap us"
 
+# Take me into that pi baby
 alias ashersPi="ssh pi@192.168.1.195"
 
 alias cat="bat --theme gruvbox-dark"
@@ -13,6 +14,7 @@ alias n="exa --icons"
 alias nn="exa --icons -a"
 
 alias mpv="devour mpv"
+alias vlc="devour vlc"
 alias eog="devour eog"
 
 alias e="vim"

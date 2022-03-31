@@ -1,3 +1,5 @@
+local Job = require("plenary.job")
+
 local M = {}
 
 local function reload(prompt_bufnr)
@@ -39,6 +41,17 @@ function M.toggleSpell()
     else
         vim.o.spell = true
     end
+end
+
+-- Open my current dir in nnn (termianl file manger) with a quick hotkey
+function M.open_dir_nnn()
+    local currentDir = vim.cmd("pwd")
+    Job:new({
+        "kitty",
+        "-e",
+        "nnn",
+        currentDir
+    }):start()
 end
 
 return M

@@ -1,4 +1,5 @@
 -- local Color, colors, Group, groups, styles = require('colorbuddy').setup()
+local home = os.getenv("HOME")
 
 local M = {}
 
@@ -45,16 +46,9 @@ M.get_mode = function()
         ["n"] = "Normal",
         ["i"] = "Insert",
         ["v"] = "Visual",
-        ["s"] = "Select",
-        ["S"] = "Select",
-        ["R"] = "Replace",
-        ["Rv"] = "Replace",
         ["c"] = "Command",
         ["cv"] = "Command",
-        ["t"] = "Terminal",
         ["V"] = "Visual",
-        ["g"] = "Goto",
-        ["r"] = "Replace",
     }
 
     if mode_table[mode] then
