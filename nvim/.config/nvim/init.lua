@@ -1,11 +1,8 @@
 vim.g.mapleader = " "
 
--- I can't find out how to do this with lua, so yeah it's like this for now
-vim.cmd([[
-let &runtimepath.=',' . expand("$HOME") . '/personal/todo-me-daddy/master'
-let &runtimepath.=',' . expand("$HOME") . '/personal/twitch-bot/ui'
-let &runtimepath.=',' . expand("$HOME") . '/personal/harpoon/master'
-]])
+vim.opt.rtp:append(vim.fn.expand "~/personal/todo-me-daddy/master")
+vim.opt.rtp:append(vim.fn.expand "~/personal/twitch-bot/ui")
+vim.opt.rtp:append(vim.fn.expand "~/personal/harpoon/master")
 
 require("yoni.plugins")
 require("yoni.globals")
