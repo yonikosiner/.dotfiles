@@ -41,7 +41,7 @@ cmp.setup({
 
     experimental = {
         native_menu = false,
-        ghost_text = false,
+        ghost_text = true,
     },
 
     snippet = {
@@ -95,14 +95,6 @@ require'lspconfig'.tsserver.setup(config())
 require'lspconfig'.bashls.setup(config())
 
 require("rust-tools").setup(config())
-
-require'lspconfig'.jdtls.setup(config({
-    cmd = {
-        '/usr/bin/java',
-        '-Dosgi.bundles.defaultStartLevel=4',
-        -- ADD REMAINING OPTIONS FROM https://github.com/eclipse/eclipse.jdt.ls#running-from-the-command-line !
-    },
-}))
 
 require'lspconfig'.clangd.setup(config({
     cmd = { "clangd", "--background-index", "--clang-tidy" },

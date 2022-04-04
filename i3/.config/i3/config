@@ -39,8 +39,8 @@ gaps outer $outer_gaps
 floating_modifier $mod
 
 # start a terminal
-set $term --no-startup-id kitty
-bindsym $mod+Return exec kitty
+set $term --no-startup-id alacritty
+bindsym $mod+Return exec alacritty
 
 # kill focused window
 bindsym $mod+Shift+q kill

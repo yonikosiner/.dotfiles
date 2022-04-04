@@ -10,3 +10,4 @@ export GOPATH=$HOME/go
 export PATH=$PATH:/usr/local/go/bin
 export PATH=$PATH:/$HOME/go/bin
 export PATH=$PATH:/home/yoni/.emacs.d/bin
+export PATH=$PATH:/home/yoni/.cargo/bin

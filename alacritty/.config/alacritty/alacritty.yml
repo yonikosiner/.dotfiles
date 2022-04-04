@@ -1,10 +1,11 @@
 # Window Customization
+background_opacity: 0.8
 window:
-  decorations: full #Still won't show in a window manger, but will in a desktop environment
+  opacity: 0.8
+  decorations: full
 scrolling:
   history: 10000
   multiplier: 3
-background_opacity: 0.75
 window.dynamic_title: true
 
 # Font Customization
