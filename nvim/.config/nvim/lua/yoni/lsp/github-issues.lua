@@ -57,12 +57,13 @@ source.complete = function(self, _, callback)
   end
 end
 
+
 source.get_trigger_characters = function()
   return { "#" }
 end
 
--- source.is_available = function()
-  -- return vim.bo.filetype == "gitcommit"
--- end
+source.is_available = function()
+  return true
+end
 
 require("cmp").register_source("gh_issues", source.new())

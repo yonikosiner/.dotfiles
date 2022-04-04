@@ -17,6 +17,7 @@ local source_mapping = {
 	nvim_lsp = "[LSP]",
 	nvim_lua = "[Lua]",
 	cmp_tabnine = "[TN]",
+    gh_issues = "[Issues]",
 	path = "[Path]",
 }
 

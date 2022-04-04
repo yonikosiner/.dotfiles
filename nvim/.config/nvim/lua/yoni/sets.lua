@@ -31,7 +31,7 @@ vim.opt.wrap = false
 vim.opt.belloff = "all" -- Just turn the dang bell off
 
 vim.opt.swapfile = false -- Living on the edge
-vim.opt.undodir = "~/.vim/pluged"
+vim.opt.undodir = "/home/yoni/.vim/pluged"
 
 vim.opt.wildignore = "__pycache__"
 vim.opt.wildignore = "*.pyc"

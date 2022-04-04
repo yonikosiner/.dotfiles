@@ -36,6 +36,7 @@ function M.reload_module()
 end
 
 function M.toggleSpell()
+    -- If spelling is set to on, then set it to off (or the other way around)
     if vim.o.spell == true then
         vim.o.spell = false
     else

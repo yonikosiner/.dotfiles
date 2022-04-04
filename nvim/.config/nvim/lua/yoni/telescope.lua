@@ -240,7 +240,7 @@ normal("<leader>pb", ":lua require('telescope.builtin').buffers()<CR>")
 normal("<leader>lps", ":lua require('telescope.builtin').lsp_references()<CR>")
 normal("<leader>ld", ":Telescope diagnostics bufnr=0<cr>")
 
-normal("<leader>rc", ":lua require('yoni.telescope').search_dotfiles()<CR>")
+normal("<leader>vrc", ":lua require('yoni.telescope').search_dotfiles()<CR>")
 normal("<leader>src", ":lua require('yoni.telescope').search_school()<CR>")
 normal("<leader>vrcm", ":lua require('yoni.telescope').search_dotfiles_mac()<CR>")
 

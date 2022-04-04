@@ -30,7 +30,7 @@ M.normal("<C-j>", ":cnext<CR>")
 M.normal("<C-k>", ":cprev<CR>")
 M.normal("<leader>j", ":lnext<CR>")
 M.normal("<leader>k", ":lprevious<CR>")
-M.normal("<leader>po", ":copen")
+M.normal("<leader>po", ":copen<CR>")
 M.normal("<leader>lo", ":lopen<CR>")
 
 M.visual("J", "<cmd>m '>+1<CR>gv=gv")
