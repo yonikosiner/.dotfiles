@@ -2,6 +2,7 @@ local Job = require("plenary.job")
 
 local M = {}
 
+-- Function that intergates with telescope to quickly reload a module
 local function reload(prompt_bufnr)
     local content = require("telescope.actions.state").get_selected_entry(
         prompt_bufnr

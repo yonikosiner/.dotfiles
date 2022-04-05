@@ -39,8 +39,8 @@ gaps outer $outer_gaps
 floating_modifier $mod
 
 # start a terminal
-set $term --no-startup-id alacritty
-bindsym $mod+Return exec alacritty
+set $term --no-startup-id kitty
+bindsym $mod+Return exec kitty
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -244,3 +244,4 @@ exec --no-startup-id dunst
 exec --no-startup-id ~/.fehbg
 exec --no-startup-id picom --fade-in-step=1 --fade-out-step=1 --fade-delta=0 --inactive-opacity=0.98
 exec --no-startup-id ~/.local/bin/screen.sh
+exec_always --no-startup-id i3-auto-layout

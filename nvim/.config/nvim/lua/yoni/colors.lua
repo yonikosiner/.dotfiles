@@ -1,6 +1,6 @@
 local Group = require("colorbuddy.group").Group
 
--- Remove windo border color thing - does not work 100% on gruvbox btw
+-- Remove window border color thing - does not work 100% on gruvbox btw
 Group.new("WinSeparator", nil, nil)
 
 vim.g.yoni_colorscheme = 'gruvbox'
@@ -10,7 +10,7 @@ vim.g.gruvbox_contrast_dark = 'hard'
 vim.g.gruvbox_contrast_dark = 'hard'
 vim.g.gruvbox_invert_selection = '0'
 
--- Set the colorscheme to whatever the gloabl var yoni_colorscheme is equal to
+-- Set the colorscheme to whatever the global var yoni_colorscheme is equal to
 vim.cmd("colorscheme " .. vim.g.yoni_colorscheme)
 
 vim.cmd([[

@@ -69,7 +69,7 @@ font-0 = "UbuntuMono:size=10;0"
 font-1 = "Noto Color Emoji:scale=13"
 
 modules-left = i3 title
-modules-right = bat corna volume dateTime
+modules-right = pumps bat corna volume dateTime
 
 wm-restack = i3
 
@@ -116,7 +116,7 @@ font-1 = "Noto Color Emoji:scale=13"
 separator = |
 
 modules-left = i3 title
-modules-right = chat weather upgrade corna wireless-network ram-left filesystem volume bat dateTime
+modules-right = pumps weather upgrade corna wireless-network ram-left filesystem volume bat dateTime
 
 tray-position = right
 tray-scale = 1.0
@@ -550,3 +550,11 @@ type = custom/script
 internal = 1
 format = <label>
 exec = ~/.local/bin/timeDate
+
+[module/pumps]
+type= custom/script
+internal = 1
+format = <label>
+click-left = ~/.local/bin/pumps-a-day --up-1
+click-right = ~/.local/bin/pumps-a-day --clear
+exec = ~/.local/bin/pumps-a-day --get-count

@@ -1,5 +1,6 @@
 local Worktree = require("git-worktree")
 
+-- TODO: Get this to work
 local function is_todo_me_daddy(path)
     local env = os.getenv("TODO_ME_DADDY")
     print("env: " .. env)

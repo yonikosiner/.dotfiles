@@ -2,6 +2,7 @@ local actions = require('telescope.actions')
 local themes = require('telescope.themes')
 local normal = require("yoni.keymaps").normal
 
+--TODO: setup function to quickly delete a file
 function delete_file(file)
     if not file then return end
     if not vim.fn.empty(file) then
@@ -36,22 +37,6 @@ require('telescope').setup {
    },
 
    pickers = {
-       grep_previewer = {
-           theme = "ivy",
-       },
-       grep_string = {
-           theme = "ivy",
-       },
-       find_files = {
-           theme = "ivy",
-       },
-       file_browser = {
-           theme = "ivy",
-       },
-       git_files = {
-           theme = "ivy",
-       },
-
        buffers = {
            sort_mru = true,
            theme = "ivy",
@@ -62,7 +47,6 @@ require('telescope').setup {
        lsp_references = { path_display = { "shorten" } },
        lsp_document_symbols = { path_display = { "hidden" } },
        lsp_workspace_symbols = { path_display = { "shorten" } },
-       lsp_code_actions = { theme = "ivy" },
    },
 }
 
@@ -221,14 +205,6 @@ M.refactors = function()
             return true
         end,
     }):find()
-end
-
-function M.reload_modules()
-	local lua_dirs = vim.fn.glob("./lua/*", 0, 1)
-	for _, dir in ipairs(lua_dirs) do
-		dir = string.gsub(dir, "./lua/", "")
-		require("plenary.reload").reload_module(dir)
-	end
 end
 
 -- Remaps

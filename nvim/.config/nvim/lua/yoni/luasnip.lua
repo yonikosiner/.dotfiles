@@ -1,3 +1,5 @@
+--TODO: Clean this up and use it baby
+
 if vim.g.snippets ~= "luasnip" then
   return
 end

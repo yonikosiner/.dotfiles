@@ -12,6 +12,7 @@ export TODO_ME_DADDY=$HOME/personal/todo-me-daddy/
 export EDITOR="nvim"
 
 PERSONAL=$XDG_CONFIG_HOME/personal
+# alias ls='exa -x --icons --git --group-directories-first'
 
 for i in `find -L $PERSONAL`; do
     source $i

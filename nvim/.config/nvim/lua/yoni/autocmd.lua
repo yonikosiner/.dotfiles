@@ -13,3 +13,12 @@ vim.api.nvim_create_autocmd("BufWritePre", { callback = function()
     -- vim does not like it when you use |
     vim.cmd([[:%s/\s\+$//e]])
 end, group = group})
+
+-- Go is being really anoying with showing erros messages, unless I restart, so each time I save a go file, just restart it
+-- vim.api.nvim_create_autocmd("BufWritePre", {
+--     -- pattern = { "go" },
+--     callback = function()
+--         vim.cmd(":edit")
+--     end,
+--     group = group
+-- })

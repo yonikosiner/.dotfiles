@@ -49,7 +49,6 @@ vim.opt.breakindent = true
 vim.opt.linebreak = true
 
 vim.opt.hlsearch = false
-
 vim.opt.mouse = "a"
 
 vim.opt.colorcolumn = "80"

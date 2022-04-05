@@ -1,7 +1,7 @@
 # Window Customization
-background_opacity: 0.8
+# background_opacity: 0.8
 window:
-  opacity: 0.8
+  opacity: 0.90
   decorations: full
 scrolling:
   history: 10000
@@ -25,20 +25,20 @@ colors:
   # Default colors
   primary:
     # hard contrast: background = '0x1d2021'
-    background: '0x000000'
+    background: '0x22252f'
     # soft contrast: background = '0x32302f'
     foreground: '0xebdbb2'
 
   # Normal colors
   normal:
-    black:   '0x282828'
-    red:     '0xcc241d'
-    green:   '0x98971a'
-    yellow:  '0xd79921'
-    blue:    '0x458588'
-    magenta: '0xb16286'
-    cyan:    '0x689d6a'
-    white:   '0xa89984'
+    black:   '0x272727'
+    red:     '0xcc231c'
+    green:   '0x989719'
+    yellow:  '0xd79920'
+    blue:    '0x448488'
+    magenta: '0xb16185'
+    cyan:    '0x689d69'
+    white:   '0xa89983'
 
   # Bright colors
   bright:
@@ -64,6 +64,5 @@ colors:
     background: '0xdc3232'
     white:   '0xffffff'
 
-key_bindings:
-  - { key: N, mods: Control, action: SpawnNewInstance }
-
+# key_bindings:
+  # - { key: N, mods: Control, action: SpawnNewInstance }

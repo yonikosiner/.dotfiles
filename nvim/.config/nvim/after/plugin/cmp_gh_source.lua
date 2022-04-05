@@ -25,7 +25,6 @@ source.complete = function(self, _, callback)
                 local result = job:result()
                 local ok, parsed = pcall(vim.json.decode, table.concat(result, ""))
                 if not ok then
-                    vim.notify "Failed to parse gh result"
                     return
                 end
 

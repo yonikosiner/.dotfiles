@@ -10,7 +10,7 @@ alias cat="bat --theme gruvbox-dark"
 
 alias caps="xdotool key Caps_Lock"
 
-alias n="exa --icons"
+alias n="exa -x --icons --git --group-directories-first"
 alias nn="exa --icons -a"
 
 alias mpv="devour mpv"

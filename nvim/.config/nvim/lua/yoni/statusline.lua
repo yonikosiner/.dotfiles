@@ -14,7 +14,9 @@ M.get_file_name = function()
         return "(no name)"
     end
 
-    local new_name = name:gsub("^/home/yoni/", "~/")
+    local stringToRegex = "^" .. home .."/"
+
+    local new_name = name:gsub(stringToRegex, "~/")
 
     return new_name
 end
@@ -110,6 +112,8 @@ augroup END
  M.set_status = function(line)
      msg = line
  end
+
+ --TODO: play around with getting colors on the status bar
 
  -- Color.new("background", "#4a5d6b")
  -- Color.new('background',  '#282c34')
