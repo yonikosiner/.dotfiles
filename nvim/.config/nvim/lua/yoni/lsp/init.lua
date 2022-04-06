@@ -172,6 +172,20 @@ normal("<leader>vsd", ":lua vim.lsp.util.show_line_diagnostics()<CR>")
 normal("<leader>vn", ":lua vim.lsp.diagnostic.goto_next()<CR>")
 normal("<leader>vN", ":lua vim.lsp.diagnostic.goto_prev()<CR>")
 
+local opts = {
+	-- whether to highlight the currently hovered symbol
+	-- disable if your cpu usage is higher than you want it
+	-- or you just hate the highlight
+	-- default: true
+	highlight_hovered_item = true,
+
+	-- whether to show outline guides
+	-- default: true
+	show_guides = true,
+}
+
+require("symbols-outline").setup(opts)
+
 -- Color suff
 -- local Group = require("colorbuddy.group").Group
 -- local g = require("colorbuddy.group").groups
@@ -182,3 +196,23 @@ normal("<leader>vN", ":lua vim.lsp.diagnostic.goto_prev()<CR>")
 -- Group.new("CmpItemAbbrMatchFuzzy", g.CmpItemAbbr.fg:dark(), nil, s.italic)
 -- Group.new("CmpItemKind", g.Special)
 -- Group.new("CmpItemMenu", g.NonText)
+
+local snippets_paths = function()
+	local plugins = { "friendly-snippets" }
+	local paths = {}
+	local path
+	local root_path = vim.env.HOME .. "/.vim/plugged/"
+	for _, plug in ipairs(plugins) do
+		path = root_path .. plug
+		if vim.fn.isdirectory(path) ~= 0 then
+			table.insert(paths, path)
+		end
+	end
+	return paths
+end
+
+require("luasnip.loaders.from_vscode").lazy_load({
+	paths = snippets_paths(),
+	include = nil, -- Load all languages
+	exclude = {},
+})

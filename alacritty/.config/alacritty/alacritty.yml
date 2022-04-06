@@ -10,22 +10,22 @@ window.dynamic_title: true
 
 # Font Customization
 font:
-  #normal:
-    #family: FiraCode Nerd Font Retina
-    #style: Regular
-  #bold:
-    #family: FiraCode Nerd Font Retina
-    #style: Bold
-  #italic:
-    #family: FiraCode Nerd Font Retina
-    #style: Italic
+  normal:
+    family: VictorMono Nerd Font
+    style: Medium
+  bold:
+    family: VictorMono Nerd Font
+    style: Bold
+  italic:
+    family: VictorMono Nerd Font
+    style: Bold Italic
   size: 19
 
 colors:
   # Default colors
   primary:
     # hard contrast: background = '0x1d2021'
-    background: '0x22252f'
+    background: '0x1d2021'
     # soft contrast: background = '0x32302f'
     foreground: '0xebdbb2'
 
@@ -38,7 +38,7 @@ colors:
     blue:    '0x448488'
     magenta: '0xb16185'
     cyan:    '0x689d69'
-    white:   '0xa89983'
+    white:   '0xFFFFFF'
 
   # Bright colors
   bright:

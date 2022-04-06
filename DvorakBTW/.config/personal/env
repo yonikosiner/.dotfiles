@@ -1,3 +1,4 @@
+#!/usr/bin/env zsh
 # Set the caps key to caps lock, as it is easier to hit on my kinesis
 setxkbmap -option caps:super
 #tmux-start-zsh
@@ -35,7 +36,7 @@ searchDotFiles() {
 }
 
 password() {
-    selected=`cat ~/.dotfiles/password | fzf --height=7`
+    selected=`cat ~/.dotfiles/password | fzf --height=10`
     pass $selected -c
 }
 

@@ -1,5 +1,6 @@
 vim.cmd([[
 call plug#begin('~/.vim/pluged')
+Plug 'simrat39/symbols-outline.nvim'
 Plug 'ThePrimeagen/jvim.nvim'
 Plug 'ellisonleao/glow.nvim'
 Plug 'tzachar/cmp-tabnine', { 'do': './install.sh' }
@@ -53,5 +54,6 @@ Plug 'nvim-telescope/telescope-fzy-native.nvim'
 Plug 'mhinz/vim-rfc'
 Plug 'mbbill/undotree'
 Plug 'ThePrimeagen/harpoon'
+Plug 'rafamadriz/friendly-snippets'
 call plug#end()
 ]])

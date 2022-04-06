@@ -4,6 +4,7 @@ export LC_CTYPE=en_US.UTF-8
 export DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/bus
 export XDG_RUNTIME_DIR=/run/user/1000
 export MANPAGER='nvim +Man!'
+export TERM="xterm-256color"
 
 VIM="nvim"
 export YONIKOSINER=$HOME/personal/yonikosiner-com.git
@@ -28,6 +29,7 @@ autoload -U colors && colors
 
 bindkey -v
 export KEYTIMEOUT=1
+
 export ZSH="/home/yoni/.oh-my-zsh"
 
 # ZSH_THEME="robbyrussell"
@@ -73,10 +75,11 @@ precmd() {
     vcs_info
 }
 
-PS1='%B$fg[magenta]%~%]${vcs_info_msg_0_}'$'\n'"$fg[green]➔ %b"
+PS1='%B$fg[magenta]%~%]${vcs_info_msg_0_}'$'\n'"$fg[green]» %b"
 
 bindkey -s ^f "tmux-sessionizer\n"
 bindkey -s ^o "nnn\n"
 bindkey -s ^h "zsh-history\n"
+bindkey -s ^p "password\n"
 
 alias luamake=/home/yoni/lua-language-server/3rd/luamake/luamake

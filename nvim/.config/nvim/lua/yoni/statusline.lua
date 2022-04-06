@@ -73,14 +73,14 @@ M.on_write = function()
     write_count = write_count + 1
 end
 
-local statusline = "%s%%  | %s%%) | %%-5.1000(%s%%) | %%-1.10(%d%%) |%%-5.20(%s%%)%%-6.6 | %s%%)"
+local statusline = "%s%%  | %s%%) | %%-5.1000(%s%%) | %%-1.10(%d%%) |%%-5.20(%s%%)%%-6.6 | %s%%) | %s%%)"
 
-if msg or not msg == "" then
-    statusline = statusline .. "| %s%%)"
-end
+-- if msg or not msg == "" then
+    -- statusline = statusline .. "| %s%%)"
+-- end
 
 M.StatusLine = function()
-    if msg or not msg == "" then
+    -- if msg or not msg == "" then
         return string.format(statusline,
         M.get_mode(),
         M.get_git_branch(),
@@ -89,15 +89,15 @@ M.StatusLine = function()
         M.get_filetype(),
         M.get_line_info(),
         msg)
-    else
-        return string.format(statusline,
-        M.get_mode(),
-        M.get_git_branch(),
-        M.get_file_name(),
-        write_count,
-        M.get_filetype(),
-        M.get_line_info())
-    end
+    -- else
+    --     return string.format(statusline,
+    --     M.get_mode(),
+    --     M.get_git_branch(),
+    --     M.get_file_name(),
+    --     write_count,
+    --     M.get_filetype(),
+    --     M.get_line_info())
+    -- end
 end
 
 vim.o.statusline = '%!v:lua.require("yoni.statusline").StatusLine()'

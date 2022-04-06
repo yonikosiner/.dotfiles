@@ -133,7 +133,7 @@ M.anime_selector = image_selector("< Change background> ", "~/.dotfiles/anime")
 
 local function set_pass_clip(content)
     vim.fn.system(
-        string.format("pass %s | xclip -in -selection clipboard", content)
+        string.format("pass %s -c", content)
     )
 end
 

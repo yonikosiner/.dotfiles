@@ -9,6 +9,7 @@ vim.g.yoni_colorscheme = 'gruvbox'
 vim.g.gruvbox_contrast_dark = 'hard'
 vim.g.gruvbox_contrast_dark = 'hard'
 vim.g.gruvbox_invert_selection = '0'
+vim.g.gruvbox_italic = 1
 
 -- Set the colorscheme to whatever the global var yoni_colorscheme is equal to
 vim.cmd("colorscheme " .. vim.g.yoni_colorscheme)

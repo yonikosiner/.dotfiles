@@ -39,14 +39,14 @@ gaps outer $outer_gaps
 floating_modifier $mod
 
 # start a terminal
-set $term --no-startup-id kitty
-bindsym $mod+Return exec kitty
+set $term --no-startup-id alacritty
+bindsym $mod+Return exec $term
 
 # kill focused window
 bindsym $mod+Shift+q kill
 
 # start dmenu (a program launcher)
-bindsym $mod+d exec rofi -show drun
+bindsym $mod+d exec rofi -combi-modi window#drun -show combi -modi combi -show-icons
 #bindsym $mod+shift+d exec i3-dmenu-desktop
 
 # There also is the (new) i3-dmenu-desktop which only displays applications
@@ -195,7 +195,7 @@ bindsym XF86MonBrightnessDown exec light -U 10
 #bindsym $mod+Shift+period exec systemctl suspend
 
 # Open apps
-bindsym $mod+shift+f			exec kitty sh -c "nnn"
+bindsym $mod+shift+f			exec alacritty -e "nnn"
 bindsym Mod4+shift+f			exec /usr/bin/dolphin
 bindsym $mod+shift+w			exec --no-startup-id /usr/bin/brave
 bindsym $mod+Shift+g		    exec --no-startup-id /usr/bin/gimp; workspace $ws6
@@ -238,10 +238,10 @@ bindsym $mod+Mod4+a exec echo "Ackchyually" | xclip -selection clipboard -i
 bindsym $mod+minus exec --no-startup-id ~/.local/bin/GNU+Linux
 
 bindsym $mod+p exec --no-startup-id echo "£" | xclip -selection clipboard -i
+bindsym $mod+shift+p exec --no-startup-id ~/.local/bin/passmenu
 
 exec --no-startup-id pulseaduio
 exec --no-startup-id dunst
-exec --no-startup-id ~/.fehbg
-exec --no-startup-id picom --fade-in-step=1 --fade-out-step=1 --fade-delta=0 --inactive-opacity=0.98
+exec --no-startup-id picom
 exec --no-startup-id ~/.local/bin/screen.sh
 exec_always --no-startup-id i3-auto-layout

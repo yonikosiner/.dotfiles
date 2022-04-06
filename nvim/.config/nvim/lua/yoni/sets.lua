@@ -52,3 +52,9 @@ vim.opt.hlsearch = false
 vim.opt.mouse = "a"
 
 vim.opt.colorcolumn = "80"
+
+vim.cmd([[
+" Make them commets italic
+set t_ZH=[3m
+set t_ZR=[23m
+]])

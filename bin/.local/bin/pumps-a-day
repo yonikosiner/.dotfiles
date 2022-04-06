@@ -7,10 +7,12 @@ case "$curr" in
     "--up-1")
         up=$(curl -X POST -s http://10.0.0.31:8080/update/1)
         echo $up
+        echo $up | xargs -I {} notify-send {} -t 200
         ;;
     "--clear")
         clear=$(curl -X PUT -s http://10.0.0.31:8080/clear)
         echo $clear
+        echo $clear | xargs -I {} notify-send {} -t 200
         ;;
     "--get-count")
         count=$(curl -s http://10.0.0.31:8080/)

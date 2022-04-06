@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 MUTEVOL=$(pactl get-sink-mute @DEFAULT_SINK@ | xargs | sed 's/Mute://g' | awk '{print $1}')
-VOL=$(pactl list sinks | awk '/Volume/ {print $5}' | xargs | awk '{print $3}')
+VOL=$(pactl list sinks | awk '/Volume/ {print $5}' | xargs | awk '{print $1}')
 
 if [[ $MUTEVOL == "yes" ]];
 then

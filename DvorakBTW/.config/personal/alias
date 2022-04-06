@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 alias aoeu="setxkbmap -layout us"
 alias asdf="setxkbmap -layout real-prog-dvorak"
 alias lkj="setxkbmap us real-prog-dvorak"
@@ -11,7 +12,7 @@ alias cat="bat --theme gruvbox-dark"
 alias caps="xdotool key Caps_Lock"
 
 alias n="exa -x --icons --git --group-directories-first"
-alias nn="exa --icons -a"
+alias nn="exa -ax --icons --git --group-directories-first"
 
 alias mpv="devour mpv"
 alias vlc="devour vlc"
@@ -57,9 +58,9 @@ alias rm='rm -i'
 
 alias vim="nvim"
 
-alias sync_mail="mw -Y"
-
-alias math="expr"
+# alias sync_mail="mw -Y"
+#
+# alias math="expr"
 
 alias dvorakBTW="cowsay 'I Use Dvorak Btw' | lolcat"
 alias flex="cowsay 'I Use Neovim, Dvorak, and arch linux BTW' | lolcat && neofetch --ascii_art 'Arch'"

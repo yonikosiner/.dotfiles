@@ -12,22 +12,22 @@ shift
 
 case "$curr" in
 "neovim")
-    kitty sh -c "nvim ~/.dotfiles/nvim/.config/nvim"
-   ;;
+    alacritty -c "nvim ~/.dotfiles/nvim/.config/nvim"
+    ;;
 "bin")
-   kitty sh -c "nvim ~/.dotfiles/bin/.local/bin"
+    alacritty -c "nvim ~/.dotfiles/bin/.local/bin"
     ;;
 "i3")
-    kitty sh -c "nvim ~/.dotfiles/i3/.config"
+    alacritty -c "nvim ~/.dotfiles/i3/.config"
     ;;
 "polybar")
-   kitty sh -c "nvim ~/.dotfiles/polybar/.config/polybar"
+    alacritty -c "nvim ~/.dotfiles/polybar/.config/polybar"
     ;;
 "zsh-personal")
- kitty sh -c "nvim ~/.dotfiles/DvorakBTW/.config/personal"
+    alacritty -c "nvim ~/.dotfiles/DvorakBTW/.config/personal"
     ;;
 "zsh")
- kitty sh -c "nvim ~/.dotfiles/zsh/"
+    alacritty -c "nvim ~/.dotfiles/zsh/"
     ;;
 *) echo "Unavailable command... $curr"
 esac

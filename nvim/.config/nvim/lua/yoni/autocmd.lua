@@ -14,11 +14,11 @@ vim.api.nvim_create_autocmd("BufWritePre", { callback = function()
     vim.cmd([[:%s/\s\+$//e]])
 end, group = group})
 
--- Go is being really anoying with showing erros messages, unless I restart, so each time I save a go file, just restart it
 -- vim.api.nvim_create_autocmd("BufWritePre", {
---     -- pattern = { "go" },
+--     pattern = { "fugitive" },
 --     callback = function()
---         vim.cmd(":edit")
+--         vim.cmd(":set nonu")
+--         vim.cmd(":set norelativenumber")
 --     end,
 --     group = group
 -- })

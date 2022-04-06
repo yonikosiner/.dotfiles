@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 isCharging=$(acpi | awk '{print $3}' | sed 's/,//')
-battLevel=$(acpi | awk '{print $4}' | sed 's/,//')
+battLevel=$(acpi | awk '{print $4}' | sed 's/,//' | xargs | awk '{print $1}')
 
 if [[ $isCharging == "Discharging" ]];
 then

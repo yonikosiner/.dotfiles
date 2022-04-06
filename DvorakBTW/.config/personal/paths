@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 export DOTFILES=$HOME/.dotfiles
 export SCHOOLWORK=$HOME/school-work
 export STOW_FOLDERS="bin,i3,nvim,tmux,zsh,DvorakBTW,kitty,dunst,polybar,fonts"
