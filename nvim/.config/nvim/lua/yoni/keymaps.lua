@@ -99,4 +99,10 @@ M.normal("<leader>r", ":lua require('yoni.utils').reload_module()<CR>")
 -- Open my current dir in nnn (termianl file manger) with a quick hotkey, this is very handy
 M.normal("<leader><C-o>", ":lua require('yoni.utils').open_dir_nnn()<CR>")
 
+-- Window stuff
+M.normal("<leader>h", ":wincmd h<CR>")
+M.normal("<leader>j", ":wincmd j<CR>")
+M.normal("<leader>k", ":wincmd k<CR>")
+M.normal("<leader>l", ":wincmd l<CR>")
+
 return M

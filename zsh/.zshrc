@@ -1,3 +1,9 @@
+# OH MY ZSH stuff
+export ZSH="/home/yoni/.oh-my-zsh"
+
+ZSH_THEME="robbyrussell"
+plugins=(git command-time zsh-fzf-history-search)
+
 export XDG_CONFIG_HOME=$HOME/.config
 export LANG=en_US.UTF-8
 export LC_CTYPE=en_US.UTF-8
@@ -12,8 +18,8 @@ export TODO_ME_DADDY=$HOME/personal/todo-me-daddy/
 
 export EDITOR="nvim"
 
+source $ZSH/oh-my-zsh.sh
 PERSONAL=$XDG_CONFIG_HOME/personal
-# alias ls='exa -x --icons --git --group-directories-first'
 
 for i in `find -L $PERSONAL`; do
     source $i
@@ -27,44 +33,6 @@ autoload -U colors && colors
 
 #[[ $(fgconsole 2>/dev/null) == 1 ]] && exec startx -- vt1
 
-bindkey -v
-export KEYTIMEOUT=1
-
-export ZSH="/home/yoni/.oh-my-zsh"
-
-ZSH_THEME="robbyrussell"
-CASE_SENSITIVE="true"
-DISABLE_LS_COLORS="false"
-# plugins=(git zsh-autosuggestions command-time)
-plugins=(git command-time zsh-fzf-history-search)
-source $ZSH/oh-my-zsh.sh
-
-# User configuration
-
-# export MANPATH="/usr/local/man:$MANPATH"
-
-# You may need to manually set your language environment
-# export LANG=en_US.UTF-8
-
-# Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
-
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
-
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
-#
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
-
 export VK_ICD_FILENAMES=/usr/share/vulkan/icd.d/nvidia_icd.json
 
 # autoload -Uz vcs_info
@@ -76,6 +44,9 @@ export VK_ICD_FILENAMES=/usr/share/vulkan/icd.d/nvidia_icd.json
 # }
 #
 # PS1='%B$fg[magenta]%~%]${vcs_info_msg_0_}'$'\n'"$fg[green]$ %b"
+
+bindkey -v
+export KEYTIMEOUT=1
 
 bindkey -s ^f "tmux-sessionizer\n"
 bindkey -s ^o "nnn\n"

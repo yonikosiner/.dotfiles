@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+for out in `xrandr | grep connected | cut -d ' ' -f 1-2`; do
+    name=`echo $out | cut -d ' ' -f 1`
+    state=`echo $out | cut -d ' ' -f 2`
+
+    if [[ "$name" == "DP-4" && "$state" == "connected" ]]; then
+        xrandr --output DP-4 --mode 2560x1440 --pos 1920x0 --rotate normal --output eDP-1-1 --mode 1920x1080 --pos 0x180 --rotate normal
+    elif [[ "$name" == "HDMI-0" && "$state" == "connected" ]]; then
+        xrandr --output HDMI-0 --mode 1920x1080 1920x0 --rotate normal --output eDP-1-1 --mode 1920x1080 --pos 0x180 --rotate normal
+    else
+        xrandr --output eDP-1-1 --primary --mode 1920x1080 --pos 0x129 --rotate normal
+    fi
+done

@@ -57,7 +57,6 @@ M.get_mode = function()
         mode = mode_table[mode]
     end
 
-    -- Change the statusbar color in insert mode
     if mode == "Insert" then
         vim.cmd([[hi StatusLine ctermbg=24 ctermfg=254 guibg=#373b40 guifg=#9fc1ba]])
     else
@@ -80,15 +79,15 @@ M.on_write = function()
     write_count = write_count + 1
 end
 
-local statusline = "%s%%  | %s%%) | %%-5.1000(%s%%) | %%-1.10(%d%%) |%%-5.20(%s%%)%%-6.6 | %s%%) | %s%%)"
+-- local statusline = %#Normal# .. "%s%%" .. %#Ignore# .. "| %s%%) | %%-5.1000(%s%%) | %%-1.10(%d%%) |%%-5.20(%s%%)%%-6.6 | %s%%) | %s%%)"
+local statusline = "%s%% | %s%%) | %%-5.1000(%s%%) | %%-1.10(%d%%) |%%-5.20(%s%%)%%-6.6 | %s%%) | %s%%)"
 
 -- if msg or not msg == "" then
-    -- statusline = statusline .. "| %s%%)"
+--     statusline = statusline .. "| %s%%)"
 -- end
 
 M.StatusLine = function()
-    -- if msg or not msg == "" then
-        return string.format(statusline,
+    return string.format(statusline,
         M.get_mode(),
         M.get_git_branch(),
         M.get_file_name(),
@@ -96,25 +95,16 @@ M.StatusLine = function()
         M.get_filetype(),
         M.get_line_info(),
         msg)
-    -- else
-    --     return string.format(statusline,
-    --     M.get_mode(),
-    --     M.get_git_branch(),
-    --     M.get_file_name(),
-    --     write_count,
-    --     M.get_filetype(),
-    --     M.get_line_info())
-    -- end
 end
 
 vim.o.statusline = '%!v:lua.require("yoni.statusline").StatusLine()'
 
-vim.api.nvim_exec([[
-augroup YONI_STATUSLINE
-    autocmd!
-    autocmd BufWritePre * :lua require("yoni.statusline").on_write()
-augroup END
- ]], false)
+
+local group = vim.api.nvim_create_augroup("YONI_STATUSLINE", { clear = true })
+
+vim.api.nvim_create_autocmd("BufWritePre", { callback = function()
+    require("yoni.statusline").on_write()
+end, group = group})
 
  M.set_status = function(line)
      msg = line

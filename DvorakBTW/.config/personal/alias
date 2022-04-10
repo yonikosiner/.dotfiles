@@ -4,15 +4,15 @@ alias asdf="setxkbmap -layout real-prog-dvorak"
 alias lkj="setxkbmap us real-prog-dvorak"
 alias snth="setxkbmap us"
 
+alias ls='exa -x --icons --git --group-directories-first'
+alias la='exa -a -x --icons --git --group-directories-first'
+
 # Take me into that pi baby
 alias ashersPi="ssh pi@192.168.1.195"
 
 alias cat="bat --theme gruvbox-dark"
 
 alias caps="xdotool key Caps_Lock"
-
-alias n="exa -x --icons --git --group-directories-first"
-alias nn="exa -ax --icons --git --group-directories-first"
 
 alias mpv="devour mpv"
 alias vlc="devour vlc"
@@ -21,6 +21,8 @@ alias eog="devour eog"
 alias e="vim"
 alias v="vim"
 alias vi="vim"
+
+alias V="sudo /usr/local/bin/nvim -"
 
 alias anime="~/Documents/Apps/ani-cli/ani-cli"
 
