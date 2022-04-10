@@ -45,6 +45,7 @@ vim.cmd([[
     hi CursorLineNR guibg=None
 
     hi StatusLine ctermbg=24 ctermfg=254 guibg=#373b40 guifg=#7fa3c0
+    highlight TelescopePromptPrefix guifg=#96f1ff
 
     " highlight netrwDir guifg=#5eacd3
     " highlight LineNr guifg=#5eacd3
@@ -52,5 +53,4 @@ vim.cmd([[
 end
 
 colorMeDaddy()
-
 -- vim.cmd(":match MyGroup /Normal/")
