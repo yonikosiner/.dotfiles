@@ -32,11 +32,11 @@ export KEYTIMEOUT=1
 
 export ZSH="/home/yoni/.oh-my-zsh"
 
-# ZSH_THEME="robbyrussell"
+ZSH_THEME="robbyrussell"
 CASE_SENSITIVE="true"
 DISABLE_LS_COLORS="false"
 # plugins=(git zsh-autosuggestions command-time)
-plugins=(git command-time)
+plugins=(git command-time zsh-fzf-history-search)
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
@@ -67,19 +67,21 @@ source $ZSH/oh-my-zsh.sh
 
 export VK_ICD_FILENAMES=/usr/share/vulkan/icd.d/nvidia_icd.json
 
-autoload -Uz vcs_info
-zstyle ':vcs_info:*' enable git svn
-zstyle ':vcs_info:git*' formats " %%B%{$fg[yellow]λ %%B%{$fg[green]%b"
-
-precmd() {
-    vcs_info
-}
-
-PS1='%B$fg[magenta]%~%]${vcs_info_msg_0_}'$'\n'"$fg[green]» %b"
+# autoload -Uz vcs_info
+# zstyle ':vcs_info:*' enable git svn
+# zstyle ':vcs_info:git*' formats " %%B%{$fg[yellow]λ %%B%{$fg[green]%b"
+#
+# precmd() {
+#     vcs_info
+# }
+#
+# PS1='%B$fg[magenta]%~%]${vcs_info_msg_0_}'$'\n'"$fg[green]$ %b"
 
 bindkey -s ^f "tmux-sessionizer\n"
 bindkey -s ^o "nnn\n"
-bindkey -s ^h "zsh-history\n"
 bindkey -s ^p "password\n"
+
+source /home/yoni/personal/fzf-tab-completion/zsh/fzf-zsh-completion.sh
+bindkey '^I' fzf_completion
 
 alias luamake=/home/yoni/lua-language-server/3rd/luamake/luamake

@@ -318,7 +318,7 @@ interval = 1
 format-prefix = "🌐 "
 format = <label>
 exec = /home/yoni/.local/bin/network
-click-left = kitty sh -c "nmtui"
+click-left = alacritty -e nmtui
 
 
 [module/alsa]
@@ -497,7 +497,7 @@ type = custom/script
 interval = 0.1
 exec = /home/yoni/.local/bin/volume | awk '{print $1 $2}'
 format = <label>
-click-middle = kitty sh -c "/usr/bin/pulsemixer"
+click-middle = alacritty -e /usr/bin/pulsemixer
 click-left = ~/.local/bin/volumeControl -mute-vol
 click-right = ~/.local/bin/volumeControl -mute-mic
 
@@ -508,7 +508,7 @@ scale=4
 format-prefix = "😷 "
 format = <label>
 exec = /home/yoni/.local/bin/CovidUk | awk -F 'm' '{print $3}' | awk -F '[' '{print $1}'
-click-left = kitty sh -c "curl https://corona-stats.online/uk; read"
+click-left = alacritty -e curl https://corona-stats.online/uk; less
 
 [module/ram-left]
 type = custom/script
@@ -516,22 +516,22 @@ internal = 14
 format-prefix = "🖥 "
 format = <label>gb
 exec = /home/yoni/.local/bin/ramLeft
-click-right = kitty sh -c "btop"
-click-left = kitty sh -c "htop"
+click-right = alacritty -e btop
+click-left = alacritty -e htop
 
 [module/upgrade]
 type = custom/script
 internal = 14
 format = <label>
 exec = ~/.local/bin/packageToBeUpgraded
-click-left = kitty sh -c "sudo pacman -Syyu"
+click-left = alacritty -e sudo pacman -Syyu
 
 [module/weather]
 type = custom/script
 internal = 14
 format = <label>
 exec = ~/.local/bin/weather
-click-left = kitty sh -c "curl wttr.in; read"
+click-left = alacritty -e curl wttr.in; read
 
 [module/title]
 type = custom/script

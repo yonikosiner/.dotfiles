@@ -2,8 +2,6 @@
 
 notify-send "Starting to backup computer to server"
 
-commitDotFiles
-
 sudo rsync -aAXv --delete /home/yoni/Music /home/yoni/server/backups
 sudo rsync -aAXv --delete /home/yoni/Documents /home/yoni/server/backups
 sudo rsync -aAXv --delete /home/yoni/Downloads /home/yoni/server/backups

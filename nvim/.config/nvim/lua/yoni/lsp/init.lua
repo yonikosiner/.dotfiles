@@ -8,7 +8,7 @@ local sumneko_binary = sumneko_root_path .. "/bin/lua-language-server"
 
 local normal = require("yoni.keymaps").normal
 
--- cetup nvim-cmp.
+-- setup nvim-cmp.
 local cmp = require'cmp'
 
 local lspkind = require "lspkind"

@@ -49,11 +49,16 @@ end
 function M.open_dir_nnn()
     local currentDir = vim.cmd("pwd")
     Job:new({
-        "kitty",
+        "alacritty",
         "-e",
         "nnn",
         currentDir
     }):start()
+end
+
+P = function(v)
+  print(vim.inspect(v))
+  return v
 end
 
 return M

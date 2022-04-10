@@ -1,5 +1,6 @@
 vim.g.mapleader = " "
 
+-- Local vim porjects
 vim.opt.rtp:append(vim.fn.expand "~/personal/todo-me-daddy/master")
 vim.opt.rtp:append(vim.fn.expand "~/personal/twitch-bot/ui")
 vim.opt.rtp:append(vim.fn.expand "~/personal/harpoon/master")
@@ -23,3 +24,5 @@ require("yoni.refactoring")
 require("yoni.firenvim")
 require("yoni.luasnip")
 require("yoni.harpoon")
+
+require('go').setup()

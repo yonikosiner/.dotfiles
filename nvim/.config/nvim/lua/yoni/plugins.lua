@@ -1,5 +1,10 @@
 vim.cmd([[
 call plug#begin('~/.vim/pluged')
+Plug 'norcalli/nvim-colorizer.lua'
+Plug 'tjdevries/gruvbuddy.nvim'
+Plug 'tomasiser/vim-code-dark'
+Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
+Plug 'ray-x/go.nvim'
 Plug 'simrat39/symbols-outline.nvim'
 Plug 'ThePrimeagen/jvim.nvim'
 Plug 'ellisonleao/glow.nvim'

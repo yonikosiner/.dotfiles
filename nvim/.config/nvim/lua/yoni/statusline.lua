@@ -57,6 +57,13 @@ M.get_mode = function()
         mode = mode_table[mode]
     end
 
+    -- Change the statusbar color in insert mode
+    if mode == "Insert" then
+        vim.cmd([[hi StatusLine ctermbg=24 ctermfg=254 guibg=#373b40 guifg=#9fc1ba]])
+    else
+        vim.cmd([[hi StatusLine ctermbg=24 ctermfg=254 guibg=#373b40 guifg=#7fa3c0]])
+    end
+
     return mode
 end
 
@@ -114,13 +121,5 @@ augroup END
  end
 
  --TODO: play around with getting colors on the status bar
-
- -- Color.new("background", "#4a5d6b")
- -- Color.new('background',  '#282c34')
- -- Color.new('red',         '#cc6666')
- -- Color.new('green',       '#99cc99')
- -- Color.new('yellow',      '#f0c674')
-
- -- Group.new("statusline", colors.yellow, colors.background, styles.NONE)
 
 return M

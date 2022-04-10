@@ -15,7 +15,7 @@ set $mod Mod1
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-font pango:monospace 8
+font pango:FiraCode Nerd Font Mono 11
 
 for_window [class="^.*"] border pixel 2
 for_window [class="^.*"] client.focused          #77dd77 #285577 #ffffff #2e9ef4   #285577
@@ -155,6 +155,7 @@ mode "resize" {
         bindsym Left resize shrink width 10 px or 10 ppt
         bindsym Down resize grow height 10 px or 10 ppt
         bindsym Up resize shrink height 10 px or 10 ppt
+
         bindsym Right resize grow width 10 px or 10 ppt
 
         # back to normal: Enter or Escape
@@ -167,14 +168,10 @@ bindsym $mod+r mode "resize"
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-        #status_command i3status
-        ##status_command /home/yoni/.local/bin/CovidUk
-        #tray_output primary
-        i3bar_command /home/yoni/.config/polybar/launch.sh
+        status_command i3status
+        tray_output primary
+        # i3bar_command /home/yoni/.config/polybar/launch.sh
 }
-
-exec --no-startup-id /home/yoni/screen.sh
-
 
 # Custom Keys Start
 
@@ -244,4 +241,3 @@ exec --no-startup-id pulseaduio
 exec --no-startup-id dunst
 exec --no-startup-id picom
 exec --no-startup-id ~/.local/bin/screen.sh
-exec_always --no-startup-id i3-auto-layout
