@@ -5,40 +5,52 @@ local M = {}
 
 local write_count = 0
 local git_branch = "git"
-local msg = nil
+local msg = ""
 
 M.get_file_name = function()
     local name = vim.api.nvim_buf_get_name(0)
 
     if not name or name == "" then
-        return "(no name)"
+        return "[No Name]"
     end
 
-    local stringToRegex = "^" .. home .. "/"
+    local file_name, file_ext = vim.fn.expand("%:t"), vim.fn.expand("%:e")
+    local icon = require 'nvim-web-devicons'.get_icon(file_name, file_ext, { default = true })
 
-    local new_name = name:gsub(stringToRegex, "~/")
+    local fileName = vim.fn.pathshorten(vim.fn.fnamemodify(name, ":."))
+    fileName = icon .. " " .. fileName
 
-    return new_name
+    return fileName
+end
+
+local function getGitIcon()
+    local ok, icon = pcall(function()
+        return require("nvim-web-devicons").get_icon ".gitattributes"
+    end)
+    return ok and icon or ""
 end
 
 M.get_git_branch = function()
     git_branch = vim.fn["fugitive#head"]()
 
     if not git_branch or git_branch == "" then
-        git_branch = "(no git)"
-        return git_branch
+        git_branch = " [No Git]"
+    else
+        git_branch = " %s " .. git_branch
+        git_branch = string.format(git_branch, getGitIcon())
     end
-
-    git_branch = "λ " .. git_branch
 
     return git_branch
 end
 
 M.get_line_info = function()
-    local line = vim.fn.line(".")
     local offset = vim.fn.col(".")
 
-    return string.format("%d:%d", line, offset)
+    if offset == 1 or offset == 2 or offset == 3 or offset == 4 or offset == 5 or offset == 6 or offset == 7 or offset == 8 or offset == 9 then
+        offset = "0" .. offset
+    end
+
+    return string.format("%s", offset)
 end
 
 M.get_mode = function()
@@ -58,9 +70,9 @@ M.get_mode = function()
     end
 
     if mode == "Insert" then
-        vim.cmd([[hi StatusLine ctermbg=24 ctermfg=254 guibg=#373b40 guifg=#9fc1ba]])
+        vim.cmd([[highlight Modes guifg=#F2F2F2]])
     else
-        vim.cmd([[hi StatusLine ctermbg=24 ctermfg=254 guibg=#373b40 guifg=#7fa3c0]])
+        vim.cmd([[highlight Modes guifg=#373b40 guibg=#7fa3c0]])
     end
 
     return mode
@@ -77,11 +89,17 @@ end
 
 M.on_write = function()
     write_count = write_count + 1
+
+    if write_count == 1 or write_count == 2 or write_count == 3 or write_count == 4 or write_count == 5 or write_count == 6 or write_count == 7 or write_count == 8 or write_count == 9 then
+        write_count = "0" .. write_count
+    end
+
+    if write_count >= 100 then
+        write_count = ".."
+    end
 end
 
--- local statusline = "%#Normal#" .. "%s%%" .. "%#Ignore#" .. "| %s%%) | %%-5.1000(%s%%) | %%-1.10(%d%%) |%%-5.20(%s%%)%%-6.6 | %s%%) | %s%%)"
-
-local statusline = "%s%%  | %s%%) | %%-5.1000(%s%%) | %%-1.10(%d%%) |%%-5.20(%s%%)%%-6.6 | %s%%) | %s%%) | %s%%"
+local statusline = "%%#Modes#" .. " %s%%)" .. "%%#Ignore#" .. "%s%% %s%%)  %%-5.100(%s%%) %s%% %%-1.50(%s%%) %%-5.20(%s%%)%%-6.6  %s%%)"
 
 -- if msg or not msg == "" then
 --     statusline = statusline .. "| %s%%)"
@@ -91,12 +109,14 @@ M.StatusLine = function()
     return string.format(statusline,
         M.get_mode(),
         M.get_git_branch(),
+        -- The %= puts a break in
+        "%=",
         M.get_file_name(),
+        -- Having the double %= makes sure that the file name is in the middle
+        "%=",
         write_count,
-        M.get_filetype(),
         M.get_line_info(),
-        msg,
-        "%m")
+        msg)
 end
 
 vim.o.statusline = '%!v:lua.require("yoni.statusline").StatusLine()'
@@ -104,7 +124,7 @@ vim.o.statusline = '%!v:lua.require("yoni.statusline").StatusLine()'
 local group = vim.api.nvim_create_augroup("YONI_STATUSLINE", { clear = true })
 
 vim.api.nvim_create_autocmd("BufWritePre", { callback = function()
-    require("yoni.statusline").on_write()
+    vim.cmd("silent! lua require('yoni.statusline').on_write()")
 end, group = group })
 
 M.set_status = function(line)

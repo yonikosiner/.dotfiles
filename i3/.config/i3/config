@@ -237,4 +237,7 @@ bindsym $mod+minus exec --no-startup-id ~/.local/bin/GNU+Linux
 bindsym $mod+p exec --no-startup-id echo "£" | xclip -selection clipboard -i
 bindsym $mod+shift+p exec --no-startup-id ~/.local/bin/passmenu
 
-exec --no-startup-id ~/.local/bin/startup
+exec --no-startup-id pulseaduio
+exec --no-startup-id dunst
+exec --no-startup-id picom
+exec --no-startup-id ~/.local/bin/screen-stuff

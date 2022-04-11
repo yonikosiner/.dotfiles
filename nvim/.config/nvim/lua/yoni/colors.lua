@@ -1,5 +1,6 @@
 local Group = require("colorbuddy.group").Group
 
+require("colorizer").setup()
 require("colorbuddy").setup()
 
 -- Remove window border color thing - does not work 100% on gruvbox btw
@@ -46,6 +47,8 @@ local function colorMeDaddy()
 
         hi StatusLine ctermbg=24 ctermfg=254 guibg=#373b40 guifg=#7fa3c0
         highlight TelescopePromptPrefix guifg=#96f1ff
+        highlight Modes guibg=#ffffff
+        highlight Ignore guifg=#373b40 guibg=#7fa3c0
 
         " highlight netrwDir guifg=#5eacd3
         " highlight LineNr guifg=#5eacd3
