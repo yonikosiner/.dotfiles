@@ -14,7 +14,7 @@ M.get_file_name = function()
         return "(no name)"
     end
 
-    local stringToRegex = "^" .. home .."/"
+    local stringToRegex = "^" .. home .. "/"
 
     local new_name = name:gsub(stringToRegex, "~/")
 
@@ -67,20 +67,21 @@ M.get_mode = function()
 end
 
 M.get_filetype = function()
-  local file_name, file_ext = vim.fn.expand("%:t"), vim.fn.expand("%:e")
-  local icon = require'nvim-web-devicons'.get_icon(file_name, file_ext, { default = true })
-  local filetype = vim.bo.filetype
+    local file_name, file_ext = vim.fn.expand("%:t"), vim.fn.expand("%:e")
+    local icon = require 'nvim-web-devicons'.get_icon(file_name, file_ext, { default = true })
+    local filetype = vim.bo.filetype
 
-  if filetype == '' then return "(no filetype)" end
-  return string.format(" %s %s ", icon, filetype):lower()
+    if filetype == '' then return "(no filetype)" end
+    return string.format(" %s %s ", icon, filetype):lower()
 end
 
 M.on_write = function()
     write_count = write_count + 1
 end
 
--- local statusline = %#Normal# .. "%s%%" .. %#Ignore# .. "| %s%%) | %%-5.1000(%s%%) | %%-1.10(%d%%) |%%-5.20(%s%%)%%-6.6 | %s%%) | %s%%)"
-local statusline = "%s%% | %s%%) | %%-5.1000(%s%%) | %%-1.10(%d%%) |%%-5.20(%s%%)%%-6.6 | %s%%) | %s%%)"
+-- local statusline = "%#Normal#" .. "%s%%" .. "%#Ignore#" .. "| %s%%) | %%-5.1000(%s%%) | %%-1.10(%d%%) |%%-5.20(%s%%)%%-6.6 | %s%%) | %s%%)"
+
+local statusline = "%s%%  | %s%%) | %%-5.1000(%s%%) | %%-1.10(%d%%) |%%-5.20(%s%%)%%-6.6 | %s%%) | %s%%) | %s%%"
 
 -- if msg or not msg == "" then
 --     statusline = statusline .. "| %s%%)"
@@ -94,22 +95,22 @@ M.StatusLine = function()
         write_count,
         M.get_filetype(),
         M.get_line_info(),
-        msg)
+        msg,
+        "%m")
 end
 
 vim.o.statusline = '%!v:lua.require("yoni.statusline").StatusLine()'
-
 
 local group = vim.api.nvim_create_augroup("YONI_STATUSLINE", { clear = true })
 
 vim.api.nvim_create_autocmd("BufWritePre", { callback = function()
     require("yoni.statusline").on_write()
-end, group = group})
+end, group = group })
 
- M.set_status = function(line)
-     msg = line
- end
+M.set_status = function(line)
+    msg = line
+end
 
- --TODO: play around with getting colors on the status bar
+--TODO: play around with getting colors on the status bar
 
 return M
