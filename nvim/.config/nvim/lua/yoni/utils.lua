@@ -12,6 +12,8 @@ local function reload(prompt_bufnr)
 
     if content.value == "todo_me_daddy" then
         content.value = "todo-me-daddy"
+    elseif content.value == "color-scheme" then
+        require("yoni.colors").SetColorScheme()
     end
 
     require('plenary.reload').reload_module(content.value)
@@ -25,6 +27,7 @@ function M.reload_module()
                 "todo_me_daddy",
                 "harpoon",
                 "yoni.statusline",
+                "color-scheme",
             }
         }),
         sorter = require("telescope.config").values.generic_sorter({}),
@@ -56,9 +59,12 @@ function M.open_dir_nnn()
     }):start()
 end
 
+function M.sourceConfig()
+end
+
 P = function(v)
-  print(vim.inspect(v))
-  return v
+    print(vim.inspect(v))
+    return v
 end
 
 return M

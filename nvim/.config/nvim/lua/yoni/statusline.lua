@@ -1,5 +1,4 @@
 -- local Color, colors, Group, groups, styles = require('colorbuddy').setup()
-local home = os.getenv("HOME")
 
 local M = {}
 
@@ -44,13 +43,14 @@ M.get_git_branch = function()
 end
 
 M.get_line_info = function()
+    local line = vim.fn.line(".")
     local offset = vim.fn.col(".")
 
     if offset == 1 or offset == 2 or offset == 3 or offset == 4 or offset == 5 or offset == 6 or offset == 7 or offset == 8 or offset == 9 then
         offset = "0" .. offset
     end
 
-    return string.format("%s", offset)
+    return string.format("[%d:%s]", line, offset)
 end
 
 M.get_mode = function()
@@ -71,6 +71,7 @@ M.get_mode = function()
 
     if mode == "Insert" then
         vim.cmd([[highlight Modes guifg=#F2F2F2]])
+        -- vim.api.nvim_set_hl(0, "Normal", "#F2F2F2")
     else
         vim.cmd([[highlight Modes guifg=#373b40 guibg=#7fa3c0]])
     end
@@ -92,10 +93,6 @@ M.on_write = function()
 
     if write_count == 1 or write_count == 2 or write_count == 3 or write_count == 4 or write_count == 5 or write_count == 6 or write_count == 7 or write_count == 8 or write_count == 9 then
         write_count = "0" .. write_count
-    end
-
-    if write_count >= 100 then
-        write_count = ".."
     end
 end
 

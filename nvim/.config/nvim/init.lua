@@ -1,3 +1,4 @@
+-- Make sure my leader is set befdore anything happens
 vim.g.mapleader = " "
 
 -- Local vim porjects

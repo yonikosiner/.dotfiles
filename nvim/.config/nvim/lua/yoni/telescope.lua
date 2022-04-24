@@ -230,7 +230,6 @@ normal("<leader>gb", ":Telescope git_branches<CR>")
 normal("<leader>gc", ":Telescope git_commits<CR>")
 
 normal("<leader>gw", ":lua require('telescope').extensions.git_worktree.git_worktrees({ layout_config = { width = 0.5, height = 0.5 }})<CR>")
-
 normal("<leader>gm", ":lua require('telescope').extensions.git_worktree.create_git_worktree({ layout_config = { width = 0.5, height = 0.5 }})<CR>")
 
 return M

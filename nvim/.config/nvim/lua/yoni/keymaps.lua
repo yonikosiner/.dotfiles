@@ -1,19 +1,19 @@
 local M = {}
 
 function M.bind(mode, keys, func)
-  vim.api.nvim_set_keymap(mode, keys, func, { noremap = true, silent = true })
+    vim.api.nvim_set_keymap(mode, keys, func, { noremap = true, silent = true })
 end
 
 function M.normal(key, func)
-  M.bind("n", key, func)
+    M.bind("n", key, func)
 end
 
 function M.visual(key, func)
-  M.bind("v", key, func)
+    M.bind("v", key, func)
 end
 
 function M.insert(key, func)
-  M.bind("i", key, func)
+    M.bind("i", key, func)
 end
 
 -- Sweet tmux things
@@ -36,9 +36,6 @@ M.normal("<leader>lo", ":lopen<CR>")
 M.visual("J", "<cmd>m '>+1<CR>gv=gv")
 M.visual("K", "<cmd>m '<-2<CR>gv=gv")
 M.normal("Y", "y$")
-M.normal("n", "nzzzv")
-M.normal("N", "nzzzv")
-M.normal("J", "mzJ`z")
 
 M.normal("*", "*zzzv")
 M.normal("#", "#zzzv")
@@ -92,17 +89,16 @@ M.normal("<leader>x", '"_x')
 M.visual("<leader>p", '"_dP')
 M.visual("<leader>y", '"+y')
 
-M.normal("<silent>Q","<Nop>")
+M.normal("<silent>Q", "<Nop>")
 
 M.normal("<leader>r", ":lua require('yoni.utils').reload_module()<CR>")
+
+M.normal("<leader>ee", "oif err != nil {<CR>}<CR><esc>kkI<esc>")
 
 -- Open my current dir in nnn (termianl file manger) with a quick hotkey, this is very handy
 M.normal("<leader><C-o>", ":lua require('yoni.utils').open_dir_nnn()<CR>")
 
--- Window stuff
-M.normal("<leader>h", ":wincmd h<CR>")
-M.normal("<leader>j", ":wincmd j<CR>")
-M.normal("<leader>k", ":wincmd k<CR>")
-M.normal("<leader>l", ":wincmd l<CR>")
+-- Add tags in go
+M.normal("<leader>t", ":GoAddTag<CR>")
 
 return M
