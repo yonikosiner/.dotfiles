@@ -38,6 +38,7 @@ M.rename = function()
                 orginal_pos[2] = orginal_pos[2] + 1
                 vim.api.nvim_win_set_cursor(0, orginal_pos)
                 vim.lsp.buf.rename(entry)
+                vim.cmd("wa")
             end
         end,
     })

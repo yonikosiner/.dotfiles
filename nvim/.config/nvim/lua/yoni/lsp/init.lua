@@ -7,6 +7,7 @@ local sumneko_root_path = "/home/yoni/personal/lua-language-server"
 local sumneko_binary = sumneko_root_path .. "/bin/lua-language-server"
 
 local normal = require("yoni.keymaps").normal
+local insert = require("yoni.keymaps").insert
 
 -- setup nvim-cmp.
 local cmp = require 'cmp'
@@ -104,16 +105,16 @@ local function config(_config)
         capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities()),
         on_attach = function()
             -- Sweet lsp keybinds
-            normal("<leader>vd", ":lua vim.lsp.buf.definition()<CR>")
-            normal("<leader>vi", ":lua vim.lsp.buf.implementation()<CR>")
-            normal("<leader>vsh", ":lua vim.lsp.buf.signature_help()<CR>")
+            normal("gd", ":lua vim.lsp.buf.definition()<CR>")
+            normal("K", ":lua vim.lsp.buf.hover()<CR>")
+            normal("<leader>vws", ":lua vim.lsp.buf.workspace_symbol()<CR>")
+            normal("<leader>vd", ":lua vim.diagnostic.open_float()<CR>")
+            normal("[d", ":lua vim.lsp.diagnostic.goto_next()<CR>")
+            normal("]d", ":lua vim.lsp.diagnostic.goto_prev()<CR>")
+            normal("<leader>vca", ":lua vim.lsp.buf.code_action()<CR>")
             normal("<leader>vrr", ":lua vim.lsp.buf.references()<CR>")
             normal("<leader>vrn", ":lua require('yoni.lsp.rename').rename()<CR>")
-            normal("<leader>vh", ":lua vim.lsp.buf.hover()<CR>")
-            normal("<leader>vca", ":lua vim.lsp.buf.code_action()<CR>")
-            normal("<leader>vsd", ":lua vim.lsp.util.show_line_diagnostics()<CR>")
-            normal("<leader>vn", ":lua vim.lsp.diagnostic.goto_next()<CR>")
-            normal("<leader>vN", ":lua vim.lsp.diagnostic.goto_prev()<CR>")
+            insert("<C-h>", "<cmd>lua vim.lsp.buf.signature_help()<CR>")
         end
     }, _config or {})
 end

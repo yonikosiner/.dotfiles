@@ -59,12 +59,26 @@ function M.open_dir_nnn()
     }):start()
 end
 
-function M.sourceConfig()
+--[[ function M.sourceConfig()
+end ]]
+
+-- Convert px to rem (dvide higlighted number by 16)
+function M.pxToRem()
+    vim.cmd("noau normal! 'vy'")
+    local px = tonumber(vim.fn.getreg('v'))
+
+    local rem = px / 16
+
+    local stringToSearch = "/%s<CR>"
+    stringToSearch = stringToSearch.format(px)
+
+    vim.cmd(stringToSearch)
+    vim.cmd("norm! dwi" .. rem)
 end
 
-P = function(v)
+--[[ P = function(v)
     print(vim.inspect(v))
     return v
-end
+end ]]
 
 return M

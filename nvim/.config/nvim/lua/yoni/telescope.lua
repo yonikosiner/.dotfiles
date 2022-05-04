@@ -11,7 +11,7 @@ function delete_file(file)
 end
 
 require('telescope').setup {
-    defaults=themes.get_ivy({
+    defaults = themes.get_ivy({
         file_sorter = require('telescope.sorters').get_fzy_sorter,
         prompt_prefix = ' > ',
         color_devicons = true,
@@ -34,20 +34,20 @@ require('telescope').setup {
             override_generic_sorter = false,
             override_file_sorter = true,
         },
-   },
+    },
 
-   pickers = {
-       buffers = {
-           sort_mru = true,
-           theme = "ivy",
-           mappings = {
-               i = { ["<c-d>"] = actions.delete_buffer },
-           },
-       },
-       lsp_references = { path_display = { "shorten" } },
-       lsp_document_symbols = { path_display = { "hidden" } },
-       lsp_workspace_symbols = { path_display = { "shorten" } },
-   },
+    pickers = {
+        buffers = {
+            sort_mru = true,
+            theme = "ivy",
+            mappings = {
+                i = { ["<c-d>"] = actions.delete_buffer },
+            },
+        },
+        lsp_references = { path_display = { "shorten" } },
+        lsp_document_symbols = { path_display = { "hidden" } },
+        lsp_workspace_symbols = { path_display = { "shorten" } },
+    },
 }
 
 require("telescope").load_extension("git_worktree")
@@ -71,13 +71,6 @@ M.search_school = function()
     })
 end
 
-
-M.search_dotfiles_mac = function()
-    require("telescope.builtin").find_files({
-        prompt_title = "< VimRC >",
-        cwd = "/Users/yonikosiner/.dotfiles",
-    })
-end
 
 local function set_background(content)
     vim.fn.system(
@@ -112,7 +105,7 @@ local function image_selector(prompt, cwd)
             prompt_title = prompt,
             cwd = cwd,
 
-            layout_config  = {
+            layout_config = {
                 width = 0.5,
                 height = 0.9,
             },
@@ -165,7 +158,7 @@ local function pass_selector(prompt, cwd)
             prompt_title = prompt,
             cwd = cwd,
 
-            layout_config  = {
+            layout_config = {
                 width = 0.5,
                 height = 0.5,
             },
@@ -218,7 +211,6 @@ normal("<leader>ld", ":Telescope diagnostics bufnr=0<cr>")
 
 normal("<leader>vrc", ":lua require('yoni.telescope').search_dotfiles()<CR>")
 normal("<leader>src", ":lua require('yoni.telescope').search_school()<CR>")
-normal("<leader>vrcm", ":lua require('yoni.telescope').search_dotfiles_mac()<CR>")
 
 normal("<leader>pw", ":lua require('telescope.builtin').grep_string { search = vim.fn.expand('<cword>') }<CR>")
 normal("<leader>vih", ":lua require('telescope.builtin').help_tags()<CR>")

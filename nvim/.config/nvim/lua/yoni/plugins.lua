@@ -28,8 +28,6 @@ Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
 Plug 'mfussenegger/nvim-jdtls'
 Plug 'L3MON4D3/LuaSnip'
 Plug 'rafamadriz/friendly-snippets'
-" Make that vim good gurrllll
-Plug 'ThePrimeagen/vim-be-good'
 Plug 'nvim-lua/plenary.nvim'
 "Plug 'nvim-telescope/telescope-arecibo.nvim', { rocks = {'openssl', 'lua-http-parser'} }
 " Plug 'preservim/nerdtree'

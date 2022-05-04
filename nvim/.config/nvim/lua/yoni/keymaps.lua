@@ -97,6 +97,7 @@ M.normal("<leader>ee", "oif err != nil {<CR>}<CR><esc>kkI<esc>")
 
 -- Open my current dir in nnn (termianl file manger) with a quick hotkey, this is very handy
 M.normal("<leader><C-o>", ":lua require('yoni.utils').open_dir_nnn()<CR>")
+M.normal("<leader><C-p>", ":lua require('yoni.utils').pxToRem<CR>")
 
 -- Add tags in go
 M.normal("<leader>t", ":GoAddTag<CR>")

@@ -30,15 +30,27 @@ colors:
     foreground: '0xebdbb2'
 
   # Normal colors
+  # Gruvbox
+  # normal:
+  #   black:   '0x272727'
+  #   red:     '0xcc231c'
+  #   green:   '0x989719'
+  #   yellow:  '0xd79920'
+  #   blue:    '0x448488'
+  #   magenta: '0xb16185'
+  #   cyan:    '0x689d69'
+  #   white:   '0xFFFFFF'
+
+    # Gruvbudy
   normal:
     black:   '0x272727'
-    red:     '0xcc231c'
-    green:   '0x989719'
-    yellow:  '0xd79920'
-    blue:    '0x448488'
-    magenta: '0xb16185'
-    cyan:    '0x689d69'
-    white:   '0xFFFFFF'
+    red:     '0xcc6666'
+    green:   '0x99cc99'
+    yellow:  '0xf8fe7a'
+    blue:    '0x81a2be'
+    magenta: '0x8e6fbd'
+    cyan:    '0x8abeb7'
+    white:   '0xf2e5bc'
 
   # Bright colors
   bright:

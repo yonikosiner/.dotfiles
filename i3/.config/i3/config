@@ -177,16 +177,12 @@ bar {
 
 # FKeys
 # Pulse Audio controls
-bindsym XF86AudioRaiseVolume exec --no-startup-id ~/.local/bin/volumeControl -up
-bindsym XF86AudioLowerVolume exec --no-startup-id ~/.local/bin/volumeControl -down
-bindsym XF86AudioMute exec --no-startup-id ~/.local/bin/volumeControl -mute-vol
-bindsym Mod4+m exec --no-startup-id ~/.local/bin/volumeControl -mute-mic
+bindsym XF86AudioRaiseVolume    exec --no-startup-id ~/.local/bin/volumeControl -up
+bindsym XF86AudioLowerVolume    exec --no-startup-id ~/.local/bin/volumeControl -down
+bindsym XF86AudioMute           exec --no-startup-id ~/.local/bin/volumeControl -mute-vol
+bindsym Mod4+m                  exec --no-startup-id ~/.local/bin/volumeControl -mute-mic
 
-bindsym XF86Calculator exec --no-startup-id /usr/bin/kcalc
-
-# Sreen brightness controls
-bindsym XF86MonBrightnessUp exec light -A 10
-bindsym XF86MonBrightnessDown exec light -U 10
+# TODO: Sreen brightness controls
 
 # Suspend
 #bindsym $mod+Shift+period exec systemctl suspend
@@ -197,33 +193,29 @@ bindsym Mod4+shift+f			exec /usr/bin/dolphin
 bindsym $mod+shift+w			exec --no-startup-id /usr/bin/brave
 bindsym $mod+Shift+g		    exec --no-startup-id /usr/bin/gimp; workspace $ws6
 bindsym Mod4+k		            exec --no-startup-id ps ax | awk '{print $5}' | rofi -dmenu -p "Kill a process" - | xargs -r pkill $5
-bindsym Mod4+p		            exec --no-startup-id eog ~/Documents/PerodicTable.jpg
 
 bindsym Mod4+shift+h resize shrink width 10 px or 10 ppt
 bindsym Mod4+shift+j resize grow height 10 px or 10 ppt
 bindsym Mod4+shift+k resize shrink height 10 px or 10 ppt
 bindsym Mod4+shift+l resize grow width 10 px or 10 ppt
 
-bindsym $mod+shift+b exec /home/yoni/.local/bin/change_background_dmenu
-bindsym $mod+space exec ~/.local/bin/menu-emoji
+bindsym $mod+shift+b    exec /home/yoni/.local/bin/change_background_dmenu
+bindsym $mod+space      exec ~/.local/bin/menu-emoji
 
-bindsym $mod+sift+a exec --no-startup-id /home/yoni/Laptop.sh
-
-
-bindsym Mod4+s			gaps inner current plus 5
+bindsym Mod4+s			    gaps inner current plus 5
 bindsym Mod4+Shift+s		gaps inner current minus 5
 bindsym Mod4+Shift+d		gaps inner current set 0; gaps outer current set 0
-bindsym Mod4+z			gaps outer current plus 5
+bindsym Mod4+z			    gaps outer current plus 5
 bindsym Mod4+Shift+z		gaps outer current minus 5
 bindsym Mod4+Shift+t		gaps outer current set 2; gaps inner current set 5
 
-bindsym Mod4+f		exec --no-startup-id ~/.local/bin/openInFirefox
+bindsym Mod4+f		        exec --no-startup-id ~/.local/bin/openInFirefox
 bindsym Mod4+shift+g        exec --no-startup-id ~/.local/bin/picomToggle
 
 bindsym $mod+shift+e exec --no-startup-id ~/.local/bin/editConfig
 
-bindsym $mod+m move workspace to output left
-bindsym $mod+shift+m move workspace to output right
+bindsym $mod+m          move workspace to output left
+bindsym $mod+shift+m    move workspace to output right
 
 bindsym Mod4+d exec --no-startup-id setxkbmap -layout real-prog-dvorak
 bindsym Mod4+q exec --no-startup-id setxkbmap -layout us
@@ -231,11 +223,14 @@ bindsym Mod4+q exec --no-startup-id setxkbmap -layout us
 bindsym $mod+Shift+s exec flameshot gui -p ~/Pictures/Captures
 
 # Troll them lads on the internet
-bindsym $mod+Mod4+a exec echo "Ackchyually" | xclip -selection clipboard -i
-bindsym $mod+minus exec --no-startup-id ~/.local/bin/GNU+Linux
+bindsym $mod+Mod4+a     exec echo "Ackchyually" | xclip -selection clipboard -i
+bindsym $mod+minus      exec --no-startup-id ~/.local/bin/GNU+Linux
 
-bindsym $mod+p exec --no-startup-id echo "£" | xclip -selection clipboard -i
-bindsym $mod+shift+p exec --no-startup-id ~/.local/bin/passmenu
+bindsym $mod+p          exec --no-startup-id echo "£" | xclip -selection clipboard -i
+bindsym $mod+shift+p    exec --no-startup-id ~/.local/bin/passmenu
+
+bindsym Mod4+shift+p    exec --no-startup-id xdotool click --delay 1000 --repeat 900000 1
+bindsym Mod4+p    exec --no-startup-id pkill xdotool
 
 exec --no-startup-id pulseaduio
 exec --no-startup-id dunst

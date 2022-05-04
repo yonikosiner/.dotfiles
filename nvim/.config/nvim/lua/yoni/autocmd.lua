@@ -1,4 +1,4 @@
--- We create a grop which will be cleared each time
+-- We create a grop which will be cleared each time, this is so we don't have multiple autocommands running (or something like that)
 local group = vim.api.nvim_create_augroup("YONI", { clear = true })
 
 -- Give that sweet little yellow thing for a second on a yank, so I know what I

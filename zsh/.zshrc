@@ -1,6 +1,7 @@
 # OH MY ZSH stuff
 export ZSH="/home/yoni/.oh-my-zsh"
 
+# ZSH_THEME="powerlevel10k/powerlevel10k"
 ZSH_THEME="robbyrussell"
 plugins=(git command-time zsh-fzf-history-search)
 
@@ -24,6 +25,8 @@ PERSONAL=$XDG_CONFIG_HOME/personal
 for i in `find -L $PERSONAL`; do
     source $i
 done
+
+megaMind
 
 # MacOS stuff
 alias urlS="/System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/LaunchServices.framework/Versions/A/Support/lsregister -dump URLSchemeBinding"
@@ -57,3 +60,6 @@ source /home/yoni/personal/fzf-tab-completion/zsh/fzf-zsh-completion.sh
 bindkey '^I' fzf_completion
 
 alias luamake=/home/yoni/lua-language-server/3rd/luamake/luamake
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh

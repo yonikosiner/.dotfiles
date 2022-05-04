@@ -5,6 +5,7 @@ vim.g.mapleader = " "
 vim.opt.rtp:append(vim.fn.expand "~/personal/todo-me-daddy/master")
 vim.opt.rtp:append(vim.fn.expand "~/personal/twitch-bot/ui")
 vim.opt.rtp:append(vim.fn.expand "~/personal/harpoon/master")
+vim.opt.rtp:append(vim.fn.expand "~/personal/duckytype.nvim")
 
 require("yoni.plugins")
 require("yoni.globals")
@@ -27,3 +28,9 @@ require("yoni.harpoon")
 require("yoni.statusline")
 
 require('go').setup()
+
+require('duckytype').setup {
+    expected = "go_keywords",
+    number_of_words = 10,
+    average_word_length = 5.69,
+}

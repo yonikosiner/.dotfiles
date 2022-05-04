@@ -96,7 +96,7 @@ M.on_write = function()
     end
 end
 
-local statusline = "%%#Modes#" .. " %s%%)" .. "%%#Ignore#" .. "%s%% %s%%)  %%-5.100(%s%%) %s%% %%-1.50(%s%%) %%-5.20(%s%%)%%-6.6  %s%%)"
+local statusline = "%%#Modes#" .. " %s%%)" .. "%%#Ignore#" .. "%s%% %s%% %s%%)  %%-5.100(%s%%) %s%% %%-1.50(%s%%) %%-5.20(%s%%)%%-6.6  %s%%)"
 
 -- if msg or not msg == "" then
 --     statusline = statusline .. "| %s%%)"
@@ -109,6 +109,7 @@ M.StatusLine = function()
         -- The %= puts a break in
         "%=",
         M.get_file_name(),
+        "%m",
         -- Having the double %= makes sure that the file name is in the middle
         "%=",
         write_count,
