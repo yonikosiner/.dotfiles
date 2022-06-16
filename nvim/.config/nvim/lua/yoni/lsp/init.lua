@@ -73,7 +73,7 @@ cmp.setup({
 
 
     sources = {
-        { name = 'nvim_lsp' },
+        { name = "nvim_lsp" },
         { name = "cmp_tabnine", keyword_length = 5 },
         { name = "path" },
         { name = "nvim_lua" },
@@ -103,24 +103,39 @@ require('lspconfig')[%YOUR_LSP_SERVER%].setup {
 local function config(_config)
     return vim.tbl_deep_extend("force", {
         capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities()),
+        -- Can use client here
         on_attach = function()
             -- Sweet lsp keybinds
             normal("gd", ":lua vim.lsp.buf.definition()<CR>")
             normal("K", ":lua vim.lsp.buf.hover()<CR>")
             normal("<leader>vws", ":lua vim.lsp.buf.workspace_symbol()<CR>")
             normal("<leader>vd", ":lua vim.diagnostic.open_float()<CR>")
-            normal("[d", ":lua vim.lsp.diagnostic.goto_next()<CR>")
-            normal("]d", ":lua vim.lsp.diagnostic.goto_prev()<CR>")
+            normal("[d", ":lua vim.diagnostic.goto_next()<CR>")
+            normal("]d", ":lua vim.diagnostic.goto_prev()<CR>")
             normal("<leader>vca", ":lua vim.lsp.buf.code_action()<CR>")
             normal("<leader>vrr", ":lua vim.lsp.buf.references()<CR>")
             normal("<leader>vrn", ":lua require('yoni.lsp.rename').rename()<CR>")
             insert("<C-h>", "<cmd>lua vim.lsp.buf.signature_help()<CR>")
+
+            local group = vim.api.nvim_create_augroup("LSP_FORMAT", { clear = true })
+
+            require "lsp_signature".on_attach({
+                hint_prefix = "»",
+            })
+
+            -- Format on save
+            vim.api.nvim_create_autocmd("BufWritePre", { callback = function()
+                vim.lsp.buf.format { async = true }
+            end, group = group })
         end
     }, _config or {})
 end
 
 require 'lspconfig'.tsserver.setup(config())
 require 'lspconfig'.bashls.setup(config())
+require 'lspconfig'.cssls.setup(config({
+    cmd = { "css-languageserver", "--stdio" }
+}))
 
 require("rust-tools").setup(config())
 
@@ -205,9 +220,9 @@ require("symbols-outline").setup(opts)
 -- TOOD: get collor stuff working
 -- local Group, groups, styles = require('colorbuddy').setup()
 
--- vim.cmd([[
--- highlight CmpItemAbbrMatchFuzzy guibg=#aaafff guifg=#aaafff
--- ]])
+vim.cmd([[
+highlight CmpItemAbbrMatchFuzzy guibg=#aaafff guifg=#aaafff
+]])
 
 -- Group.new("CmpItemAbbr", "#aaafff")
 -- Group.new("CmpItemAbbrDeprecated", groups.Error)
@@ -234,3 +249,5 @@ require("luasnip.loaders.from_vscode").lazy_load({
     include = nil, -- Load all languages
     exclude = {},
 })
+
+require "fidget".setup({})

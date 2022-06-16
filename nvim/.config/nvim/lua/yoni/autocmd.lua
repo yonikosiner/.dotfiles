@@ -13,8 +13,3 @@ vim.api.nvim_create_autocmd("BufWritePre", { callback = function()
     -- vim does not like it when you use |
     vim.cmd([[:%s/\s\+$//e]])
 end, group = group })
-
--- Format on save
-vim.api.nvim_create_autocmd("BufWritePre", { callback = function()
-    vim.lsp.buf.formatting()
-end, group = group })

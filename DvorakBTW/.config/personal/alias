@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+
 alias aoeu="setxkbmap -layout us"
 alias asdf="setxkbmap -layout real-prog-dvorak"
 alias lkj="setxkbmap us real-prog-dvorak"
@@ -27,6 +28,7 @@ alias V="sudo /usr/local/bin/nvim -"
 alias anime="~/Documents/Apps/ani-cli/ani-cli"
 
 alias tl="tmux ls"
+alias ta="tmux a"
 alias schoolTmux="cd ~/school && tmux new -s school"
 
 alias gogoButthole="brave-browser https://www.youtube.com/watch\?v\=--9kqhzQ-8Q"
@@ -61,7 +63,7 @@ alias rm='rm -i'
 alias vim="nvim"
 
 # alias sync_mail="mw -Y"
-#
+
 # alias math="expr"
 
 alias dvorakBTW="cowsay 'I Use Dvorak Btw' | lolcat"

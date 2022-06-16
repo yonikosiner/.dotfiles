@@ -20,6 +20,7 @@ export TODO_ME_DADDY=$HOME/personal/todo-me-daddy/
 export EDITOR="nvim"
 
 source $ZSH/oh-my-zsh.sh
+
 PERSONAL=$XDG_CONFIG_HOME/personal
 
 for i in `find -L $PERSONAL`; do
@@ -63,3 +64,6 @@ alias luamake=/home/yoni/lua-language-server/3rd/luamake/luamake
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+source /usr/share/fzf/key-bindings.zsh
+source /usr/share/fzf/completion.zsh

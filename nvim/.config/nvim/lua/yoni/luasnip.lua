@@ -1,4 +1,4 @@
---TODO: Clean this up and use it baby
+--TODO: Clean this up and use it
 
 if vim.g.snippets ~= "luasnip" then
   return

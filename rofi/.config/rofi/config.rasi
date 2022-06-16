@@ -2,7 +2,7 @@ configuration {
   display-drun: "Applications:";
   display-window: "Windows:";
   drun-display-format: "{name}";
-  font: "Ubuntu mono 20";
+  font: "Iosevka Italic 20";
   modi: "window,run,drun";
 }
 

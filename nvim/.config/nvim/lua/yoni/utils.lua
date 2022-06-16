@@ -40,7 +40,7 @@ function M.reload_module()
 end
 
 function M.toggleSpell()
-    -- If spelling is set to on, then set it to off (or the other way around)
+    -- Toggle spelling on or off
     if vim.o.spell == true then
         vim.o.spell = false
     else
@@ -59,9 +59,7 @@ function M.open_dir_nnn()
     }):start()
 end
 
---[[ function M.sourceConfig()
-end ]]
-
+-- TODO: Make this work
 -- Convert px to rem (dvide higlighted number by 16)
 function M.pxToRem()
     vim.cmd("noau normal! 'vy'")
@@ -80,5 +78,10 @@ end
     print(vim.inspect(v))
     return v
 end ]]
+
+function M.currentDate()
+    local date = os.date("%D")
+    vim.cmd("norm i" .. date)
+end
 
 return M

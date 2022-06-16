@@ -9,8 +9,8 @@
 #
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
 
-set $inner_gaps 0
-set $outer_gaps 0
+set $outer_gaps 10
+set $inner_gaps 10
 set $mod Mod1
 
 # Font for window titles. Will also be used by the bar unless a different font
@@ -22,7 +22,7 @@ for_window [class="^.*"] client.focused          #77dd77 #285577 #ffffff #2e9ef4
 
 gaps inner $inner_gaps
 gaps outer $outer_gaps
-#smart_gaps on
+smart_gaps on
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
@@ -189,7 +189,7 @@ bindsym Mod4+m                  exec --no-startup-id ~/.local/bin/volumeControl 
 
 # Open apps
 bindsym $mod+shift+f			exec alacritty -e "nnn"
-bindsym Mod4+shift+f			exec /usr/bin/dolphin
+bindsym Mod4+shift+f			exec /usr/bin/pcmanfm
 bindsym $mod+shift+w			exec --no-startup-id /usr/bin/brave
 bindsym $mod+Shift+g		    exec --no-startup-id /usr/bin/gimp; workspace $ws6
 bindsym Mod4+k		            exec --no-startup-id ps ax | awk '{print $5}' | rofi -dmenu -p "Kill a process" - | xargs -r pkill $5
@@ -207,15 +207,14 @@ bindsym Mod4+Shift+s		gaps inner current minus 5
 bindsym Mod4+Shift+d		gaps inner current set 0; gaps outer current set 0
 bindsym Mod4+z			    gaps outer current plus 5
 bindsym Mod4+Shift+z		gaps outer current minus 5
-bindsym Mod4+Shift+t		gaps outer current set 2; gaps inner current set 5
+bindsym Mod4+Shift+t		gaps outer current set 10; gaps inner current set 10
 
 bindsym Mod4+f		        exec --no-startup-id ~/.local/bin/openInFirefox
 bindsym Mod4+shift+g        exec --no-startup-id ~/.local/bin/picomToggle
 
 bindsym $mod+shift+e exec --no-startup-id ~/.local/bin/editConfig
 
-bindsym $mod+m          move workspace to output left
-bindsym $mod+shift+m    move workspace to output right
+bindsym $mod+m          move workspace to output up
 
 bindsym Mod4+d exec --no-startup-id setxkbmap -layout real-prog-dvorak
 bindsym Mod4+q exec --no-startup-id setxkbmap -layout us
@@ -229,10 +228,15 @@ bindsym $mod+minus      exec --no-startup-id ~/.local/bin/GNU+Linux
 bindsym $mod+p          exec --no-startup-id echo "£" | xclip -selection clipboard -i
 bindsym $mod+shift+p    exec --no-startup-id ~/.local/bin/passmenu
 
+# AFK in minecraft
 bindsym Mod4+shift+p    exec --no-startup-id xdotool click --delay 1000 --repeat 900000 1
+# bindsym Mod4+shift+p    exec --no-startup-id xdotool click --delay 700 --repeat 900000 1
 bindsym Mod4+p    exec --no-startup-id pkill xdotool
+
+bindsym $mod+Mod4+p   exec --no-startup-id ~/.local/bin/pTable
+bindsym Mod4+a    exec --no-startup-id ~/.local/bin/turnOn
 
 exec --no-startup-id pulseaduio
 exec --no-startup-id dunst
 exec --no-startup-id picom
-exec --no-startup-id ~/.local/bin/screen-stuff
+Exec --no-startup-id ~/.local/bin/screen-stuff

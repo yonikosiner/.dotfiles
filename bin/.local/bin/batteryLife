@@ -1,20 +1,8 @@
 #!/usr/bin/env bash
 
-isCharging=$(acpi | awk '{print $3}' | sed 's/,//')
-battLevel=$(acpi | awk '{print $4}' | sed 's/,//' | xargs | awk '{print $1}')
+capacity=$(cat /sys/class/power_supply/BAT0/capacity) || exit
+status=$(cat /sys/class/power_supply/BAT0/status)
 
-if [[ $isCharging == "Discharging" ]];
-then
-    battLevelInt=$(echo $battLevel | sed 's/%//')
-    battLevelInt=${battLevelInt%?}
+"${capacity}" -lt 25 ] && warn="❗" || warn=" "
 
-    if [[ battLevelInt < 100 ]];
-    then
-        echo "⚠️ " $battLevel
-    else
-        echo "🔋"$battLevel
-    fi
-else
-    echo "🔌"$battLevel
-fi
-
+printf "%s%s%s" "$(echo "$status" | sed -e "s/,//;s/Discharging/🔋/;s/Not Charging/🛑/;s/Charging/🔌/;s/Unknown/♻️/;s/Full/⚡/;s/ 0*//g;s/://g")""$warn""$(echo "$capacity" | sed -e 's/$/%/')"

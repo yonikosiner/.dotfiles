@@ -4,7 +4,6 @@ local M = {}
 
 local write_count = 0
 local git_branch = "git"
-local msg = ""
 
 M.get_file_name = function()
     local name = vim.api.nvim_buf_get_name(0)
@@ -14,7 +13,7 @@ M.get_file_name = function()
     end
 
     local file_name, file_ext = vim.fn.expand("%:t"), vim.fn.expand("%:e")
-    local icon = require 'nvim-web-devicons'.get_icon(file_name, file_ext, { default = true })
+    local icon = require("nvim-web-devicons").get_icon(file_name, file_ext, { default = true })
 
     local fileName = vim.fn.pathshorten(vim.fn.fnamemodify(name, ":."))
     fileName = icon .. " " .. fileName
@@ -23,14 +22,11 @@ M.get_file_name = function()
 end
 
 local function getGitIcon()
-    local ok, icon = pcall(function()
-        return require("nvim-web-devicons").get_icon ".gitattributes"
-    end)
-    return ok and icon or ""
+    return require("nvim-web-devicons").get_icon ".gitattributes"
 end
 
 M.get_git_branch = function()
-    git_branch = vim.fn["fugitive#head"]()
+    git_branch = vim.fn["FugitiveHead"]()
 
     if not git_branch or git_branch == "" then
         git_branch = " [No Git]"
@@ -63,6 +59,7 @@ M.get_mode = function()
         ["c"] = "Command",
         ["cv"] = "Command",
         ["V"] = "Visual",
+        [""] = "Visual",
     }
 
     if mode_table[mode] then
@@ -96,7 +93,7 @@ M.on_write = function()
     end
 end
 
-local statusline = "%%#Modes#" .. " %s%%)" .. "%%#Ignore#" .. "%s%% %s%% %s%%)  %%-5.100(%s%%) %s%% %%-1.50(%s%%) %%-5.20(%s%%)%%-6.6  %s%%)"
+local statusline = "%%#Modes#" .. " %s%%)" .. "%%#Ignore#" .. "%s%% %s%%)  %%-5.100(%s%%) %s%% %%-1.50(%s%%) %%-5.20(%s%%)%%-6.6)"
 
 -- if msg or not msg == "" then
 --     statusline = statusline .. "| %s%%)"
@@ -109,12 +106,10 @@ M.StatusLine = function()
         -- The %= puts a break in
         "%=",
         M.get_file_name(),
-        "%m",
         -- Having the double %= makes sure that the file name is in the middle
         "%=",
         write_count,
-        M.get_line_info(),
-        msg)
+        M.get_line_info())
 end
 
 vim.o.statusline = '%!v:lua.require("yoni.statusline").StatusLine()'
@@ -124,10 +119,6 @@ local group = vim.api.nvim_create_augroup("YONI_STATUSLINE", { clear = true })
 vim.api.nvim_create_autocmd("BufWritePre", { callback = function()
     vim.cmd("silent! lua require('yoni.statusline').on_write()")
 end, group = group })
-
-M.set_status = function(line)
-    msg = line
-end
 
 --TODO: play around with getting colors on the status bar
 

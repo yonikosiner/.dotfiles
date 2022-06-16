@@ -1,5 +1,6 @@
 local M = {}
 
+
 function M.bind(mode, keys, func)
     vim.api.nvim_set_keymap(mode, keys, func, { noremap = true, silent = true })
 end
@@ -35,12 +36,13 @@ M.normal("<leader>lo", ":lopen<CR>")
 
 M.visual("J", "<cmd>m '>+1<CR>gv=gv")
 M.visual("K", "<cmd>m '<-2<CR>gv=gv")
-M.normal("Y", "y$")
 
 M.normal("*", "*zzzv")
 M.normal("#", "#zzzv")
 M.normal(",", ",zzzv")
 M.normal(";", ";zzzv")
+M.normal("n", "nzzzv")
+M.normal("N", "Nzzzv")
 
 M.normal("<leader>o", "o<Esc>^Da")
 M.normal("<leader>O", "O<Esc>^Da")
@@ -73,7 +75,7 @@ M.normal("<leader>gs", ":G<CR>")
 -- Spelling
 M.normal("<leader>sp", ":lua require('yoni.utils').toggleSpell()<CR>")
 
--- JSON ME DADDY
+-- JSON stuff
 M.normal("<left>", ":lua require('jvim').to_parent()<CR>")
 M.normal("<right>", ":lua require('jvim').descend()<CR>")
 M.normal("<up>", ":lua require('jvim').prev_sibling()<CR>")
@@ -84,10 +86,12 @@ M.normal("<leader>ch", "<cmd>!chmod +x %<CR>")
 M.normal("<leader>u", "<cmd>UndotreeToggle<CR>")
 
 M.normal("<leader>y", '"+y')
+M.normal("<leader>Y", '"+y$')
 M.normal("<leader>d", '"_d')
 M.normal("<leader>x", '"_x')
 M.visual("<leader>p", '"_dP')
 M.visual("<leader>y", '"+y')
+M.visual("<leader>Y", '"+Y')
 
 M.normal("<silent>Q", "<Nop>")
 
@@ -97,9 +101,20 @@ M.normal("<leader>ee", "oif err != nil {<CR>}<CR><esc>kkI<esc>")
 
 -- Open my current dir in nnn (termianl file manger) with a quick hotkey, this is very handy
 M.normal("<leader><C-o>", ":lua require('yoni.utils').open_dir_nnn()<CR>")
-M.normal("<leader><C-p>", ":lua require('yoni.utils').pxToRem<CR>")
+M.normal("<leader><C-p>", ":lua require('yoni.utils').pxToRem()<CR>")
+M.normal("<leader><C-d>", ":lua require('yoni.utils').currentDate()<CR>")
 
 -- Add tags in go
 M.normal("<leader>t", ":GoAddTag<CR>")
+
+-- React sucks with comments
+M.normal("<leader>gcc", ":norm ^i{/*<esc>A*/}<esc><CR>")
+M.normal("<leader>guc", ":norm ^df*f*D<CR>")
+
+-- M.visual("J", ":m '>+1<CR>gv=gv")
+-- M.visual("k", ":m '<-2<CR>gv=gv")
+
+-- Yes, I'm british btw
+M.visual("<leader>bow", ":,'<,'>s/bottle of water/bo'o'woh'ooah'a'<CR>")
 
 return M

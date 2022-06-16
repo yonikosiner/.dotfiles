@@ -2,7 +2,7 @@
 set shellopts '-eu'
 set ifs "\n"
 set scrolloff 10
-set icons
+# set icons
 set period 1
 set hiddenfiles ".*:*.aux:*.log:*.bbl:*.bcf:*.blg:*.run.xml"
 set cleaner '~/.config/lf/cleaner'

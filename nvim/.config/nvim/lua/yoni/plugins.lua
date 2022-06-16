@@ -1,62 +1,70 @@
-vim.cmd([[
-call plug#begin('~/.vim/pluged')
-Plug 'norcalli/nvim-colorizer.lua'
-Plug 'tjdevries/gruvbuddy.nvim'
-Plug 'tomasiser/vim-code-dark'
-Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
-Plug 'ray-x/go.nvim'
-Plug 'simrat39/symbols-outline.nvim'
-Plug 'ThePrimeagen/jvim.nvim'
-Plug 'ellisonleao/glow.nvim'
-Plug 'tzachar/cmp-tabnine', { 'do': './install.sh' }
-Plug 'sbdchd/neoformat'
-Plug 'tjdevries/colorbuddy.nvim'
-Plug 'onsails/lspkind-nvim'
-" Plug 'github/copilot.vim'
-Plug 'projekt0n/github-nvim-theme'
-Plug 'romgrk/nvim-treesitter-context'
-Plug 'kyazdani42/nvim-web-devicons' " Recommended (for coloured icons)
-Plug 'akinsho/bufferline.nvim'
-Plug 'nvim-lua/lsp_extensions.nvim'
-Plug 'rust-lang/rust.vim'
-Plug 'neovim/nvim-lspconfig'
-Plug 'simrat39/rust-tools.nvim'
-Plug 'nvim-lua/plenary.nvim'
-Plug 'ThePrimeagen/refactoring.nvim'
-Plug 'mfussenegger/nvim-Dap'
-Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
-Plug 'mfussenegger/nvim-jdtls'
-Plug 'L3MON4D3/LuaSnip'
-Plug 'rafamadriz/friendly-snippets'
-Plug 'nvim-lua/plenary.nvim'
-"Plug 'nvim-telescope/telescope-arecibo.nvim', { rocks = {'openssl', 'lua-http-parser'} }
-" Plug 'preservim/nerdtree'
-" Plug 'Xuyuanp/nerdtree-git-plugin'
-" Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
-Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-Plug 'nvim-treesitter/playground'
-Plug 'tpope/vim-fugitive'
-Plug 'ThePrimeagen/git-worktree.nvim'
-Plug 'neovim/nvim-lspconfig'
-Plug 'hrsh7th/cmp-nvim-lsp'
-Plug 'hrsh7th/cmp-buffer'
-Plug 'hrsh7th/nvim-cmp'
-Plug 'hrsh7th/cmp-path'
-Plug 'hrsh7th/cmp-nvim-lua'
-Plug 'simrat39/symbols-outline.nvim'
-Plug 'numToStr/Comment.nvim'
-Plug 'gruvbox-community/gruvbox'
-Plug 'ayu-theme/ayu-vim'
-Plug 'dunstontc/vim-vscode-theme'
-Plug 'w0ng/vim-hybrid'
-Plug 'chriskempson/base16-vim'
-Plug 'nvim-lua/popup.nvim'
-Plug 'nvim-lua/plenary.nvim'
-Plug 'nvim-telescope/telescope.nvim'
-Plug 'nvim-telescope/telescope-fzy-native.nvim'
-Plug 'mhinz/vim-rfc'
-Plug 'mbbill/undotree'
-Plug 'ThePrimeagen/harpoon'
-Plug 'rafamadriz/friendly-snippets'
-call plug#end()
-]])
+return require('packer').startup(function(use)
+    -- Packer can manage itself
+    --
+    use 'wbthomason/packer.nvim'
+
+    use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
+
+    -- Lsp
+    use 'ray-x/lsp_signature.nvim'
+    use 'j-hui/fidget.nvim'
+
+    use 'norcalli/nvim-colorizer.lua'
+    use 'tjdevries/gruvbuddy.nvim'
+    use 'tomasiser/vim-code-dark'
+    use 'ray-x/go.nvim'
+    use 'ThePrimeagen/jvim.nvim'
+    use 'ellisonleao/glow.nvim'
+    use 'sbdchd/neoformat'
+    use 'tjdevries/colorbuddy.nvim'
+    use 'onsails/lspkind-nvim'
+    use 'projekt0n/github-nvim-theme'
+    -- use 'romgrk/nvim-treesitter-context'
+    use 'kyazdani42/nvim-web-devicons'
+    use 'akinsho/bufferline.nvim'
+    use 'nvim-lua/lsp_extensions.nvim'
+    use 'rust-lang/rust.vim'
+    use 'simrat39/rust-tools.nvim'
+    use 'ThePrimeagen/refactoring.nvim'
+    use 'mfussenegger/nvim-Dap'
+    use 'mfussenegger/nvim-jdtls'
+    use 'L3MON4D3/LuaSnip'
+    use 'nvim-lua/plenary.nvim'
+    use 'nvim-treesitter/playground'
+    use 'tpope/vim-fugitive'
+    use 'ThePrimeagen/git-worktree.nvim'
+    use 'neovim/nvim-lspconfig'
+    use 'hrsh7th/cmp-nvim-lsp'
+    use 'hrsh7th/cmp-buffer'
+    use 'hrsh7th/nvim-cmp'
+    use 'hrsh7th/cmp-path'
+    use 'hrsh7th/cmp-nvim-lua'
+    use 'simrat39/symbols-outline.nvim'
+    use 'numToStr/Comment.nvim'
+    use 'gruvbox-community/gruvbox'
+    use 'ayu-theme/ayu-vim'
+    use 'dunstontc/vim-vscode-theme'
+    use 'w0ng/vim-hybrid'
+    use 'chriskempson/base16-vim'
+    use 'nvim-lua/popup.nvim'
+    use 'nvim-telescope/telescope.nvim'
+    use 'nvim-telescope/telescope-fzy-native.nvim'
+    use 'mhinz/vim-rfc'
+    use 'mbbill/undotree'
+    use 'ThePrimeagen/harpoon'
+    use 'rafamadriz/friendly-snippets'
+
+    use {
+        'folke/tokyonight.nvim', branch = 'main'
+    }
+
+    use {
+        'nvim-treesitter/nvim-treesitter',
+        run = ":TSUpdate"
+    }
+
+    use {
+        'tzachar/cmp-tabnine',
+        run = './install.sh'
+    }
+end)

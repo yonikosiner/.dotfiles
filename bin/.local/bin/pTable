@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+cd ~/personal/perdoic-table-tui/
+alacritty -e "main"

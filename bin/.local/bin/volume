@@ -1,17 +1,16 @@
 #!/usr/bin/env bash
 
-MUTEVOL=$(pactl get-sink-mute @DEFAULT_SINK@ | xargs | sed 's/Mute://g' | awk '{print $1}')
-VOL=$(pactl list sinks | awk '/Volume/ {print $5}' | xargs | awk '{print $1}')
 
-if [[ $MUTEVOL == "yes" ]];
-then
-    echo "🔇 " $VOL
+[ "$(pulsemixer --get-mute)" = "1" ] && printf "🔇\\n" && exit
+
+vol=$(pulsemixer --get-volume | awk '{print $1}')
+
+if [ "$vol" -gt "70" ]; then
+  icon="🔊"
+elif [ "$vol" -lt "30" ]; then
+  icon="🔈"
 else
-    if [[ $VOL > 45 ]];
-    then
-        echo "🔊 " $VOL
-    else
-        echo "🔉 " $VOL
-    fi
+  icon="🔉"
 fi
 
+printf "%s %s%%\\n" "$icon" "$vol"

@@ -16,6 +16,8 @@ require('telescope').setup {
         prompt_prefix = ' > ',
         color_devicons = true,
 
+        -- borderchars = { "─", "│", "─", "│", "╭", "╮", "╯", "╰" },
+
         --file_ignoe_patterns = {"dist"}
         --file_ignoe_patterns = {"package-lock.json"}
         file_previewer   = require('telescope.previewers').vim_buffer_cat.new,
@@ -26,6 +28,7 @@ require('telescope').setup {
             i = {
                 ["<C-x>"] = false,
                 ["<C-q>"] = actions.send_to_qflist,
+                ["<C-s>"] = actions.select_horizontal,
             },
         }
     }),
@@ -34,9 +37,23 @@ require('telescope').setup {
             override_generic_sorter = false,
             override_file_sorter = true,
         },
+        fzf = {
+            fuzzy = true, -- false will only do exact matching
+            override_generic_sorter = true, -- override the generic sorter
+            override_file_sorter = true, -- override the file sorter
+            case_mode = "smart_case", -- or "ignore_case" or "respect_case"
+            -- the default case_mode is "smart_case"
+        }
     },
 
     pickers = {
+        git_branches = {
+            mappings = {
+                i = {
+                    ["<C-a>"] = false
+                }
+            }
+        },
         buffers = {
             sort_mru = true,
             theme = "ivy",
@@ -51,9 +68,10 @@ require('telescope').setup {
 }
 
 require("telescope").load_extension("git_worktree")
-require('telescope').load_extension('fzy_native')
-require("telescope").load_extension('harpoon')
-require("telescope").load_extension('todo_me_daddy')
+require("telescope").load_extension("fzy_native")
+require("telescope").load_extension("fzf")
+require("telescope").load_extension("harpoon")
+require("telescope").load_extension("todo_me_daddy")
 
 local M = {}
 M.search_dotfiles = function()
@@ -207,7 +225,7 @@ normal("<leader>ps", ":lua require('telescope.builtin').grep_string({ search = v
 normal("<leader>pb", ":lua require('telescope.builtin').buffers()<CR>")
 
 normal("<leader>lps", ":lua require('telescope.builtin').lsp_references()<CR>")
-normal("<leader>ld", ":Telescope diagnostics bufnr=0<cr>")
+normal("<leader>ld", ":Telescope diagnostics<cr>")
 
 normal("<leader>vrc", ":lua require('yoni.telescope').search_dotfiles()<CR>")
 normal("<leader>src", ":lua require('yoni.telescope').search_school()<CR>")

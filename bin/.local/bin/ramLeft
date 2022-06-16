@@ -1,3 +1,5 @@
 #!/usr/bin/env bash
 
-free -g | grep "Mem" | awk '{print $7}'
+# free -h | awk '/^Mem:/ {print $3 "/" $2}'
+ramLeft=$(free -g | grep "Mem" | awk '{print $7}')
+echo $ramLeft"gb"

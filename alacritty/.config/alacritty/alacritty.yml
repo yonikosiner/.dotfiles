@@ -11,13 +11,14 @@ window.dynamic_title: true
 # Font Customization
 font:
   normal:
-    family: VictorMono Nerd Font
+    # family: UbuntuMono Nerd Font
+    family: Iosevka
     style: Medium
   bold:
-    family: VictorMono Nerd Font
+    family: Iosevka
     style: Bold
   italic:
-    family: VictorMono Nerd Font
+    family: Iosevka
     style: Bold Italic
   size: 19
 
@@ -25,6 +26,7 @@ colors:
   # Default colors
   primary:
     # hard contrast: background = '0x1d2021'
+    # background: '0x282c34'
     background: '0x1d2021'
     # soft contrast: background = '0x32302f'
     foreground: '0xebdbb2'
