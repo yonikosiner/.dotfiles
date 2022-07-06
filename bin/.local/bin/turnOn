@@ -10,22 +10,22 @@ dconf write /org/mate/desktop/background/picture-filename "$currentBackground"
 
 
 i3 workspace 1
-i3 move workspace to output up
+i3 move workspace to output left
 i3 workspace 2
-i3 move workspace to output up
+i3 move workspace to output left
 i3 workspace 3
-i3 move workspace to output up
+i3 move workspace to output left
 i3 workspace 4
-i3 move workspace to output up
+i3 move workspace to output left
 i3 workspace 5
-i3 move workspace to output up
+i3 move workspace to output left
 i3 workspace 6
-i3 move workspace to output up
+i3 move workspace to output left
 i3 workspace 7
-i3 move workspace to output up
+i3 move workspace to output left
 i3 workspace 8
-i3 move workspace to output up
+i3 move workspace to output left
 i3 workspace 9
-i3 move workspace to output up
+i3 move workspace to output left
 i3 workspace 10
-i3 move workspace to output up
+i3 move workspace to output left

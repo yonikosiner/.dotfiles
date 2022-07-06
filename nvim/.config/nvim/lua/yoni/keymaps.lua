@@ -117,4 +117,7 @@ M.normal("<leader>guc", ":norm ^df*f*D<CR>")
 -- Yes, I'm british btw
 M.visual("<leader>bow", ":,'<,'>s/bottle of water/bo'o'woh'ooah'a'<CR>")
 
+
+M.normal("<leader>o", "o<esc>ko")
+
 return M

@@ -33,7 +33,6 @@ require("yoni.winbar")
 require('go').setup()
 
 require('duckytype').setup {
-    expected = "go_keywords",
-    number_of_words = 10,
+    number_of_words = 69,
     average_word_length = 5.69,
 }
