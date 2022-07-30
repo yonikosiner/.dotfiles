@@ -1,13 +1,15 @@
 return require('packer').startup(function(use)
     -- Packer can manage itself
-    --
     use 'wbthomason/packer.nvim'
 
-    use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
+    use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
 
     -- Lsp
     use 'ray-x/lsp_signature.nvim'
     use 'j-hui/fidget.nvim'
+
+    -- Org mode shit
+    use 'jceb/vim-orgmode'
 
     use 'norcalli/nvim-colorizer.lua'
     use 'tjdevries/gruvbuddy.nvim'

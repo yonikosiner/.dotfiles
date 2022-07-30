@@ -309,6 +309,11 @@ _G.packer_plugins = {
     path = "/home/yoni/.local/share/nvim/site/pack/packer/start/vim-hybrid",
     url = "https://github.com/w0ng/vim-hybrid"
   },
+  ["vim-orgmode"] = {
+    loaded = true,
+    path = "/home/yoni/.local/share/nvim/site/pack/packer/start/vim-orgmode",
+    url = "https://github.com/jceb/vim-orgmode"
+  },
   ["vim-rfc"] = {
     loaded = true,
     path = "/home/yoni/.local/share/nvim/site/pack/packer/start/vim-rfc",

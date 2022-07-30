@@ -9,8 +9,8 @@
 #
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
 
-set $outer_gaps 10
-set $inner_gaps 10
+set $outer_gaps 0
+set $inner_gaps 0
 set $mod Mod1
 
 # Font for window titles. Will also be used by the bar unless a different font
@@ -238,5 +238,5 @@ bindsym Mod4+a    exec --no-startup-id ~/.local/bin/turnOn
 
 exec --no-startup-id pulseaduio
 exec --no-startup-id dunst
-exec --no-startup-id picom
-Exec --no-startup-id ~/.local/bin/screen-stuff
+# exec --no-startup-id picom
+exec --no-startup-id ~/.local/bin/screen-stuff

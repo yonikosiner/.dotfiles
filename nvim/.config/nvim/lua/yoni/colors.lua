@@ -6,7 +6,7 @@ require("colorbuddy").setup()
 -- Remove window border color thing - does not work 100% on gruvbox btw
 Group.new("WinSeparator", nil, nil)
 
-vim.g.yoni_colorscheme = 'tokyonight'
+vim.g.yoni_colorscheme = 'gruvbuddy'
 
 -- Make that gruvbox look good
 vim.g.tokyonight_transparent = 1
@@ -27,7 +27,7 @@ let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 
 highlight ColorColumn ctermbg=0 guibg=#555555
 highlight SignColumn guibg=none
-highlight Normal guibg=none
+" highlight Normal guibg=none
 " highlight LineNr guifg=#aaaaff guibg=None
 highlight netrwDir guifg=#aaaaff
 highlight qfFileName guifg=#aed75f

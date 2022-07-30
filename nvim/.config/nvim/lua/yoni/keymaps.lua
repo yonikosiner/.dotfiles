@@ -1,6 +1,5 @@
 local M = {}
 
-
 function M.bind(mode, keys, func)
     vim.api.nvim_set_keymap(mode, keys, func, { noremap = true, silent = true })
 end

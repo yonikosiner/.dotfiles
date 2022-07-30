@@ -20,14 +20,15 @@ font:
   italic:
     family: Fira Code
     style: Bold Italic
-  size: 19
+  size: 22
 
 colors:
   # Default colors
   primary:
     # hard contrast: background = '0x1d2021'
     # background: '0x282c34'
-    background: '0x1d2021'
+    # background: '0x1d2021'
+    background: '0x111111'
     # soft contrast: background = '0x32302f'
     foreground: '0xebdbb2'
 
